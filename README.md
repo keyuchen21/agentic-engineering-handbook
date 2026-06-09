@@ -1,6 +1,6 @@
 # Agentic Engineering Handbook
 
-> The definitive OpenAI, Claude, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
+> The definitive OpenAI, Anthropic, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![Stars](https://img.shields.io/github/stars/keyuchen21/agentic-engineering-handbook?style=social)](https://github.com/keyuchen21/agentic-engineering-handbook)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
