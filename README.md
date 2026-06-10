@@ -297,6 +297,7 @@ Build a smoke/macro eval suite for your agent: task success rate, tool misuse, p
 | P2 | [Codex is becoming a productivity tool for everyone](https://openai.com/index/codex-for-knowledge-work/) | OpenAI | Agents; Knowledge work | Usage data shows how non-developers use Codex for reports, spreadsheets, research, automation, and lightweight tools. | 2026-06-02 |
 | P2 | [OpenAI Docs MCP](https://developers.openai.com/learn/docs-mcp) | OpenAI | MCP; Docs; Context | Official OpenAI docs MCP server; connect docs directly to local agents/IDEs. | Current docs |
 | P2 | [Codex SDK](https://developers.openai.com/codex/sdk) | OpenAI | Codex SDK; Automation | Programmatically control Codex in CI/CD or internal tools; embed coding agents into existing workflows. | Current docs |
+| P2 | [When AI builds itself](https://www.anthropic.com/institute/recursive-self-improvement) | Anthropic | Agents; Recursive self-improvement; Safety | How AI systems accelerate their own development through recursive self-improvement; three possible futures and the need for verifiable coordination. | 2026-05 |
 
 ---
 
