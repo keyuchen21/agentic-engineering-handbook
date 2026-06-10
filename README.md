@@ -6,6 +6,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--06--09-blue.svg)](#)
 
+If this repository helps you, consider giving it a ⭐
+
 ---
 
 ## Why This Repository?
