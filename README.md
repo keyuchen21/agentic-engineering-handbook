@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **120 official resources** into one structured learning roadmap.
+This repository consolidates **121 official resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -283,6 +283,7 @@ Build a smoke/macro eval suite for your agent: task success rate, tool misuse, p
 | P1 | [Agents SDK integrations and observability](https://developers.openai.com/api/docs/guides/agents/integrations-observability) | OpenAI | Observability; MCP; Tracing | Tracing, MCP integration, provider/observability; essential for production agent debugging. | Current docs |
 | P1 | [Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels) | OpenAI | MCP; Security; Private tools | Securely expose private/intranet MCP servers to supported OpenAI surfaces; ideal for enterprise deployment. | Current docs |
 | P1 | [How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works) | Anthropic | Claude Code; Agentic loop; Harness | Under-the-hood architecture of Claude Code: the agentic loop (gather context → act → verify), built-in tool categories, context window management, and extension points. | Current docs |
+| P1 | [learn-claude-code](https://github.com/shareAI-lab/learn-claude-code) | Community | Harness; Agent loop; Tools; Context | Hands-on 20-lesson tutorial building a Claude Code–like agent harness from scratch: agent loop, tool integration, context compaction, multi-agent coordination, permissions, MCP plugins. | 2026 |
 | P0 | [Dive into Claude Code: The Design Space of Today's and Future AI Agent Systems](https://arxiv.org/abs/2604.14228) | Academic | Agent architecture; Claude Code; Design space | Deep technical analysis of Claude Code's architecture: agentic loop, permission system, context compaction, extensibility (MCP/plugins/skills/hooks), subagent delegation, and comparison with open-source alternatives. | 2026-04-14 |
 | P0 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI | Tools; Function calling; API | Official guide to function/tool calling: define functions with JSON schemas, handle model tool calls, execute and return results. | Current docs |
 | P0 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic | Tools; Tool use; API | Connect Claude to external tools and APIs: client vs server tools, the agentic loop, strict schema conformance, and when Claude decides to call tools. | Current docs |
