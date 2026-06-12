@@ -52,18 +52,37 @@ This tutorial explains the mechanism through runnable Python files. Each step in
 
 > Build shared vocabulary for workflow vs agent, tool loop, handoff, guardrails.
 
+#### Key Mental Models
+
+**Should I build an agent?** (4-question checklist from Barry Zhang's talk)
+
+| Question | If No → Workflow | If Yes → Agent |
+|----------|-----------------|----------------|
+| Is the task complex enough? | Decision tree is fully mappable | Ambiguous problem space |
+| Is the task valuable enough? | <$0.10 per run | >$1 per run, cost doesn't matter |
+| Are all core capabilities doable? | Weak links break the chain | Model handles every step well |
+| Is error cost low & detectable? | High cost + hard to detect → human-in-the-loop | Errors caught by tests/CI |
+
+**Think like the agent.** Most failures come from designing with a human perspective. Put yourself inside the agent's context window: you only see ~10K–20K tokens (system prompt + tool descriptions + recent observations). Ask: does the agent have enough information to act correctly at each step?
+
+→ Source: [How We Build Effective Agents](https://www.youtube.com/watch?v=D7_ipDqhtwk)
+
 #### Read First
 
 | # | Title | Vendor |
 |---|-------|--------|
-| 1 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic |
-| 2 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI |
-| 3 | [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents) | OpenAI |
+| 1 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI |
+| 2 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic |
+| 3 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google |
+| 4 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic |
+| 5 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI |
+| 6 | [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents) | OpenAI |
 
 #### Then Read
 
 | Title | Vendor |
 |-------|--------|
+| [How We Build Effective Agents: Barry Zhang, Anthropic](https://www.youtube.com/watch?v=D7_ipDqhtwk) | Anthropic |
 | [Orchestrating Agents: Routines and Handoffs](https://developers.openai.com/cookbook/examples/orchestrating_agents) | OpenAI |
 | [Structured Outputs for Multi-Agent Systems](https://developers.openai.com/cookbook/examples/structured_outputs_multi_agent) | OpenAI |
 
