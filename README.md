@@ -21,6 +21,33 @@ This repository consolidates **121 official resources** into one structured lear
 
 ## Learning Roadmap
 
+### Phase 0 — Agent Loop From Scratch
+
+If you treat Claude Code as a coding CLI, many capabilities can feel like magic: it reads files, runs commands, edits code, delegates work, and stays oriented during complex tasks.
+
+From an engineering perspective, the core is much simpler:
+
+**model + tools + one loop.**
+
+Understanding that loop makes the rest of the system easier to reason about:
+
+- When the agent should plan first, and when it should act immediately
+- Why an explicit todo list reduces drift in longer tasks
+- Why subagents improve exploration while protecting the main context
+- How skills, MCP, and hooks each add capability around the same core loop
+
+This tutorial explains the mechanism through runnable Python files. Each step introduces one new idea, so you can build the intuition and verify it yourself.
+
+| Step | File |
+|------|------|
+| v0 | [Bash Agent](tutorials/agent-loop/v0_bash_agent.py) |
+| v1 | [Model as Agent](tutorials/agent-loop/v1_model_as_agent.py) |
+| v2 | [Explicit Planning Todo](tutorials/agent-loop/v2_explicit_planning_todo.py) |
+| v3 | [Subagents](tutorials/agent-loop/v3_subagents.py) |
+| v4 | [Skills](tutorials/agent-loop/v4_skills.py) |
+
+---
+
 ### Phase 1 — Agent Foundations
 
 > Build shared vocabulary for workflow vs agent, tool loop, handoff, guardrails.
