@@ -1,6 +1,6 @@
 # Agentic Engineering Handbook
 
-> The definitive OpenAI, Anthropic, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
+> The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--06--09-blue.svg)](#)
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **114 official resources** into one structured learning roadmap.
+This repository consolidates **119 official resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -283,6 +283,9 @@ Build a smoke/macro eval suite for your agent: task success rate, tool misuse, p
 | P1 | [Agents SDK integrations and observability](https://developers.openai.com/api/docs/guides/agents/integrations-observability) | OpenAI | Observability; MCP; Tracing | Tracing, MCP integration, provider/observability; essential for production agent debugging. | Current docs |
 | P1 | [Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels) | OpenAI | MCP; Security; Private tools | Securely expose private/intranet MCP servers to supported OpenAI surfaces; ideal for enterprise deployment. | Current docs |
 | P1 | [How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works) | Anthropic | Claude Code; Agentic loop; Harness | Under-the-hood architecture of Claude Code: the agentic loop (gather context → act → verify), built-in tool categories, context window management, and extension points. | Current docs |
+| P1 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI | Tools; Function calling; API | Official guide to function/tool calling: define functions with JSON schemas, handle model tool calls, execute and return results. | Current docs |
+| P1 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic | Tools; Tool use; API | Connect Claude to external tools and APIs: client vs server tools, the agentic loop, strict schema conformance, and when Claude decides to call tools. | Current docs |
+| P1 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google | Tools; Function calling; API | Enable Gemini models to connect with external tools via function calling: single-turn, multi-turn, parallel, and sequential function chains. | Current docs |
 | P2 | [Introducing Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) | Anthropic | Context; Retrieval; RAG | Not agent-specific, but important for agent RAG/context: prepend context to chunks before retrieval to improve recall. | 2024-09-19 |
 | P2 | [Developing a computer use model](https://www.anthropic.com/news/developing-computer-use) | Anthropic | Computer use; Agents | More technical explanation of how the computer-use model moves the mouse, clicks, types, and reads screen feedback. | 2024-10-22 |
 | P2 | [Introducing Claude 4](https://www.anthropic.com/news/claude-4) | Anthropic | Agents; Coding; Long-running | Overview of Claude Opus/Sonnet 4 capabilities: coding, advanced reasoning, agent workflows. | 2025-05-22 |
