@@ -390,4 +390,228 @@ The essence of knowledge externalization is **turning implicit knowledge into ex
 
 ---
 
+## Study Notes
+
+### Read the Source in This Order
+
+Open [`v4_skills_agent.py`](./v4_skills_agent.py) and read these pieces first:
+
+1. `SKILLS_DIR`
+2. `SkillLoader`
+3. `SKILLS = SkillLoader(SKILLS_DIR)`
+4. `SYSTEM`
+5. `SKILL_TOOL`
+6. `run_skill`
+7. `execute_tool`
+8. `agent_loop`
+
+v4 is v3 plus one new idea:
+
+```text
+tools let the model act
+skills teach the model how to act in a domain
+```
+
+### The Skill Directory Is the Knowledge Base
+
+The code points at:
+
+```python
+SKILLS_DIR = WORKDIR / "skills"
+```
+
+Each skill is a folder with a required `SKILL.md`:
+
+```text
+skills/
+  pdf/
+    SKILL.md
+  mcp-builder/
+    SKILL.md
+  code-review/
+    SKILL.md
+```
+
+This is the core shift from hidden knowledge to editable knowledge. A team can
+change agent behavior by editing Markdown files in git.
+
+### SkillLoader Separates Metadata From Full Content
+
+`SkillLoader` does not dump every skill into the prompt. It first indexes the
+cheap metadata:
+
+```python
+def get_descriptions(self) -> str:
+    return "\n".join(
+        f"- {name}: {skill['description']}"
+        for name, skill in self.skills.items()
+    )
+```
+
+That metadata is added to the system prompt:
+
+```python
+**Skills available** (invoke with Skill tool when task matches):
+{SKILLS.get_descriptions()}
+```
+
+The model can see which skills exist, but the expensive body stays out of
+context until needed.
+
+### Loading a Skill Is a Tool Call
+
+The `Skill` tool schema is:
+
+```python
+SKILL_TOOL = {
+    "name": "Skill",
+    "description": "Load a skill to gain specialized knowledge for a task.",
+    ...
+}
+```
+
+When the model calls it, the dispatcher routes to:
+
+```python
+if name == "Skill":
+    return run_skill(args["skill"])
+```
+
+That means skills fit into the same loop as every other action:
+
+```text
+model chooses Skill
+host loads SKILL.md
+host returns skill content as tool_result
+model continues with new knowledge
+```
+
+### run_skill Is the Key Mechanism
+
+The heart of v4 is:
+
+```python
+def run_skill(skill_name: str) -> str:
+    content = SKILLS.get_skill_content(skill_name)
+    return f"""<skill-loaded name="{skill_name}">
+{content}
+</skill-loaded>
+
+Follow the instructions in the skill above to complete the user's task."""
+```
+
+This is not the same as returning data from a search tool. A skill changes how
+the model approaches the rest of the task.
+
+Think of it as temporarily adding a specialized operating manual to the
+conversation.
+
+### Why Skill Content Goes Into tool_result
+
+The source is explicit about this design:
+
+```text
+Why tool_result instead of system prompt?
+- System prompt changes invalidate cache
+- Tool results append to end
+```
+
+This is a subtle but important production lesson. Keep the system prompt stable.
+Append new information to messages.
+
+That preserves prompt caching:
+
+```text
+stable prefix -> cache hit
+new skill content -> only new suffix is processed
+```
+
+### Skill Loading Has Three Layers
+
+The code implements progressive disclosure:
+
+| Layer | Source code location | What the model sees |
+|-------|----------------------|---------------------|
+| Metadata | `get_descriptions()` | name + description |
+| Body | `get_skill_content()` | full `SKILL.md` body |
+| Resources | `scripts/`, `references/`, `assets/` hints | extra files to inspect or run |
+
+This lets the agent know what skills exist without paying the context cost of
+loading every manual upfront.
+
+### How v4 Combines Earlier Versions
+
+v4 still contains the earlier mechanisms:
+
+```text
+v1: bash/read/write/edit tools
+v2: TodoWrite
+v3: Task subagents
+v4: Skill loading
+```
+
+In `ALL_TOOLS`, the final agent gets:
+
+```python
+ALL_TOOLS = BASE_TOOLS + [TASK_TOOL, SKILL_TOOL]
+```
+
+So v4 is not a different architecture. It is the same loop with more carefully
+designed context sources.
+
+### Tools vs Skills: The Practical Test
+
+Ask this question:
+
+```text
+Does this help the model do something, or know how to do something?
+```
+
+If it performs an action, it is probably a tool:
+
+```text
+bash
+read_file
+write_file
+edit_file
+Task
+```
+
+If it teaches a method, checklist, convention, or domain workflow, it is
+probably a skill:
+
+```text
+code-review
+mcp-builder
+pdf
+agent-builder
+```
+
+### Common Failure Modes
+
+When building your own skills, avoid:
+
+1. **Descriptions that are too vague.** The model will not know when to load the
+   skill.
+2. **Huge always-loaded prompts.** That defeats progressive disclosure.
+3. **Putting secrets in skills.** Skills are files; treat them as repo content.
+4. **Mixing tools and skills.** A skill can mention scripts, but the execution
+   still happens through tools.
+5. **Changing the system prompt every time.** Prefer append-only message
+   injection for cache friendliness.
+
+### Learning Check
+
+After reading the code, make sure you can answer:
+
+- Where does v4 discover available skills?
+- Which method reads only skill metadata?
+- Which method loads the full skill body?
+- Why does `run_skill` return XML-like tags?
+- Why is skill content returned as a `tool_result` instead of inserted into the
+  system prompt?
+- How do skills compose with todos and subagents?
+
+---
+
 **Tools let models act. Skills let models know how.**

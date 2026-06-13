@@ -185,6 +185,208 @@ Same agent loop, different contexts. That's the whole trick.
 
 ---
 
+## Study Notes
+
+### Read the Source in This Order
+
+Open [`v3_subagent.py`](./v3_subagent.py) and read these pieces first:
+
+1. `AGENT_TYPES`
+2. `get_agent_descriptions`
+3. `TASK_TOOL`
+4. `get_tools_for_agent`
+5. `run_task`
+6. `execute_tool`
+7. `agent_loop`
+
+v3 is easiest to understand if you treat it as v2 plus one new capability:
+
+```text
+Task(description, prompt, agent_type)
+```
+
+Everything else is support code around that one tool.
+
+### The Agent Registry Is the Control Plane
+
+The source defines subagent behavior in `AGENT_TYPES`:
+
+```python
+AGENT_TYPES = {
+    "explore": {
+        "tools": ["bash", "read_file"],
+        "prompt": "Search and analyze, but never modify files..."
+    },
+    "code": {
+        "tools": "*",
+        "prompt": "Implement the requested changes efficiently."
+    },
+    "plan": {
+        "tools": ["bash", "read_file"],
+        "prompt": "Analyze and output a numbered implementation plan..."
+    },
+}
+```
+
+This registry controls three things:
+
+| Field | What it controls |
+|-------|------------------|
+| `description` | How the main model chooses the right subagent |
+| `tools` | What the child is allowed to do |
+| `prompt` | How the child should behave |
+
+That is the core idea: subagents are not special magic objects. They are the
+same loop with different instructions, different tools, and different context.
+
+### Task Is a Tool That Starts Another Loop
+
+The main agent sees `Task` as a normal tool:
+
+```python
+TASK_TOOL = {
+    "name": "Task",
+    "description": "Spawn a subagent for a focused subtask.",
+    ...
+}
+```
+
+When the model calls `Task`, `execute_tool` dispatches to:
+
+```python
+return run_task(args["description"], args["prompt"], args["agent_type"])
+```
+
+That means v3 is still the same agent loop. The only twist is that one tool
+starts a nested loop.
+
+```text
+main agent loop
+  -> Task tool
+      -> subagent loop
+          -> tools
+          -> final summary
+  -> tool_result back to main agent
+```
+
+### Context Isolation Happens in One Line
+
+The most important line in `run_task` is:
+
+```python
+sub_messages = [{"role": "user", "content": prompt}]
+```
+
+The child does not receive the parent's full conversation. It starts with a
+fresh history and only the task prompt.
+
+That gives you:
+
+- cleaner parent context
+- cheaper main conversation
+- less accidental carryover
+- a natural boundary between exploration and implementation
+
+The parent receives only the returned summary, not every intermediate file read.
+
+### Tool Filtering Is Safety and Focus
+
+The function `get_tools_for_agent` decides what each subagent can use:
+
+```python
+allowed = AGENT_TYPES[agent_type]["tools"]
+if allowed == "*":
+    return BASE_TOOLS
+return [t for t in BASE_TOOLS if t["name"] in allowed]
+```
+
+This is why `explore` and `plan` are read-only:
+
+```text
+explore -> bash + read_file
+plan    -> bash + read_file
+code    -> all base tools
+```
+
+Tool filtering does two jobs:
+
+1. It reduces risk. A research agent cannot edit files.
+2. It improves behavior. A planning agent is pushed toward analysis, not action.
+
+### Why Subagents Do Not Get Task
+
+In this demo, subagents receive `BASE_TOOLS`, not `ALL_TOOLS`.
+
+That means child agents do not receive the `Task` tool. This avoids recursive
+subagent spawning in the learning version.
+
+Production systems may allow deeper trees, but the beginner version keeps the
+tree one level deep:
+
+```text
+main agent
+ ├── explore subagent
+ ├── plan subagent
+ └── code subagent
+```
+
+### What the Parent Actually Sees
+
+Inside `run_task`, the child can make many tool calls. But at the end:
+
+```python
+for block in response.content:
+    if hasattr(block, "text"):
+        return block.text
+```
+
+The parent gets the child final text as a single tool result.
+
+This is the whole value of v3:
+
+```text
+many child observations -> one parent summary
+```
+
+### Good Subagent Boundaries
+
+Use subagents for tasks that are:
+
+- focused
+- independently checkable
+- context-heavy
+- easy to summarize
+
+Good examples:
+
+```text
+Find all auth-related files.
+Design a migration plan.
+Inspect test failures and summarize likely causes.
+```
+
+Weak examples:
+
+```text
+Fix everything.
+Understand the whole repo.
+Do the project.
+```
+
+If the prompt is too broad, the subagent will return a vague summary.
+
+### Learning Check
+
+After reading the code, make sure you can answer:
+
+- Where are subagent types defined?
+- Which line creates isolated child context?
+- Why do `explore` and `plan` have read-only tools?
+- Why does the demo avoid giving `Task` to subagents?
+- What exactly becomes the `tool_result` returned to the parent?
+
+---
+
 **Divide and conquer. Context isolation.**
 
 [← v2](./v2-structured-planning.md) | [Back to README](../README.md) | [v0 →](./v0-bash-is-all-you-need.md)

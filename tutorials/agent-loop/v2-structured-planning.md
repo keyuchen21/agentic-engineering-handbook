@@ -161,6 +161,171 @@ Good constraints aren't limitations. They're scaffolding.
 
 ---
 
+## Study Notes
+
+### Read the Source in This Order
+
+Open [`v2_todo_agent.py`](./v2_todo_agent.py) and read these pieces first:
+
+1. `TodoManager`
+2. `SYSTEM`
+3. `TOOLS`
+4. `run_todo`
+5. `execute_tool`
+6. `agent_loop`
+7. `main`
+
+The important point is that v2 does not replace the v1 agent loop. It adds one
+stateful tool around the same loop.
+
+```text
+v1:
+model -> tools -> results -> model
+
+v2:
+model -> tools + TodoWrite -> results + visible plan -> model
+```
+
+### What TodoManager Actually Stores
+
+In the source, `TodoManager` is just an object with one field:
+
+```python
+self.items = []
+```
+
+The model does not send a small patch like "mark item 2 complete." It sends the
+entire new todo list each time:
+
+```python
+def update(self, items: list) -> str:
+    ...
+    self.items = validated
+    return self.render()
+```
+
+That design is simple and useful for learning:
+
+- The model always owns the full current plan.
+- The host validates the plan before accepting it.
+- The rendered plan is returned as a tool result.
+- The rendered plan goes back into context, so the model can see progress.
+
+### The Three Required Fields
+
+Each todo item must have:
+
+```text
+content
+status
+activeForm
+```
+
+Think of them as three different views of the same task:
+
+| Field | Meaning | Example |
+|-------|---------|---------|
+| `content` | Stable task name | `Add unit tests` |
+| `status` | State machine value | `pending`, `in_progress`, `completed` |
+| `activeForm` | What the agent is doing now | `Adding unit tests` |
+
+`activeForm` is easy to underestimate. It is not just decoration; it makes
+the current activity readable in the trace:
+
+```text
+[>] Add unit tests <- Adding unit tests
+```
+
+### The Todo List Is a Small State Machine
+
+The status values form a tiny state machine:
+
+```text
+pending -> in_progress -> completed
+```
+
+The key guardrail is:
+
+```text
+only one item can be in_progress
+```
+
+That rule forces focus. Without it, the model can claim to be doing many things
+at once, which makes the plan less useful.
+
+### How TodoWrite Becomes Part of the Agent Loop
+
+The `TodoWrite` tool is just another tool schema in `TOOLS`:
+
+```python
+{
+    "name": "TodoWrite",
+    "description": "Update the task list. Use to plan and track progress.",
+    ...
+}
+```
+
+The dispatcher routes it like any other tool:
+
+```python
+if name == "TodoWrite":
+    return run_todo(args["items"])
+```
+
+So the core loop still has the same shape:
+
+```text
+model chooses tool
+host executes tool
+host appends tool_result
+model observes result
+```
+
+The only difference is that one tool updates internal agent state instead of
+the filesystem.
+
+### Why Reminders Are Soft, Not Hard
+
+The source includes:
+
+```python
+INITIAL_REMINDER = "<reminder>Use TodoWrite for multi-step tasks.</reminder>"
+NAG_REMINDER = "<reminder>10+ turns without todo update. Please update todos.</reminder>"
+```
+
+This is an important design pattern. The program does not force every task to
+use todos. It nudges the model when the task is long enough that a visible plan
+would help.
+
+That is why v2 still feels flexible:
+
+- Small task: no checklist needed.
+- Multi-step task: TodoWrite creates shared state.
+- Long task: reminders reduce drift.
+
+### Common Failure Modes
+
+Watch for these when studying or modifying v2:
+
+1. **Printing a todo is not enough.** It must be returned as a tool result so
+   the model can observe it.
+2. **Multiple `in_progress` items reduce focus.** The host should reject them.
+3. **Too many todos becomes noise.** The max count is a useful constraint.
+4. **A hidden plan is not collaboration.** The user and model both need to see
+   the state.
+
+### Learning Check
+
+After reading the code, make sure you can answer:
+
+- Where is the todo list stored?
+- Why does `update()` receive the full list instead of a diff?
+- Where does `TodoWrite` enter the tool dispatcher?
+- How does the rendered todo list get back into model context?
+- Why does v2 still use the same agent loop as v1?
+
+---
+
 **Explicit planning makes agents reliable.**
 
 [← v1](./v1-model-as-agent.md) | [Back to README](../README.md) | [v3 →](./v3-subagent-mechanism.md)
