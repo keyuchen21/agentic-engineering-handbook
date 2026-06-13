@@ -38,13 +38,15 @@ Understanding that loop makes the rest of the system easier to reason about:
 
 These pages are the upstream English Markdown tutorials from [shareAI-lab/mini-claude-code](https://github.com/shareAI-lab/mini-claude-code), kept as source material rather than rewritten.
 
-| Step | File |
-|------|------|
-| v0 | [Bash is All You Need](tutorials/agent-loop/v0-bash-is-all-you-need.md) |
-| v1 | [Model as Agent](tutorials/agent-loop/v1-model-as-agent.md) |
-| v2 | [Structured Planning](tutorials/agent-loop/v2-structured-planning.md) |
-| v3 | [Subagent Mechanism](tutorials/agent-loop/v3-subagent-mechanism.md) |
-| v4 | [Skills Mechanism](tutorials/agent-loop/v4-skills-mechanism.md) |
+| Step | Page | Code |
+|------|------|------|
+| v0 | [Bash is All You Need](tutorials/agent-loop/v0-bash-is-all-you-need.md) | [v0_bash_agent.py](tutorials/agent-loop/v0_bash_agent.py) |
+| v1 | [Model as Agent](tutorials/agent-loop/v1-model-as-agent.md) | [v1_basic_agent.py](tutorials/agent-loop/v1_basic_agent.py) |
+| v2 | [Structured Planning](tutorials/agent-loop/v2-structured-planning.md) | [v2_todo_agent.py](tutorials/agent-loop/v2_todo_agent.py) |
+| v3 | [Subagent Mechanism](tutorials/agent-loop/v3-subagent-mechanism.md) | [v3_subagent.py](tutorials/agent-loop/v3_subagent.py) |
+| v4 | [Skills Mechanism](tutorials/agent-loop/v4-skills-mechanism.md) | [v4_skills_agent.py](tutorials/agent-loop/v4_skills_agent.py) |
+
+Supporting files are included in the same folder: `requirements.txt`, `.env.example`, `v0_bash_agent_mini.py`, and `skills/`.
 
 ---
 
