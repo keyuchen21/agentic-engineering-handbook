@@ -36,15 +36,15 @@ Understanding that loop makes the rest of the system easier to reason about:
 - Why subagents improve exploration while protecting the main context
 - How skills, MCP, and hooks each add capability around the same core loop
 
-This tutorial explains the mechanism through runnable Python files. Each step introduces one new idea, so you can build the intuition and verify it yourself.
+These pages are the upstream English Markdown tutorials from [shareAI-lab/mini-claude-code](https://github.com/shareAI-lab/mini-claude-code), kept as source material rather than rewritten.
 
 | Step | File |
 |------|------|
-| v0 | [Bash Agent](tutorials/agent-loop/v0_bash_agent.py) |
-| v1 | [Model as Agent](tutorials/agent-loop/v1_model_as_agent.py) |
-| v2 | [Explicit Planning Todo](tutorials/agent-loop/v2_explicit_planning_todo.py) |
-| v3 | [Subagents](tutorials/agent-loop/v3_subagents.py) |
-| v4 | [Skills](tutorials/agent-loop/v4_skills.py) |
+| v0 | [Bash is All You Need](tutorials/agent-loop/v0-bash-is-all-you-need.md) |
+| v1 | [Model as Agent](tutorials/agent-loop/v1-model-as-agent.md) |
+| v2 | [Structured Planning](tutorials/agent-loop/v2-structured-planning.md) |
+| v3 | [Subagent Mechanism](tutorials/agent-loop/v3-subagent-mechanism.md) |
+| v4 | [Skills Mechanism](tutorials/agent-loop/v4-skills-mechanism.md) |
 
 ---
 

@@ -30,4 +30,3 @@ Thumbs.db
 *.log
 .env
 prompt.md
-tutorials/agent-loop/.workdir/
