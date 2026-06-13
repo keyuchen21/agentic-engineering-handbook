@@ -85,6 +85,7 @@ Supporting files are included in the same folder: `requirements.txt`, `.env.exam
 | Title | Vendor |
 |-------|--------|
 | [How We Build Effective Agents: Barry Zhang, Anthropic](https://www.youtube.com/watch?v=D7_ipDqhtwk) | Anthropic |
+| [Phistory — Claude Code & Codex CLI System Prompt Diff History](https://phistory.cc/) | Community |
 | [Orchestrating Agents: Routines and Handoffs](https://developers.openai.com/cookbook/examples/orchestrating_agents) | OpenAI |
 | [Structured Outputs for Multi-Agent Systems](https://developers.openai.com/cookbook/examples/structured_outputs_multi_agent) | OpenAI |
 

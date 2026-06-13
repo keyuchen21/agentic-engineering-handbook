@@ -112,656 +112,266 @@ Everything else—todos, subagents, permissions—is refinement around this loop
 
 ---
 
+
 ## Study Notes
 
-### Building a Minimal CLI Agent with Tool Calling
+### What to Focus On
 
-This example demonstrates the core architecture behind modern AI agents such as Claude Code, Codex CLI, OpenHands, Cursor Agent, and Devin.
-
-The implementation is surprisingly small, but it contains the fundamental agent loop:
+Read [`v0_bash_agent.py`](./v0_bash_agent.py) as a tiny working model of a
+coding agent. The file is small, but it already contains the core architecture:
 
 ```text
-User
- ↓
-LLM
- ↓
-Tool Call
- ↓
-Environment
- ↓
-Tool Result
- ↓
-LLM
- ↓
-...
- ↓
-Final Answer
+LLM + one tool + feedback loop = agent
 ```
 
----
+Do not start by memorizing every line. First understand the five moving parts:
 
-### The Complete Code
+1. `client` and `MODEL`
+2. `TOOL`
+3. `SYSTEM`
+4. `chat()`
+5. the `__main__` block
+
+Those five pieces are enough to explain the whole file.
+
+### 1. The Client and Model
+
+At the top, the program loads environment variables and creates an Anthropic
+client:
 
 ```python
-#!/usr/bin/env python
-from anthropic import Anthropic
-import subprocess, sys, os
+load_dotenv()
+client = Anthropic(
+    api_key=os.getenv("ANTHROPIC_API_KEY"),
+    base_url=os.getenv("ANTHROPIC_BASE_URL")
+)
+MODEL = os.getenv("MODEL_NAME", "claude-sonnet-4-20250514")
+```
 
-client = Anthropic(api_key="your-key", base_url="...")
+This is not the agent yet. It is only the connection to the model API.
 
+The agent behavior comes from what the host program sends to the model:
+
+```text
+system prompt + messages + tools
+```
+
+### 2. The One Tool: bash
+
+v0 exposes exactly one tool:
+
+```python
 TOOL = [{
     "name": "bash",
-    "description": """Execute shell command. Patterns:
-- Read: cat/grep/find/ls
-- Write: echo '...' > file
-- Subagent: python v0_bash_agent.py 'task description'""",
-    "input_schema": {
-        "type": "object",
-        "properties": {
-            "command": {"type": "string"}
-        },
-        "required": ["command"]
-    }
+    "description": """Execute shell command. Common patterns:
+- Read: cat/head/tail, grep/find/rg/ls, wc -l
+- Write: echo 'content' > file, sed -i 's/old/new/g' file
+- Subagent: python v0_bash_agent.py 'task description' ...""",
+    ...
 }]
+```
 
-SYSTEM = f"""
-CLI agent at {os.getcwd()}.
-Use bash.
-Spawn subagent for complex tasks.
+The tool schema tells the model:
+
+- the tool name is `bash`
+- the input must contain a `command` string
+- common command patterns are allowed
+- the agent can launch itself as a subagent
+
+The model does **not** execute shell commands. It only asks for a tool call.
+The Python host executes the command.
+
+```text
+model: please run {"command": "find . -name '*.py'"}
+host: runs subprocess.run(...)
+host: returns stdout/stderr as tool_result
+```
+
+### 3. The System Prompt Teaches Operating Rules
+
+`SYSTEM` tells the model how to behave inside this CLI environment:
+
+```python
+SYSTEM = f"""You are a CLI agent at {os.getcwd()}. Solve problems using bash commands.
+
+Rules:
+- Prefer tools over prose. Act first, explain briefly after.
+- Read files: cat, grep, find, rg, ls, head, tail
+- Write files: echo '...' > file, sed -i, or cat << 'EOF' > file
+- Subagent: For complex subtasks, spawn a subagent ...
 """
+```
 
-def chat(prompt, history=[]):
+This is important because bash is very broad. The prompt narrows that broad tool
+into useful coding-agent behavior.
+
+Think of it this way:
+
+```text
+TOOL says what the model can call.
+SYSTEM says how and when to use it.
+```
+
+### 4. The Whole Agent Is `chat()`
+
+The `chat()` function is the agent loop:
+
+```python
+def chat(prompt, history=None):
     history.append({"role": "user", "content": prompt})
 
     while True:
-        r = client.messages.create(
-            model="...",
-            system=SYSTEM,
-            messages=history,
-            tools=TOOL,
-            max_tokens=8000
-        )
+        response = client.messages.create(...)
+        history.append({"role": "assistant", "content": content})
 
-        history.append({
-            "role": "assistant",
-            "content": r.content
-        })
+        if response.stop_reason != "tool_use":
+            return final_text
 
-        if r.stop_reason != "tool_use":
-            return "".join(
-                b.text for b in r.content
-                if hasattr(b, "text")
-            )
-
-        results = []
-
-        for b in r.content:
-            if b.type == "tool_use":
-                out = subprocess.run(
-                    b.input["command"],
-                    shell=True,
-                    capture_output=True,
-                    text=True,
-                    timeout=300
-                )
-
-                results.append({
-                    "type": "tool_result",
-                    "tool_use_id": b.id,
-                    "content": out.stdout + out.stderr
-                })
-
-        history.append({
-            "role": "user",
-            "content": results
-        })
-
-if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        print(chat(sys.argv[1]))  # Subagent mode
-    else:
-        h = []
-        while (q := input(">> ")) not in ("q", ""):
-            print(chat(q, h))
+        results = execute_tool_calls(...)
+        history.append({"role": "user", "content": results})
 ```
 
----
+The loop has one job: keep giving the model observations until the model stops
+requesting tools.
 
-### Step 1: Define Tools
+### 5. Why Tool Results Must Go Back Into `history`
 
-The first step is to tell the model which tools it can use.
+This line is the feedback loop:
 
 ```python
-TOOL = [{
-    "name": "bash",
-    "description": "...",
-    "input_schema": {
-        ...
-    }
-}]
+history.append({"role": "user", "content": results})
 ```
 
-This exposes a single tool called `bash`.
+If the program only printed command output to the terminal, the human would see
+it, but the model would not.
 
-The model learns that it can generate tool calls like:
-
-```json
-{
-  "type": "tool_use",
-  "name": "bash",
-  "input": {
-    "command": "ls -la"
-  }
-}
-```
-
-The LLM itself does not execute commands.
-
-It only requests tool execution.
-
-The host application executes the command.
-
----
-
-### Step 2: System Prompt
-
-```python
-SYSTEM = f"""
-CLI agent at {os.getcwd()}.
-Use bash.
-Spawn subagent for complex tasks.
-"""
-```
-
-This gives the model information about its environment.
-
-Example:
+For an agent, every action needs an observation:
 
 ```text
-CLI agent at /home/project
-
-Use bash.
-
-Spawn subagent for complex tasks.
+Thought -> Tool Call -> Tool Result -> Next Thought
 ```
 
-The model now understands:
+That is why tool results are appended to `history` and sent back to the model.
 
-- Current working directory
-- Available tool
-- Existence of subagents
+### 6. Interactive Mode vs Subagent Mode
 
-The system prompt effectively defines the agent's operating environment.
+At the bottom, the file has two modes:
 
----
+```python
+if len(sys.argv) > 1:
+    print(chat(sys.argv[1]))
+else:
+    history = []
+    while True:
+        query = input(">> ")
+        print(chat(query, history))
+```
 
-### Step 3: User Sends a Task
-
-Example:
+Interactive mode keeps one shared history:
 
 ```text
-Find all Python files larger than 1MB.
+human -> agent -> human -> agent
 ```
 
-The prompt is appended to conversation history:
-
-```python
-history.append({
-    "role": "user",
-    "content": prompt
-})
-```
-
-Then the entire conversation is sent to the model.
-
----
-
-### Step 4: Model Requests a Tool Call
-
-The model might respond with:
-
-```json
-[
-  {
-    "type": "tool_use",
-    "name": "bash",
-    "input": {
-      "command": "find . -name '*.py' -size +1M"
-    }
-  }
-]
-```
-
-At this point:
-
-```python
-r.stop_reason == "tool_use"
-```
-
-This indicates that the model wants the host application to execute a tool.
-
-The model is not finished reasoning.
-
-It is waiting for observations.
-
----
-
-### Step 5: Execute the Tool
-
-The application executes:
-
-```python
-subprocess.run(
-    command,
-    shell=True,
-    capture_output=True,
-    text=True
-)
-```
-
-Example:
+Subagent mode runs one task and exits:
 
 ```bash
-find . -name '*.py' -size +1M
+python v0_bash_agent.py "explore src/ and summarize"
 ```
 
-Output:
+That makes recursion possible.
+
+### 7. How Subagents Work in v0
+
+v0 has no `Task` tool and no agent registry. Subagents work because the only tool
+is powerful enough to launch another process:
+
+```bash
+python v0_bash_agent.py "analyze architecture"
+```
+
+That child process has a fresh `history`. The parent only receives the child's
+stdout as a bash tool result.
 
 ```text
-./models/train.py
-./legacy/big_script.py
+Parent history
+  -> bash: python v0_bash_agent.py "analyze architecture"
+       -> Child history starts empty
+       -> Child explores with bash
+       -> Child prints final summary
+  -> Parent receives summary as tool_result
 ```
 
-The environment has now produced an observation.
+This gives context isolation almost for free:
 
----
-
-### Step 6: Return Tool Results
-
-The result is packaged as:
-
-```json
-{
-  "type": "tool_result",
-  "tool_use_id": "...",
-  "content": "./models/train.py\n./legacy/big_script.py"
-}
+```text
+process isolation = context isolation
 ```
 
-This is added back into the conversation:
+### 8. Why Bash Is Enough for v0
+
+Bash is a gateway to many capabilities:
+
+| Need | Bash pattern |
+|------|--------------|
+| list files | `find`, `ls`, `rg --files` |
+| read files | `cat`, `head`, `sed -n` |
+| search | `grep`, `rg` |
+| run tests | `pytest`, `npm test`, `make test` |
+| edit files | shell redirection, `sed`, heredocs |
+| spawn subagents | `python v0_bash_agent.py "task"` |
+
+That is the lesson of v0: a single general tool can create surprisingly capable
+agent behavior.
+
+### 9. What v0 Is Not Teaching Yet
+
+v0 is intentionally unsafe and minimal. Do not mistake it for a production
+harness.
+
+Missing pieces include:
+
+- command approvals
+- filesystem sandboxing
+- network restrictions
+- structured file edit tools
+- todo tracking
+- typed subagents
+- skill loading
+- robust error handling
+
+Those are added later because the point of v0 is to see the smallest possible
+agent loop.
+
+### 10. Safety Boundary
+
+The risky line is:
 
 ```python
-history.append({
-    "role": "user",
-    "content": results
-})
+subprocess.run(cmd, shell=True, ...)
 ```
 
-Then the conversation is sent back to the model.
+With unrestricted shell access, a model can request destructive commands. Real
+coding agents add sandboxes, approval gates, command policies, and audit logs.
 
----
-
-### Step 7: The Model Continues Reasoning
-
-Now the model receives:
+For studying, the key takeaway is not "give agents shell access." The takeaway
+is:
 
 ```text
-Tool Result:
-
-./models/train.py
-./legacy/big_script.py
+agent = model decisions + host-executed tools + returned observations
 ```
 
-The model may decide:
-
-```bash
-wc -l ./models/train.py
-```
-
-or
-
-```bash
-head -50 ./legacy/big_script.py
-```
-
-Another tool call is generated.
-
-Another observation is returned.
-
-The loop continues.
-
----
-
-### The Agent Loop
-
-This process repeats until the model no longer requests tools.
-
-```text
-LLM
- ↓
-Tool Call
- ↓
-Environment
- ↓
-Observation
- ↓
-LLM
- ↓
-Tool Call
- ↓
-Environment
- ↓
-Observation
-```
-
-Eventually:
-
-```python
-r.stop_reason != "tool_use"
-```
-
-The model finally responds:
-
-```text
-I found two Python files larger than 1MB:
-
-- models/train.py
-- legacy/big_script.py
-```
-
-At this point the task is complete.
-
----
-
-### What Is a Subagent?
-
-Notice the tool description:
-
-```text
-Subagent:
-python v0_bash_agent.py 'task description'
-```
-
-The agent itself can be launched as a command.
-
-This means the model can create another agent instance.
-
-Example:
-
-```bash
-python v0_bash_agent.py \
-"Analyze all Python files and summarize architecture"
-```
-
-Now we have:
-
-```text
-Parent Agent
-    ↓
-Child Agent
-    ↓
-LLM
-    ↓
-Tools
-```
-
-The child agent operates independently and returns a summarized result.
-
----
-
-### Hierarchical Agent Architecture
-
-Instead of one giant agent:
-
-```text
-Agent
-```
-
-We can create:
-
-```text
-Agent
- ├── Subagent A
- ├── Subagent B
- └── Subagent C
-```
-
-For example:
-
-```text
-Main Agent
- ├── Backend Agent
- ├── Frontend Agent
- └── Infrastructure Agent
-```
-
-Each agent has:
-
-- Its own context window
-- Its own reasoning process
-- Its own tool usage
-
-The parent agent only sees summarized outputs.
-
-This greatly improves scalability.
-
----
-
-### Why Subagents Matter
-
-Suppose a repository contains:
-
-```text
-10,000 files
-```
-
-One agent cannot effectively inspect everything.
-
-Instead:
-
-```text
-Main Agent
- ├── Agent A analyzes backend
- ├── Agent B analyzes frontend
- └── Agent C analyzes deployment
-```
-
-Each subagent returns:
-
-```text
-Backend Summary:
-...
-
-Frontend Summary:
-...
-
-Infrastructure Summary:
-...
-```
-
-The main agent combines them into a final answer.
-
-This resembles MapReduce:
-
-```text
-Map Phase:
-    Multiple agents analyze independently
-
-Reduce Phase:
-    Main agent aggregates results
-```
-
-This pattern appears in:
-
-- Claude Code
-- OpenAI Codex
-- Devin
-- Cursor Agent
-- OpenHands
-
----
-
-### ReAct: The Core Agent Pattern
-
-The architecture is an implementation of the ReAct framework.
-
-ReAct stands for:
-
-```text
-Reasoning + Acting
-```
-
-The loop:
-
-```text
-Thought
- ↓
-Action
- ↓
-Observation
- ↓
-Thought
- ↓
-Action
- ↓
-Observation
-```
-
-Example:
-
-```text
-Thought:
-I need to find large Python files.
-
-Action:
-Run find command.
-
-Observation:
-Two files found.
-
-Thought:
-I should inspect them.
-
-Action:
-Run wc and head.
-
-Observation:
-Results returned.
-
-Thought:
-I have enough information.
-
-Answer:
-Generate final response.
-```
-
-Modern agents are essentially automated ReAct systems.
-
----
-
-### Why Tool Calling Is Powerful
-
-Without tools:
-
-```text
-LLM
-```
-
-The model can only reason about information already in its context.
-
-With tools:
-
-```text
-LLM
- ↓
-Filesystem
-Internet
-Databases
-APIs
-Terminals
-Editors
-```
-
-The model gains the ability to interact with the external world.
-
-This transforms it from a chatbot into an agent.
-
----
-
-### Security Concerns
-
-This demo is intentionally simple.
-
-The biggest risk:
-
-```python
-shell=True
-```
-
-The model can potentially execute:
-
-```bash
-rm -rf .
-```
-
-or
-
-```bash
-curl ...
-```
-
-or
-
-```bash
-scp ...
-```
-
-Real agent systems therefore add:
-
-- Docker sandboxes
-- Firecracker VMs
-- Permission controls
-- Filesystem restrictions
-- Network restrictions
-- Command allowlists
-- Human approval checkpoints
-
-Production-grade agents prioritize safety and isolation.
-
----
-
-### The Big Picture
-
-The most important idea in this example is not Anthropic, Claude, Python, or Bash.
-
-It is the feedback loop:
-
-```text
-LLM
- ↓
-Action
- ↓
-Environment
- ↓
-Observation
- ↓
-LLM
-```
-
-Everything else is an extension of this pattern.
-
-Modern agent frameworks mainly differ in:
-
-- Number of tools
-- Context management
-- Memory systems
-- Parallel execution
-- Subagent orchestration
-- Security architecture
-
-The fundamental loop remains the same.
-
-A surprisingly small amount of code can therefore reproduce the core architecture behind today's most advanced coding agents.
+### Learning Check
+
+After reading the code, make sure you can answer:
+
+- Where is the single tool defined?
+- What does the tool schema require as input?
+- Where does the program call the model?
+- Where are tool results appended back into history?
+- Why does `stop_reason != "tool_use"` end the loop?
+- How does `python v0_bash_agent.py "task"` create a subagent?
+- What safety controls are missing from v0?
 
 ---
 
