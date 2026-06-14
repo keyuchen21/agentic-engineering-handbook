@@ -389,9 +389,6 @@ After reading the code, make sure you can answer:
 
 ## Full Source
 
-<details>
-<summary>Show complete `v3_subagent.py`</summary>
-
 ````python
 #!/usr/bin/env python3
 """
@@ -1018,8 +1015,6 @@ def main():
 if __name__ == "__main__":
     main()
 ````
-
-</details>
 
 ---
 

@@ -727,9 +727,6 @@ The Model Is The Agent.
 
 ## Full Source
 
-<details>
-<summary>Show complete `v1_basic_agent.py`</summary>
-
 ````python
 #!/usr/bin/env python3
 """
@@ -1154,8 +1151,6 @@ def main():
 if __name__ == "__main__":
     main()
 ````
-
-</details>
 
 ---
 

@@ -328,9 +328,6 @@ After reading the code, make sure you can answer:
 
 ## Full Source
 
-<details>
-<summary>Show complete `v2_todo_agent.py`</summary>
-
 ````python
 #!/usr/bin/env python3
 """
@@ -865,8 +862,6 @@ def main():
 if __name__ == "__main__":
     main()
 ````
-
-</details>
 
 ---
 

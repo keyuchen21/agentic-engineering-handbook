@@ -377,9 +377,6 @@ After reading the code, make sure you can answer:
 
 ## Full Source
 
-<details>
-<summary>Show complete `v0_bash_agent.py`</summary>
-
 ````python
 #!/usr/bin/env python
 """
@@ -578,8 +575,6 @@ if __name__ == "__main__":
                 break
             print(chat(query, history))
 ````
-
-</details>
 
 ---
 
