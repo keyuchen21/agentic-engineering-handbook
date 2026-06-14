@@ -73,12 +73,13 @@ Supporting files are included in the same folder: `requirements.txt`, `.env.exam
 
 | # | Title | Vendor |
 |---|-------|--------|
-| 1 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI |
-| 2 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic |
-| 3 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google |
-| 4 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic |
-| 5 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI |
-| 6 | [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents) | OpenAI |
+| 1 | [Prompt guidance](https://developers.openai.com/api/docs/guides/prompt-guidance) | OpenAI |
+| 2 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI |
+| 3 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic |
+| 4 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google |
+| 5 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic |
+| 6 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI |
+| 7 | [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents) | OpenAI |
 
 #### Then Read
 
@@ -86,7 +87,8 @@ Supporting files are included in the same folder: `requirements.txt`, `.env.exam
 |-------|--------|
 | [How We Build Effective Agents: Barry Zhang, Anthropic](https://www.youtube.com/watch?v=D7_ipDqhtwk) | Anthropic |
 | [Phistory — Claude Code & Codex CLI System Prompt Diff History](https://phistory.cc/) | Community |
-| [Orchestrating Agents: Routines and Handoffs](https://developers.openai.com/cookbook/examples/orchestrating_agents) | OpenAI |
+| [System Prompts](https://platform.claude.com/docs/en/release-notes/system-prompts) | Anthropic |
+| [OpenAI Agents SDK examples](https://openai.github.io/openai-agents-python/examples/) | OpenAI |
 | [Structured Outputs for Multi-Agent Systems](https://developers.openai.com/cookbook/examples/structured_outputs_multi_agent) | OpenAI |
 
 #### Build Exercise
@@ -114,6 +116,7 @@ Build a customer service/ticket triage agent: router → specialist → evaluato
 | [Code execution with MCP: Building more efficient agents](https://www.anthropic.com/engineering/code-execution-with-mcp) | Anthropic |
 | [Model Context Protocol - Codex](https://developers.openai.com/codex/mcp) | OpenAI |
 | [OpenAI Docs MCP](https://developers.openai.com/learn/docs-mcp) | OpenAI |
+| [Build your ChatGPT UI](https://developers.openai.com/apps-sdk/build/chatgpt-ui) | OpenAI |
 
 #### Build Exercise
 
@@ -131,7 +134,9 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 |---|-------|--------|
 | 1 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic |
 | 2 | [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) | Anthropic |
-| 3 | [Building Reliable Agents with Memory and Compaction](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction) | OpenAI |
+| 3 | [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) | Anthropic |
+| 4 | [Skills](https://developers.openai.com/api/docs/guides/tools-skills) | OpenAI |
+| 5 | [Building Reliable Agents with Memory and Compaction](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction) | OpenAI |
 
 #### Then Read
 
@@ -140,6 +145,8 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 | [Custom instructions with AGENTS.md - Codex](https://developers.openai.com/codex/guides/agents-md) | OpenAI |
 | [Best practices for Claude Code](https://www.anthropic.com/engineering/claude-code-best-practices) | Anthropic |
 | [Agent Skills - Codex](https://developers.openai.com/codex/skills) | OpenAI |
+| [Agent Skills Specification](https://agentskills.io/specification) | Agent Skills |
+| [Skills in OpenAI API](https://developers.openai.com/cookbook/examples/skills_in_api) | OpenAI |
 
 #### Build Exercise
 
@@ -164,6 +171,7 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 | Title | Vendor |
 |-------|--------|
 | [The next evolution of the Agents SDK](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) | OpenAI |
+| [Using PLANS.md for multi-hour problem solving](https://developers.openai.com/cookbook/articles/codex_exec_plans) | OpenAI |
 | [Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps) | Anthropic |
 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic |
 
@@ -236,8 +244,9 @@ Build a smoke/macro eval suite for your agent: task success rate, tool misuse, p
 | P0 | [OpenAI for Developers in 2025](https://developers.openai.com/blog/openai-for-developers-2025) | OpenAI | Agents; MCP; Platform | Annual overview: systematic walkthrough of Responses API, Agents SDK, AgentKit, Codex, MCP, Apps SDK, and AGENTS.md. | 2025-12-30 |
 | P0 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI | Agents; Responses API; Tools | Key starting point for OpenAI's agent platform: Responses API, built-in web/file/computer tools, Agents SDK, tracing/observability. | 2025-03-11 |
 | P0 | [Introducing AgentKit](https://openai.com/index/introducing-agentkit/) | OpenAI | Agents; Evals; AgentKit | AgentKit, expanded evals, agent RFT: the official agent toolchain from prototype to production. | 2025-10-06 |
+| P0 | [Prompt guidance](https://developers.openai.com/api/docs/guides/prompt-guidance) | OpenAI | Prompting; Models; Agent UX | Official model-specific prompting guidance for outcome-first prompts, reasoning effort, preambles, and validation rules in tool-heavy workflows. | Current docs |
+| P0 | [System Prompts](https://platform.claude.com/docs/en/release-notes/system-prompts) | Anthropic | System prompts; Claude; Behavior | Claude web/mobile system prompt release notes; useful for studying production prompting patterns and behavioral scaffolding. | Current docs |
 | P0 | [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents) | OpenAI | Agents; SDK | Official SDK entry point: concepts and boundaries of agent, tool, handoff, guardrail, and tracing. | Current docs |
-| P0 | [Orchestrating Agents: Routines and Handoffs](https://developers.openai.com/cookbook/examples/orchestrating_agents) | OpenAI | Agents; Handoffs; Orchestration | Classic introduction: how routines, handoffs, and tool calling combine into controllable multi-flow agents. | 2024-10-10 |
 | P0 | [Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) | Anthropic | MCP; Standards | The origin article for MCP: an open standard connecting AI assistants to data, tools, and systems. | 2024-11-25 |
 | P0 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic | Agents; Patterns; Frameworks | Essential agent primer: workflow vs agent, prompt/tool/retrieval, orchestrator-worker, evaluator-optimizer patterns. | 2024-12-19 |
 | P0 | [New tools and features in the Responses API](https://openai.com/index/new-tools-and-features-in-the-responses-api/) | OpenAI | MCP; Responses API; Tools | Responses API extended to remote MCP servers, image/code/file tools; see how OpenAI integrates MCP into its runtime. | 2025-05-21 |
@@ -266,6 +275,9 @@ Build a smoke/macro eval suite for your agent: task success rate, tool misuse, p
 | P0 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic | Context; Agents | Context is the agent's core resource: selection, compression, isolation, persistence, and context pollution control. | 2025-09-29 |
 | P0 | [Enabling Claude Code to work more autonomously](https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously) | Anthropic | Claude Code; Agent SDK; Subagents | Claude Agent SDK, subagents, hooks, background tasks, checkpoints, and other autonomous coding agent capabilities. | 2025-09-29 |
 | P0 | [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) | Anthropic | Skills; Agents | Agent Skills as modular capability packages: instructions, resources, scripts — reducing context burden and improving reliability. | 2025-10-16 |
+| P0 | [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) | Anthropic | Skills; Claude; Progressive disclosure | Official Claude Agent Skills docs: modular instructions, metadata, scripts, resources, and on-demand loading across Claude products. | Current docs |
+| P0 | [Skills](https://developers.openai.com/api/docs/guides/tools-skills) | OpenAI | Skills; API; Shell environments | Official OpenAI API guide for uploading, managing, and attaching reusable Skills to hosted and local shell environments. | Current docs |
+| P0 | [Agent Skills Specification](https://agentskills.io/specification) | Agent Skills | Skills; Specification; Progressive disclosure | Complete skill package format: SKILL.md frontmatter, optional scripts/references/assets, file references, and validation. | Current docs |
 | P0 | [Code execution with MCP: Building more efficient agents](https://www.anthropic.com/engineering/code-execution-with-mcp) | Anthropic | MCP; Code execution; Context | Key article on MCP scale challenges: reduce token overhead with code execution/on-demand tools; learn progressive disclosure. | 2025-11-04 |
 | P0 | [Introducing advanced tool use on Claude Developer Platform](https://www.anthropic.com/engineering/advanced-tool-use) | Anthropic | Tools; MCP; Advanced tool use | Tool search, deferred loading, programmatic tool calling; solving context pollution from large numbers of MCP tools. | 2025-11-24 |
 | P0 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic | Harness; Long-running agents | Essential harness reading: working across multiple context windows, task logging, external state, agent self-recovery. | 2025-11-26 |
@@ -294,8 +306,9 @@ Build a smoke/macro eval suite for your agent: task success rate, tool misuse, p
 | P1 | [Introducing upgrades to Codex](https://openai.com/index/introducing-upgrades-to-codex/) | OpenAI | Agents; Coding; IDE | Codex evolves from research preview to daily dev tool: CLI, IDE, web/mobile collaboration, and more independent task execution. | 2025-09-15 |
 | P1 | [Introducing Claude Sonnet 4.5](https://www.anthropic.com/news/claude-sonnet-4-5) | Anthropic | Agents; Claude Agent SDK; Computer use | Sonnet 4.5 emphasizes coding, complex agents, computer use, with simultaneous Agent SDK launch. | 2025-09-29 |
 | P1 | [Introducing apps in ChatGPT and the new Apps SDK](https://openai.com/index/introducing-apps-in-chatgpt/) | OpenAI | MCP; Apps; ChatGPT | Apps SDK extends UI and tool server via MCP; entry point for understanding the ChatGPT app / MCP app ecosystem. | 2025-10-06 |
+| P1 | [Build your ChatGPT UI](https://developers.openai.com/apps-sdk/build/chatgpt-ui) | OpenAI | MCP; Apps SDK; UI | Build custom UI components that turn structured MCP tool results into interactive ChatGPT app interfaces. | Current docs |
 | P1 | [Codex is now generally available](https://openai.com/index/codex-now-generally-available/) | OpenAI | Agents; Coding; Codex SDK | Codex GA, Slack integration, Codex SDK, admin tools; see how coding agents enter enterprise management. | 2025-10-06 |
-| P1 | [Using PLANS.md for multi-hour problem solving](https://developers.openai.com/cookbook/topic/agents) | OpenAI | Codex; Long-running; Planning | Plan files and cross-context task management for long-running coding agents. | 2025-10-07 |
+| P1 | [Using PLANS.md for multi-hour problem solving](https://developers.openai.com/cookbook/articles/codex_exec_plans) | OpenAI | Codex; Long-running; Planning | ExecPlan files and cross-context task management for multi-hour coding-agent work. | 2025-10-07 |
 | P1 | [Beyond permission prompts: making Claude Code more secure and autonomous](https://www.anthropic.com/engineering/beyond-permission-prompts) | Anthropic | Safety; Permissions; Claude Code | From simple permission prompts to fine-grained security policies, reducing autonomous mode risk and interruptions. | 2025-10-20 |
 | P1 | [Introducing Aardvark: OpenAI's agentic security researcher](https://openai.com/index/introducing-aardvark/) | OpenAI | Agents; Security | Security-domain agent form: continuous scanning, issue verification, fix suggestions; later integrated as Codex Security. | 2025-10-30 |
 | P1 | [Build a coding agent with GPT 5.1](https://developers.openai.com/cookbook/topic/agents) | OpenAI | Agents; Coding | Build a coding agent from scratch: understand file editing, command execution, loops, and verification. | 2025-11-13 |
@@ -324,10 +337,12 @@ Build a smoke/macro eval suite for your agent: task success rate, tool misuse, p
 | P1 | [Building self-improving tax agents with Codex](https://openai.com/index/building-self-improving-tax-agents-with-codex/) | OpenAI | Agents; Evals; Self-improvement | Combine production traces, expert feedback, Codex loop, and eval infrastructure into self-improving business agents. | 2026-05-27 |
 | P1 | [SchemaFlow: Agentic Database Change Impact Analysis, SQL Generation, and Eval Guardrails](https://developers.openai.com/cookbook/topic/agents) | OpenAI | Evals; SQL; Agent guardrails | Guardrails and eval guardrails examples for data/SQL agents. | 2026-06-05 |
 | P1 | [Agents SDK quickstart](https://developers.openai.com/api/docs/guides/agents/quickstart) | OpenAI | Agents; SDK | Quickly build a minimal agent; understand the code patterns of run, tool, and handoff. | Current docs |
+| P1 | [OpenAI Agents SDK examples](https://openai.github.io/openai-agents-python/examples/) | OpenAI | Agents SDK; Patterns; Examples | Practical examples for agent patterns, MCP, memory, guardrails, approvals, handoffs, and streaming. | Current docs |
 | P1 | [MCP Apps compatibility in ChatGPT](https://developers.openai.com/apps-sdk/mcp-apps-in-chatgpt) | OpenAI | MCP; Apps SDK; UI | Understand MCP Apps UI standards, iframe/bridge, and compatibility between ChatGPT and other hosts. | Current docs |
 | P1 | [Use Codex with the Agents SDK](https://developers.openai.com/codex/guides/agents-sdk) | OpenAI | MCP; Codex; Agents SDK | Use Codex as an MCP server for other agents to call; ideal for multi-agent dev workflows. | Current docs |
 | P1 | [Agent approvals and security - Codex](https://developers.openai.com/codex/agent-approvals-security) | OpenAI | Safety; Approvals; Codex | Official reference for Codex approval modes, sandbox, network access; read alongside OpenAI/Anthropic safety articles. | Current docs |
 | P1 | [Agent Skills - Codex](https://developers.openai.com/codex/skills) | OpenAI | Codex; Skills; Plugins | Skills/Plugins as reusable workflow packages; compare with Anthropic Agent Skills. | Current docs |
+| P1 | [Skills in OpenAI API](https://developers.openai.com/cookbook/examples/skills_in_api) | OpenAI | Skills; OpenAI API | Cookbook example for using Skills in the OpenAI API and connecting skill bundles to agent workflows. | Current docs |
 | P1 | [Custom instructions with AGENTS.md - Codex](https://developers.openai.com/codex/guides/agents-md) | OpenAI | AGENTS.md; Context | How AGENTS.md provides persistent project specifications for agents; establish repo-level agent contracts. | Current docs |
 | P1 | [Agents SDK integrations and observability](https://developers.openai.com/api/docs/guides/agents/integrations-observability) | OpenAI | Observability; MCP; Tracing | Tracing, MCP integration, provider/observability; essential for production agent debugging. | Current docs |
 | P1 | [Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels) | OpenAI | MCP; Security; Private tools | Securely expose private/intranet MCP servers to supported OpenAI surfaces; ideal for enterprise deployment. | Current docs |
@@ -337,6 +352,7 @@ Build a smoke/macro eval suite for your agent: task success rate, tool misuse, p
 | P0 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI | Tools; Function calling; API | Official guide to function/tool calling: define functions with JSON schemas, handle model tool calls, execute and return results. | Current docs |
 | P0 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic | Tools; Tool use; API | Connect Claude to external tools and APIs: client vs server tools, the agentic loop, strict schema conformance, and when Claude decides to call tools. | Current docs |
 | P0 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google | Tools; Function calling; API | Enable Gemini models to connect with external tools via function calling: single-turn, multi-turn, parallel, and sequential function chains. | Current docs |
+| P2 | [Orchestrating Agents: Routines and Handoffs (archived)](https://developers.openai.com/cookbook/examples/orchestrating_agents) | OpenAI | Agents; Handoffs; Orchestration | Historical cookbook for routines and handoffs; useful conceptually, but archived and not the current recommended implementation path. | 2024-10-10 |
 | P2 | [Introducing Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval) | Anthropic | Context; Retrieval; RAG | Not agent-specific, but important for agent RAG/context: prepend context to chunks before retrieval to improve recall. | 2024-09-19 |
 | P2 | [Developing a computer use model](https://www.anthropic.com/news/developing-computer-use) | Anthropic | Computer use; Agents | More technical explanation of how the computer-use model moves the mouse, clicks, types, and reads screen feedback. | 2024-10-22 |
 | P2 | [Introducing Claude 4](https://www.anthropic.com/news/claude-4) | Anthropic | Agents; Coding; Long-running | Overview of Claude Opus/Sonnet 4 capabilities: coding, advanced reasoning, agent workflows. | 2025-05-22 |
