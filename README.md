@@ -134,9 +134,10 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 |---|-------|--------|
 | 1 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic |
 | 2 | [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) | Anthropic |
-| 3 | [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) | Anthropic |
-| 4 | [Skills](https://developers.openai.com/api/docs/guides/tools-skills) | OpenAI |
-| 5 | [Building Reliable Agents with Memory and Compaction](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction) | OpenAI |
+| 3 | [Agent Skills Specification](https://agentskills.io/specification) | Agent Skills |
+| 4 | [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) | Anthropic |
+| 5 | [Skills](https://developers.openai.com/api/docs/guides/tools-skills) | OpenAI |
+| 6 | [Building Reliable Agents with Memory and Compaction](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction) | OpenAI |
 
 #### Then Read
 
@@ -145,7 +146,6 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 | [Custom instructions with AGENTS.md - Codex](https://developers.openai.com/codex/guides/agents-md) | OpenAI |
 | [Best practices for Claude Code](https://www.anthropic.com/engineering/claude-code-best-practices) | Anthropic |
 | [Agent Skills - Codex](https://developers.openai.com/codex/skills) | OpenAI |
-| [Agent Skills Specification](https://agentskills.io/specification) | Agent Skills |
 | [Skills in OpenAI API](https://developers.openai.com/cookbook/examples/skills_in_api) | OpenAI |
 
 #### Build Exercise
