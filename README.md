@@ -36,7 +36,7 @@ Understanding that loop makes the rest of the system easier to reason about:
 - Why subagents improve exploration while protecting the main context
 - How skills, MCP, and hooks each add capability around the same core loop
 
-These pages are the upstream English Markdown tutorials from [shareAI-lab/mini-claude-code](https://github.com/shareAI-lab/mini-claude-code), kept as source material rather than rewritten.
+These pages are based on the upstream English Markdown tutorials from [shareAI-lab/mini-claude-code](https://github.com/shareAI-lab/mini-claude-code), with added Study Notes and inline source code for this handbook.
 
 | Step | Page | Code |
 |------|------|------|
