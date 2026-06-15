@@ -132,9 +132,9 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 
 | # | Title | Vendor |
 |---|-------|--------|
-| 1 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic |
-| 2 | [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) | Anthropic |
-| 3 | [Agent Skills Specification](https://agentskills.io/specification) | Agent Skills |
+| 1 | [Agent Skills Specification](https://agentskills.io/specification) | Agent Skills |
+| 2 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic |
+| 3 | [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) | Anthropic |
 | 4 | [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) | Anthropic |
 | 5 | [Skills](https://developers.openai.com/api/docs/guides/tools-skills) | OpenAI |
 | 6 | [Building Reliable Agents with Memory and Compaction](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction) | OpenAI |
