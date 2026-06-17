@@ -73,13 +73,14 @@ Supporting files are included in the same folder: `requirements.txt`, `.env.exam
 
 | # | Title | Vendor |
 |---|-------|--------|
-| 1 | [Prompt guidance](https://developers.openai.com/api/docs/guides/prompt-guidance) | OpenAI |
-| 2 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI |
-| 3 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic |
-| 4 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google |
-| 5 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic |
-| 6 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI |
-| 7 | [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents) | OpenAI |
+| 1 | [System Prompts](https://platform.claude.com/docs/en/release-notes/system-prompts) | Anthropic |
+| 2 | [Prompt guidance](https://developers.openai.com/api/docs/guides/prompt-guidance) | OpenAI |
+| 3 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI |
+| 4 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic |
+| 5 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google |
+| 6 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic |
+| 7 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI |
+| 8 | [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents) | OpenAI |
 
 #### Then Read
 
@@ -87,7 +88,6 @@ Supporting files are included in the same folder: `requirements.txt`, `.env.exam
 |-------|--------|
 | [How We Build Effective Agents: Barry Zhang, Anthropic](https://www.youtube.com/watch?v=D7_ipDqhtwk) | Anthropic |
 | [Phistory — Claude Code & Codex CLI System Prompt Diff History](https://phistory.cc/) | Community |
-| [System Prompts](https://platform.claude.com/docs/en/release-notes/system-prompts) | Anthropic |
 | [OpenAI Agents SDK examples](https://openai.github.io/openai-agents-python/examples/) | OpenAI |
 | [Structured Outputs for Multi-Agent Systems](https://developers.openai.com/cookbook/examples/structured_outputs_multi_agent) | OpenAI |
 
