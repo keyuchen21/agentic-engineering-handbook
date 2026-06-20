@@ -169,9 +169,9 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 
 | # | Title | Vendor |
 |---|-------|--------|
-| 1 | [Agent Harness Engineering: A Survey](https://picrew.github.io/LLM-Harness/) | Academic |
-| 2 | [Unrolling the Codex agent loop](https://openai.com/index/unrolling-the-codex-agent-loop/) | OpenAI |
-| 3 | [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness/) | OpenAI |
+| 1 | [Unrolling the Codex agent loop](https://openai.com/index/unrolling-the-codex-agent-loop/) | OpenAI |
+| 2 | [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness/) | OpenAI |
+| 3 | [Agent Harness Engineering: A Survey](https://picrew.github.io/LLM-Harness/) | Academic |
 | 4 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic |
 
 #### Then Read
