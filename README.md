@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--06--18-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--06--19-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **159 curated resources** into one structured learning roadmap.
+This repository consolidates **160 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -200,7 +200,8 @@ Build a mini coding harness: plan file, shell tool, apply patch, test gate, even
 |---|-------|--------|
 | 1 | [Introducing Codex](https://openai.com/index/introducing-codex/) | OpenAI |
 | 2 | [Best practices for Claude Code](https://www.anthropic.com/engineering/claude-code-best-practices) | Anthropic |
-| 3 | [Enabling Claude Code to work more autonomously](https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously) | Anthropic |
+| 3 | [How Claude Code works in large codebases](https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start) | Anthropic |
+| 4 | [Enabling Claude Code to work more autonomously](https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously) | Anthropic |
 
 #### Then Read
 
@@ -254,7 +255,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 
 | Track | Start Here | Why It Matters |
 |-------|------------|----------------|
-| Agentic coding workflow | [Coding Agents 101](https://devin.ai/agents101), [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices), [How Anthropic teams use Claude Code](https://www-cdn.anthropic.com/58284b19e702b49db9302d5b6f135ad8871e7658.pdf) | Turns agent theory into day-to-day engineering habits: prompting, checkpoints, verification, parallel work, and team rollout. |
+| Agentic coding workflow | [Coding Agents 101](https://devin.ai/agents101), [How Claude Code works in large codebases](https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start), [How Anthropic teams use Claude Code](https://www-cdn.anthropic.com/58284b19e702b49db9302d5b6f135ad8871e7658.pdf) | Turns agent theory into day-to-day engineering habits: prompting, checkpoints, verification, parallel work, and team rollout. |
 | Spec-driven building | [The spec is dead, long live the spec!](https://blog.ravi-mehta.com/p/specs-are-the-new-source-code), [Multi-stack Web App Builds](https://github.com/mihail911/modern-software-dev-assignments/tree/master/week8) | Treats specs, prompts, and assignments as executable source material for agents. |
 | Context failure modes | [How Long Contexts Fail](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html), [Context Rot](https://research.trychroma.com/context-rot), [Progressive disclosure](https://docs.claude-mem.ai/progressive-disclosure) | Helps diagnose context poisoning, distraction, confusion, context degradation, and retrieval overload. |
 | MCP operations | [Build a Remote MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#add-authentication), [Introducing the MCP Registry](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/) | Shows how MCP moves from local prototypes to authenticated, discoverable, production-grade tool ecosystems. |
@@ -302,6 +303,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Macro Evals for Agentic Systems](https://developers.openai.com/cookbook/topic/agents) | OpenAI | Evals; Agentic systems | Evaluate agents at the end-to-end/macro level, not just individual step outputs. | 2026-05-19 |
 | P0 | [Best practices for Claude Code](https://www.anthropic.com/engineering/claude-code-best-practices) | Anthropic | Coding agents; Claude Code | Claude Code methodology: verification loop, explore-plan-code, CLAUDE.md, permissions, MCP, subagents, context management. | 2025-04-18 |
 | P0 | [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) | Anthropic | Claude Code; Coding agents; Workflow | Official Claude Code docs for planning, CLAUDE.md, verification, tool use, and team workflows. | Current docs |
+| P0 | [How Claude Code works in large codebases](https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start) | Anthropic | Claude Code; Large codebases; Enterprise | Patterns for large-codebase Claude Code adoption: layered CLAUDE.md, hooks, skills, plugins, MCP, LSP, subagents, and rollout ownership. | 2026-05-14 |
 | P0 | [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) | Anthropic | Agents; Multi-agent; Research | Claude Research multi-agent architecture: planner + parallel research agents + synthesis; production multi-agent experience. | 2025-06-13 |
 | P0 | [Writing effective tools for AI agents - with AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) | Anthropic | Tools; MCP; Evals | Tool quality determines agent quality: tool descriptions, context budget, eval, and letting Claude optimize its own tools. | 2025-09-11 |
 | P0 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic | Context; Agents | Context is the agent's core resource: selection, compression, isolation, persistence, and context pollution control. | 2025-09-29 |
