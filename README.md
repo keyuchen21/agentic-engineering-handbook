@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--06--19-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--06--21-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,9 +13,20 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **160 curated resources** into one structured learning roadmap.
+This repository consolidates **161 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
+
+---
+
+## How To Use This Handbook
+
+Pick the path that matches your starting point:
+
+- **New to agents:** follow the [Learning Roadmap](#learning-roadmap) from Phase 0 to Phase 6. Treat each `Read First`, `Then Read`, and `Build Exercise` as a checklist.
+- **Already building LLM apps:** start at [Phase 2](#phase-2--mcp--tool-ecosystem) or [Phase 3](#phase-3--context-memory--skills), then fill gaps in agent loop, tool calling, evals, and production engineering.
+- **Trying to build projects:** use the phase-level `Build Exercise` prompts, then branch into [Applied Practice Tracks](#applied-practice-tracks) for coding agents, security, code review, or SRE.
+- **Looking for references:** jump to the [Full Reading Table](#full-reading-table). Read `P0` first, use `P1` for implementation detail, and keep `P2` as optional background.
 
 ---
 
@@ -261,7 +272,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | MCP operations | [Build a Remote MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#add-authentication), [Introducing the MCP Registry](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/) | Shows how MCP moves from local prototypes to authenticated, discoverable, production-grade tool ecosystems. |
 | Agent security | [OWASP Top Ten](https://owasp.org/www-project-top-ten/), [SAST vs. DAST vs. RASP](https://www.splunk.com/en_us/blog/learn/sast-vs-dast.html), [Copilot Remote Code Execution via Prompt Injection](https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/) | Grounds agent security in classic AppSec plus new prompt-injection and tool-permission failure modes. |
 | Code review systems | [How to Review Code Effectively](https://github.blog/developer-skills/github/how-to-review-code-effectively-a-github-staff-engineers-philosophy/), [AI-Assisted Assessment of Coding Practices in Modern Code Review](https://arxiv.org/pdf/2405.13565), [AI Code Review Implementation Best Practices](https://graphite.dev/guides/ai-code-review-implementation-best-practices) | Connects human review quality with AI-assisted review, automated comments, and review policy design. |
-| Production and SRE agents | [Introduction to Site Reliability Engineering](https://sre.google/sre-book/introduction/), [Observability Basics You Should Know](https://last9.io/blog/traces-spans-observability-basics/), [Kubernetes Troubleshooting with AI](https://resolve.ai/blog/kubernetes-troubleshooting-in-resolve-ai) | Extends agents beyond coding into incidents, observability, root-cause analysis, on-call, and production operations. |
+| Production and SRE agents | [ML and LLM system design](https://www.evidentlyai.com/ml-system-design), [Introduction to Site Reliability Engineering](https://sre.google/sre-book/introduction/), [Observability Basics You Should Know](https://last9.io/blog/traces-spans-observability-basics/) | Extends agents beyond coding into incidents, observability, root-cause analysis, on-call, and production operations. |
 
 ---
 
@@ -397,6 +408,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [How to review code effectively](https://github.blog/developer-skills/github/how-to-review-code-effectively-a-github-staff-engineers-philosophy/) | GitHub | Code review; Engineering practice | Staff-engineer philosophy for effective code review: reviewer intent, clarity, scope, and human communication. | Current article |
 | P1 | [AI-Assisted Assessment of Coding Practices in Modern Code Review](https://arxiv.org/pdf/2405.13565) | Academic | Code review; AI review; Google | AutoCommenter paper: architecture, deployment, and evaluation of an LLM-assisted code-review system at Google scale. | 2024-05-22 |
 | P1 | [AI code review implementation and best practices](https://graphite.dev/guides/ai-code-review-implementation-best-practices) | Graphite | Code review; AI review; Workflow | Implementation checklist for introducing AI code review into repository hooks, policies, team rules, and review workflows. | Current article |
+| P1 | [ML and LLM system design: 800 case studies to learn from](https://www.evidentlyai.com/ml-system-design) | Evidently AI | ML systems; LLM systems; Case studies | Database of production ML and LLM case studies from 150+ companies, including GenAI, RAG, AI agents, evaluation, and deployment architecture examples. | 2025-12-22 |
 | P1 | [Introduction to Site Reliability Engineering](https://sre.google/sre-book/introduction/) | Google | SRE; Production; Reliability | Foundational SRE framing: software engineering applied to operations, toil reduction, risk, and reliable production systems. | Current book |
 | P1 | [Traces & Spans: Observability Basics You Should Know](https://last9.io/blog/traces-spans-observability-basics/) | Last9 | Observability; Tracing; Production | Practical primer on traces and spans for debugging distributed systems and giving agents useful production evidence. | 2025-04-23 |
 | P1 | [Kubernetes Troubleshooting in Resolve AI](https://resolve.ai/blog/kubernetes-troubleshooting-in-resolve-ai) | Resolve AI | SRE agents; Kubernetes; Troubleshooting | Production-agent case study for Kubernetes root-cause analysis across pods, deployments, logs, metrics, and infrastructure signals. | 2026-05-21 |
