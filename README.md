@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--06--24-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--06--25-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **168 curated resources** into one structured learning roadmap.
+This repository consolidates **174 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -149,13 +149,14 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 |---|-------|--------|
 | 1 | [Agent Skills Specification](https://agentskills.io/specification) | Agent Skills |
 | 2 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic |
-| 3 | [How Long Contexts Fail](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html) | Drew Breunig |
-| 4 | [Context Rot](https://research.trychroma.com/context-rot) | Chroma |
-| 5 | [Progressive disclosure](https://docs.claude-mem.ai/progressive-disclosure) | Claude-Mem |
-| 6 | [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) | Anthropic |
-| 7 | [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) | Anthropic |
-| 8 | [Skills](https://developers.openai.com/api/docs/guides/tools-skills) | OpenAI |
-| 9 | [Building Reliable Agents with Memory and Compaction](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction) | OpenAI |
+| 3 | [How the Open Knowledge Format can improve data sharing](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing) | Google Cloud |
+| 4 | [How Long Contexts Fail](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html) | Drew Breunig |
+| 5 | [Context Rot](https://research.trychroma.com/context-rot) | Chroma |
+| 6 | [Progressive disclosure](https://docs.claude-mem.ai/progressive-disclosure) | Claude-Mem |
+| 7 | [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) | Anthropic |
+| 8 | [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) | Anthropic |
+| 9 | [Skills](https://developers.openai.com/api/docs/guides/tools-skills) | OpenAI |
+| 10 | [Building Reliable Agents with Memory and Compaction](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction) | OpenAI |
 
 #### Then Read
 
@@ -184,11 +185,14 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 | 2 | [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness/) | OpenAI |
 | 3 | [Agent Harness Engineering: A Survey](https://picrew.github.io/LLM-Harness/) | Academic |
 | 4 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic |
+| 5 | [Deep Agents](https://github.com/langchain-ai/deepagents) | LangChain |
 
 #### Then Read
 
 | Title | Vendor |
 |-------|--------|
+| [Deep research](https://developers.openai.com/api/docs/guides/deep-research) | OpenAI |
+| [Open Deep Research](https://github.com/langchain-ai/open_deep_research) | LangChain |
 | [The next evolution of the Agents SDK](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) | OpenAI |
 | [Using PLANS.md for multi-hour problem solving](https://developers.openai.com/cookbook/articles/codex_exec_plans) | OpenAI |
 | [Build long-running AI agents that pause, resume, and never lose context with ADK](https://developers.googleblog.com/build-long-running-ai-agents-that-pause-resume-and-never-lose-context-with-adk/) | Google |
@@ -254,6 +258,7 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 | Title | Vendor |
 |-------|--------|
 | [How we build evals for Deep Agents](https://www.langchain.com/blog/how-we-build-evals-for-deep-agents) | LangChain |
+| [Deep Research Bench](https://futuresearch.ai/deep-research-bench/) | FutureSearch |
 | [How to Evaluate Tool-Calling Agents](https://arize.com/blog/how-to-evaluate-tool-calling-agents/) | Arize |
 | [AI agent evaluation: How to test, debug, and improve agents in production](https://arize.com/blog/why-testing-ai-agents-is-non-negotiable/) | Arize |
 | [A Survey on Agent-as-a-Judge](https://arxiv.org/html/2601.05111v1) | Academic |
@@ -278,6 +283,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | Spec-driven building | [The spec is dead, long live the spec!](https://blog.ravi-mehta.com/p/specs-are-the-new-source-code), [Multi-stack Web App Builds](https://github.com/mihail911/modern-software-dev-assignments/tree/master/week8) | Treats specs, prompts, and assignments as executable source material for agents. |
 | Context failure modes | [How Long Contexts Fail](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html), [Context Rot](https://research.trychroma.com/context-rot), [Progressive disclosure](https://docs.claude-mem.ai/progressive-disclosure) | Helps diagnose context poisoning, distraction, confusion, context degradation, and retrieval overload. |
 | Evals and observability | [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents), [Agent observability powers agent evaluation](https://www.langchain.com/blog/agent-observability-powers-agent-evaluation), [Agent Evaluation Readiness Checklist](https://www.langchain.com/blog/agent-evaluation-readiness-checklist) | Builds the feedback loop for traces, datasets, graders, offline/online evals, and regression gates. |
+| Deep research agents | [Deep research](https://developers.openai.com/api/docs/guides/deep-research), [Open Deep Research](https://github.com/langchain-ai/open_deep_research), [Alibaba-NLP/DeepResearch](https://github.com/Alibaba-NLP/DeepResearch) | Practices long-running research agents: planning, search, MCP, citations, report synthesis, and benchmark-driven improvement. |
 | MCP operations | [Build a Remote MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#add-authentication), [Introducing the MCP Registry](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/) | Shows how MCP moves from local prototypes to authenticated, discoverable, production-grade tool ecosystems. |
 | Agent security | [OWASP Top Ten](https://owasp.org/www-project-top-ten/), [SAST vs. DAST vs. RASP](https://www.splunk.com/en_us/blog/learn/sast-vs-dast.html), [Copilot Remote Code Execution via Prompt Injection](https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/) | Grounds agent security in classic AppSec plus new prompt-injection and tool-permission failure modes. |
 | Code review systems | [How to Review Code Effectively](https://github.blog/developer-skills/github/how-to-review-code-effectively-a-github-staff-engineers-philosophy/), [AI-Assisted Assessment of Coding Practices in Modern Code Review](https://arxiv.org/pdf/2405.13565), [AI Code Review Implementation Best Practices](https://graphite.dev/guides/ai-code-review-implementation-best-practices) | Connects human review quality with AI-assisted review, automated comments, and review policy design. |
@@ -303,6 +309,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [New tools and features in the Responses API](https://openai.com/index/new-tools-and-features-in-the-responses-api/) | OpenAI | MCP; Responses API; Tools | Responses API extended to remote MCP servers, image/code/file tools; see how OpenAI integrates MCP into its runtime. | 2025-05-21 |
 | P0 | [MCP and Connectors](https://developers.openai.com/api/docs/guides/tools-connectors-mcp) | OpenAI | MCP; Connectors; Responses API | Official guide to connecting remote MCP servers and connectors; includes approvals and security considerations. | Current docs |
 | P0 | [Building MCP servers for ChatGPT Apps and API integrations](https://developers.openai.com/api/docs/mcp) | OpenAI | MCP; ChatGPT Apps; API | Official guide to writing MCP servers: supply tools/knowledge to ChatGPT Apps, deep research, and API integrations. | Current docs |
+| P0 | [Deep research](https://developers.openai.com/api/docs/guides/deep-research) | OpenAI | Deep research; MCP; API | Official guide to deep research models, including web search, file search, remote MCP servers, code interpreter, and security risks. | Current docs |
 | P0 | [Building a Deep Research MCP Server](https://developers.openai.com/cookbook/examples/deep_research_api/how_to_build_a_deep_research_mcp_server/readme) | OpenAI | MCP; Deep research | Minimal implementation of a search/fetch MCP server for Deep Research. | 2025-06-25 |
 | P0 | [Model Context Protocol - Codex](https://developers.openai.com/codex/mcp) | OpenAI | MCP; Codex | How Codex CLI/IDE connects to MCP servers, adding Figma, browser, docs, and internal tool context to agents. | Current docs |
 | P0 | [Introducing Codex](https://openai.com/index/introducing-codex/) | OpenAI | Agents; Coding; Sandbox | Cloud-based software engineering agent: parallel tasks, repo sandbox, running tests/linters/type checkers, producing auditable evidence. | 2025-05-16 |
@@ -339,6 +346,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Code execution with MCP: Building more efficient agents](https://www.anthropic.com/engineering/code-execution-with-mcp) | Anthropic | MCP; Code execution; Context | Key article on MCP scale challenges: reduce token overhead with code execution/on-demand tools; learn progressive disclosure. | 2025-11-04 |
 | P0 | [Introducing advanced tool use on Claude Developer Platform](https://www.anthropic.com/engineering/advanced-tool-use) | Anthropic | Tools; MCP; Advanced tool use | Tool search, deferred loading, programmatic tool calling; solving context pollution from large numbers of MCP tools. | 2025-11-24 |
 | P0 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic | Harness; Long-running agents | Essential harness reading: working across multiple context windows, task logging, external state, agent self-recovery. | 2025-11-26 |
+| P0 | [Deep Agents](https://github.com/langchain-ai/deepagents) | LangChain | Harness; Long-running agents; Deep research | Opinionated open-source agent harness for planning, context management, subagents, filesystem, memory, and human-in-the-loop workflows. | Current repo |
 | P0 | [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) | Anthropic | Evals; Agents | Agent evals are more complex than static evals: multi-turn, tools, state changes, creative solutions, failure taxonomy. | 2026-01-09 |
 | P0 | [Measuring AI agent autonomy in practice](https://www.anthropic.com/news/measuring-agent-autonomy) | Anthropic | Agents; Autonomy; Measurement | Quantify agent autonomy using metrics like task duration and supervision needs; ideal for building autonomy benchmarks. | 2026-02-18 |
 | P0 | [Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps) | Anthropic | Harness; Application development | Harness design patterns for delegating long-running app development tasks to agents; compare with OpenAI Codex harness. | 2026-03-24 |
@@ -355,12 +363,15 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [Parallel Agents with the OpenAI Agents SDK](https://developers.openai.com/cookbook/examples/agents_sdk/parallel_agents) | OpenAI | Agents; Parallelism; Agents SDK | Parallel agent patterns: decompose tasks, execute in parallel, aggregate results. | 2025-05-01 |
 | P1 | [Multi-Agent Portfolio Collaboration with OpenAI Agents SDK](https://developers.openai.com/cookbook/examples/agents_sdk/multi-agent-portfolio-collaboration/multi_agent_portfolio_collaboration) | OpenAI | Agents; Multi-agent; Portfolio | Multi-agent collaboration business example: research, analysis, combined output. | 2025-05-28 |
 | P1 | [MCP-Powered Agentic Voice Framework](https://developers.openai.com/cookbook/topic/agents) | OpenAI | MCP; Voice; Agents | Voice agent + MCP paradigm: real-time interaction, tool extension, task execution. | 2025-06-17 |
-| P1 | [Deep Research API with the Agents SDK](https://developers.openai.com/cookbook/topic/agents) | OpenAI | Agents; Deep research; Agents SDK | Integrate Deep Research API into Agents SDK workflows. | 2025-06-25 |
+| P1 | [Deep Research API with the Agents SDK](https://developers.openai.com/cookbook/examples/deep_research_api/introduction_to_deep_research_api_agents) | OpenAI | Agents; Deep research; Agents SDK | Integrate Deep Research API into Agents SDK workflows. | 2025-06-25 |
+| P1 | [Open Deep Research](https://github.com/langchain-ai/open_deep_research) | LangChain | Deep research; LangGraph; MCP | Configurable open-source deep research agent that supports multiple model providers, search tools, MCP servers, and benchmark evaluation. | Current repo |
+| P1 | [Alibaba-NLP/DeepResearch](https://github.com/Alibaba-NLP/DeepResearch) | Alibaba | Deep research; Open-weight models; Web agents | Open-weight Tongyi DeepResearch model/repo for long-horizon information-seeking benchmarks; useful after learning the harness and API layers. | Current repo |
 | P1 | [Desktop Extensions: One-click MCP server installation for Claude Desktop](https://www.anthropic.com/engineering/desktop-extensions) | Anthropic | MCP; Claude Desktop; Packaging | Package local MCP servers as one-click install extensions; learn MCP distribution/installation/local permission issues. | 2025-06-26 |
 | P1 | [Building a Supply-Chain Copilot with OpenAI Agent SDK and Databricks MCP Servers](https://developers.openai.com/cookbook/topic/agents) | OpenAI | MCP; Agents; Databricks | Enterprise data platform MCP + Agent SDK business agent example. | 2025-07-08 |
 | P1 | [Introducing ChatGPT agent: bridging research and action](https://openai.com/index/introducing-chatgpt-agent/) | OpenAI | Agents; ChatGPT; Computer use | End-user-facing ChatGPT agent: combining research, browser, computer use, file/slide capabilities. | 2025-07-17 |
 | P1 | [ChatGPT agent System Card](https://openai.com/index/chatgpt-agent-system-card/) | OpenAI | Agents; Safety; Evals | Learn pre-launch risk classification, evaluation, permissions, human confirmation, and abuse prevention for agent products. | 2025-07-17 |
 | P1 | [Context Engineering - Short-Term Memory Management with Sessions](https://developers.openai.com/cookbook/topic/agents) | OpenAI | Context; Sessions; Agents | How short-term memory/session state affects agent reliability. | 2025-09-09 |
+| P1 | [How the Open Knowledge Format can improve data sharing](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing) | Google Cloud | Knowledge; Context; Data agents; Standards | Introduces OKF as a YAML-based way to package schemas, metrics, APIs, docs, and governance context for humans and AI agents. | 2025-10-09 |
 | P1 | [Progressive disclosure](https://docs.claude-mem.ai/progressive-disclosure) | Claude-Mem | Context; Memory; Progressive disclosure | Make retrieval costs visible and let the agent fetch details on demand, reducing context pollution and attention waste. | Current docs |
 | P1 | [Introducing upgrades to Codex](https://openai.com/index/introducing-upgrades-to-codex/) | OpenAI | Agents; Coding; IDE | Codex evolves from research preview to daily dev tool: CLI, IDE, web/mobile collaboration, and more independent task execution. | 2025-09-15 |
 | P1 | [Introducing Claude Sonnet 4.5](https://www.anthropic.com/news/claude-sonnet-4-5) | Anthropic | Agents; Claude Agent SDK; Computer use | Sonnet 4.5 emphasizes coding, complex agents, computer use, with simultaneous Agent SDK launch. | 2025-09-29 |
@@ -386,6 +397,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [Eval awareness in Claude Opus 4.6's BrowseComp performance](https://www.anthropic.com/engineering) | Anthropic | Evals; Agent awareness | Risk of models recognizing/adapting to evaluations; relevant to agent benchmark credibility discussions. | 2026-03-06 |
 | P1 | [How we built Claude Code auto mode: a safer way to skip permissions](https://www.anthropic.com/engineering/claude-code-auto-mode) | Anthropic | Safety; Permissions; Autonomy | Claude Code auto mode risk classification, allow/block rules, exception handling, and security testing. | 2026-03-25 |
 | P1 | [How we build evals for Deep Agents](https://www.langchain.com/blog/how-we-build-evals-for-deep-agents) | LangChain | Evals; Deep agents; Traces | Targeted eval design for deep agents: select production behaviors, tag evals, inspect traces, and avoid false confidence from broad but shallow suites. | 2026-03-26 |
+| P1 | [Deep Research Bench](https://futuresearch.ai/deep-research-bench/) | FutureSearch | Evals; Deep research; Benchmark | Benchmark for web research agents using offline web snapshots and carefully curated answers to make results more stable and objective. | 2025-06-25 |
 | P1 | [How to Evaluate Tool-Calling Agents](https://arize.com/blog/how-to-evaluate-tool-calling-agents/) | Arize | Evals; Tool calling; Trajectories | Evaluation workflow for tool selection, tool arguments, trajectories, and LLM-as-judge scoring of tool-using agents. | 2026 |
 | P1 | [A Survey on Agent-as-a-Judge](https://arxiv.org/html/2601.05111v1) | Academic | Evals; Agent-as-a-judge; Survey | Survey of agent-based evaluation methods that extend LLM-as-judge with multi-step reasoning, tools, and external observation. | 2026 |
 | P1 | [Migrate a Legacy Codebase with Sandbox Agents](https://developers.openai.com/cookbook/topic/agents) | OpenAI | Agents; Sandbox; Evals | Sandbox agent evaluation and execution patterns in large legacy code migrations. | 2026-04-07 |
