@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--06--25-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--06--27-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **174 curated resources** into one structured learning roadmap.
+This repository consolidates **175 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -213,10 +213,11 @@ Build a mini coding harness: plan file, shell tool, apply patch, test gate, even
 
 | # | Title | Vendor |
 |---|-------|--------|
-| 1 | [Introducing Codex](https://openai.com/index/introducing-codex/) | OpenAI |
-| 2 | [Best practices for Claude Code](https://www.anthropic.com/engineering/claude-code-best-practices) | Anthropic |
-| 3 | [How Claude Code works in large codebases](https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start) | Anthropic |
-| 4 | [Enabling Claude Code to work more autonomously](https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously) | Anthropic |
+| 1 | [AGENTS.md](https://agents.md/) | Agentic AI Foundation |
+| 2 | [Introducing Codex](https://openai.com/index/introducing-codex/) | OpenAI |
+| 3 | [Best practices for Claude Code](https://www.anthropic.com/engineering/claude-code-best-practices) | Anthropic |
+| 4 | [How Claude Code works in large codebases](https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start) | Anthropic |
+| 5 | [Enabling Claude Code to work more autonomously](https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously) | Anthropic |
 
 #### Then Read
 
@@ -306,6 +307,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) | Anthropic | MCP; Standards | The origin article for MCP: an open standard connecting AI assistants to data, tools, and systems. | 2024-11-25 |
 | P0 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic | Agents; Patterns; Frameworks | Essential agent primer: workflow vs agent, prompt/tool/retrieval, orchestrator-worker, evaluator-optimizer patterns. | 2024-12-19 |
 | P0 | [Coding Agents 101: The Art of Actually Getting Things Done](https://devin.ai/agents101) | Cognition | Coding agents; Workflows; Practice | Product-agnostic guide to prompting, delegation, verification, environment setup, security, and cost management for coding agents. | 2025-06 |
+| P0 | [AGENTS.md](https://agents.md/) | Agentic AI Foundation | Coding agents; Repo instructions; Standards | Open Markdown convention for giving coding agents setup, test, style, safety, and workflow instructions across repos and tools. | Current docs |
 | P0 | [New tools and features in the Responses API](https://openai.com/index/new-tools-and-features-in-the-responses-api/) | OpenAI | MCP; Responses API; Tools | Responses API extended to remote MCP servers, image/code/file tools; see how OpenAI integrates MCP into its runtime. | 2025-05-21 |
 | P0 | [MCP and Connectors](https://developers.openai.com/api/docs/guides/tools-connectors-mcp) | OpenAI | MCP; Connectors; Responses API | Official guide to connecting remote MCP servers and connectors; includes approvals and security considerations. | Current docs |
 | P0 | [Building MCP servers for ChatGPT Apps and API integrations](https://developers.openai.com/api/docs/mcp) | OpenAI | MCP; ChatGPT Apps; API | Official guide to writing MCP servers: supply tools/knowledge to ChatGPT Apps, deep research, and API integrations. | Current docs |
