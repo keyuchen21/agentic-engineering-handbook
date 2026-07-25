@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **178 curated resources** into one structured learning roadmap.
+This repository consolidates **179 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -58,6 +58,8 @@ These pages are based on the upstream English Markdown tutorials from [shareAI-l
 | v4 | [Skills Mechanism](tutorials/agent-loop/v4-skills-mechanism.md) | [v4_skills_agent.py](tutorials/agent-loop/v4_skills_agent.py) |
 
 Supporting files are included in the same folder: `requirements.txt`, `.env.example`, `v0_bash_agent_mini.py`, and `skills/`.
+
+**Next reference:** [minion.py](https://github.com/Sentdex/minion/blob/master/minion.py) is a compact, single-file coding agent worth reading after this lab. It shows how an OpenAI-compatible agent loop grows to include tool calls, sessions, resume, approvals, memory, and context compaction.
 
 ---
 
@@ -310,6 +312,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Introducing the Model Context Protocol](https://www.anthropic.com/news/model-context-protocol) | Anthropic | MCP; Standards | The origin article for MCP: an open standard connecting AI assistants to data, tools, and systems. | 2024-11-25 |
 | P0 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic | Agents; Patterns; Frameworks | Essential agent primer: workflow vs agent, prompt/tool/retrieval, orchestrator-worker, evaluator-optimizer patterns. | 2024-12-19 |
 | P0 | [Coding Agents 101: The Art of Actually Getting Things Done](https://devin.ai/agents101) | Cognition | Coding agents; Workflows; Practice | Product-agnostic guide to prompting, delegation, verification, environment setup, security, and cost management for coding agents. | 2025-06 |
+| P0 | [minion.py](https://github.com/Sentdex/minion/blob/master/minion.py) | Sentdex | Agent loop; Coding agents; Reference implementation | Compact single-file coding agent showing OpenAI-compatible model calls, tool-call parsing, sessions, resume, approvals, memory, and context compaction in runnable Python. | Current repo |
 | P0 | [AGENTS.md](https://agents.md/) | Agentic AI Foundation | Coding agents; Repo instructions; Standards | Open Markdown convention for giving coding agents setup, test, style, safety, and workflow instructions across repos and tools. | Current docs |
 | P0 | [New tools and features in the Responses API](https://openai.com/index/new-tools-and-features-in-the-responses-api/) | OpenAI | MCP; Responses API; Tools | Responses API extended to remote MCP servers, image/code/file tools; see how OpenAI integrates MCP into its runtime. | 2025-05-21 |
 | P0 | [MCP and Connectors](https://developers.openai.com/api/docs/guides/tools-connectors-mcp) | OpenAI | MCP; Connectors; Responses API | Official guide to connecting remote MCP servers and connectors; includes approvals and security considerations. | Current docs |
