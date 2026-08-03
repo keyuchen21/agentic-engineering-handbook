@@ -69,7 +69,7 @@ Supporting files are included in the same folder: `requirements.txt`, `.env.exam
 
 #### Key Mental Models
 
-**Should I build an agent?** (4-question checklist from Barry Zhang's talk)
+**Should I build an agent?** (4-question checklist from Barry Zhang's talk - Anthropic)
 
 | Question | If No → Workflow | If Yes → Agent |
 |----------|-----------------|----------------|
