@@ -272,6 +272,7 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue â†
 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic |
 | [Evals API Use-case - MCP Evaluation](https://developers.openai.com/cookbook/examples/evaluation/use-cases/mcp_eval_notebook) | OpenAI |
 | [Measuring AI agent autonomy in practice](https://www.anthropic.com/news/measuring-agent-autonomy) | Anthropic |
+| [Agent QA](https://vostride.com/docs/agent-qa) | Vostride |
 
 #### Build Exercise
 
@@ -452,6 +453,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [Traces & Spans: Observability Basics You Should Know](https://last9.io/blog/traces-spans-observability-basics/) | Last9 | Observability; Tracing; Production | Practical primer on traces and spans for debugging distributed systems and giving agents useful production evidence. | 2025-04-23 |
 | P1 | [Kubernetes Troubleshooting in Resolve AI](https://resolve.ai/blog/kubernetes-troubleshooting-in-resolve-ai) | Resolve AI | SRE agents; Kubernetes; Troubleshooting | Production-agent case study for Kubernetes root-cause analysis across pods, deployments, logs, metrics, and infrastructure signals. | 2026-05-21 |
 | P1 | [The role of multi agent systems in making software engineers AI-native](https://resolve.ai/blog/role-of-multi-agent-systems-AI-native-engineering) | Resolve AI | Multi-agent; SRE; AI-native engineering | Argues that production engineering needs specialized multi-agent systems for parallel investigation and domain-aware coordination. | 2026-03-20 |
+| P1 | [Agent QA](https://github.com/vostride/agent-qa) | Vostride | QA agents; MCP; Web/mobile testing; Memory | Source-available QA agent that turns natural-language journeys into repeatable runs, preserves evidence, and feeds test memory into later regressions. | Current repo |
 | P0 | [learn-claude-code](https://github.com/shareAI-lab/learn-claude-code) | Community | Harness; Agent loop; Tools; Context | Hands-on 20-lesson tutorial building a Claude Codeâ€“like agent harness from scratch: agent loop, tool integration, context compaction, multi-agent coordination, permissions, MCP plugins. | 2026 |
 | P0 | [Dive into Claude Code: The Design Space of Today's and Future AI Agent Systems](https://arxiv.org/abs/2604.14228) | Academic | Agent architecture; Claude Code; Design space | Deep technical analysis of Claude Code's architecture: agentic loop, permission system, context compaction, extensibility (MCP/plugins/skills/hooks), subagent delegation, and comparison with open-source alternatives. | 2026-04-14 |
 | P0 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI | Tools; Function calling; API | Official guide to function/tool calling: define functions with JSON schemas, handle model tool calls, execute and return results. | Current docs |
