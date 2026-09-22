@@ -161,6 +161,8 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 | 10 | [Skills](https://developers.openai.com/api/docs/guides/tools-skills) | OpenAI |
 | 11 | [Building Reliable Agents with Memory and Compaction](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction) | OpenAI |
 
+**Reading note:** Read *The new rules of context engineering* after *Effective context engineering for AI agents*. When upgrading models, use evals to identify outdated instructions that can be removed, keep repository guidance focused on project-specific gotchas, and load detailed skills only when needed. Anthropic's reported removal of over 80% of Claude Code's system prompt without measurable loss on its coding evals is a model- and product-specific result, not a universal reduction target.
+
 #### Then Read
 
 | Title | Vendor |
