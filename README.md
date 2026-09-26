@@ -279,11 +279,21 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 
 Build a smoke/macro eval suite for your agent: task success rate, tool misuse, prompt injection resistance, latency, cost, and human approval count.
 
+#### Next Step — From Evaluating Agents to Training and Search
+
+The [CMU 11-768 schedule](https://www.cmu-agents.com/#/schedule) starts with agent fundamentals, then extends into topics that make it an advanced follow-on to this roadmap:
+
+- **Training methods:** supervised fine-tuning (SFT), reinforcement learning basics, advanced RL algorithms, and RL systems.
+- **Search and inference:** reranking, critic models, and tree search.
+- **Integrated practice:** assignments progress through Harness → Eval → Training, connecting agent infrastructure and evaluation to learned behavior.
+
+Phase 6 provides a useful bridge: evaluation supplies feedback for studying training and search methods. This is the handbook's recommended learning sequence, not an official course prerequisite. Use the paired schedule and recordings in [Advanced Coursework](#advanced-coursework); later scheduled topics may not yet have recordings.
+
 ---
 
 ## Advanced Coursework
 
-After completing Phases 0–6, use this graduate course to deepen your understanding of agent capabilities, planning, memory, training, safety, and interaction.
+Recommended after the core roadmap for its training and search topics described in Phase 6. The opening lectures also cover fundamentals and can be used earlier as review.
 
 | Priority | Course & Paired Materials | Provider |
 |----------|--------------------------|----------|
