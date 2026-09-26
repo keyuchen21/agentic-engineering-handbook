@@ -32,8 +32,6 @@ Pick the path that matches your starting point:
 
 ## Learning Roadmap
 
-**Companion course:** Follow [CMU 11-768: AI Agents — Fall 2026](https://www.cmu-agents.com/#/schedule) for a semester-based path through tool use, planning, memory, agent training, safety, and interaction. Use the schedule for slides and readings, and watch the [lecture recordings](https://www.youtube.com/playlist?list=PLSN0qpDfUvTM) alongside this roadmap.
-
 ### Phase 0 — Agent Loop From Scratch
 
 If you treat Claude Code as a coding CLI, many capabilities can feel like magic: it reads files, runs commands, edits code, delegates work, and stays oriented during complex tasks.
@@ -88,17 +86,14 @@ Supporting files are included in the same folder: `requirements.txt`, `.env.exam
 
 | # | Title | Vendor |
 |---|-------|--------|
-| 1 | CMU 11-768: AI Agents — [Course Schedule & Materials](https://www.cmu-agents.com/#/schedule) + [Lecture Recordings](https://www.youtube.com/playlist?list=PLSN0qpDfUvTM) (use together) | CMU |
-| 2 | [System Prompts](https://platform.claude.com/docs/en/release-notes/system-prompts) | Anthropic |
-| 3 | [Prompt guidance](https://developers.openai.com/api/docs/guides/prompt-guidance) | OpenAI |
-| 4 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI |
-| 5 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic |
-| 6 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google |
-| 7 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic |
-| 8 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI |
-| 9 | [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents) | OpenAI |
-
-**Core course — use both links together:** Start CMU 11-768 here and continue with relevant lectures as you progress through the later phases. Open each lecture in the course schedule for its slides and readings, then watch the matching recording in the playlist. Treat the materials and recordings as one learning sequence.
+| 1 | [System Prompts](https://platform.claude.com/docs/en/release-notes/system-prompts) | Anthropic |
+| 2 | [Prompt guidance](https://developers.openai.com/api/docs/guides/prompt-guidance) | OpenAI |
+| 3 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI |
+| 4 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic |
+| 5 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google |
+| 6 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic |
+| 7 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI |
+| 8 | [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents) | OpenAI |
 
 #### Then Read
 
@@ -286,6 +281,18 @@ Build a smoke/macro eval suite for your agent: task success rate, tool misuse, p
 
 ---
 
+## Advanced Coursework
+
+After completing Phases 0–6, use this graduate course to deepen your understanding of agent capabilities, planning, memory, training, safety, and interaction.
+
+| Priority | Course & Paired Materials | Provider |
+|----------|--------------------------|----------|
+| P0 | CMU 11-768: AI Agents — Fall 2026: [Course Schedule & Materials](https://www.cmu-agents.com/#/schedule) + [Lecture Recordings](https://www.youtube.com/playlist?list=PLSN0qpDfUvTM) | CMU |
+
+**Use both links together:** Open each lecture in the course schedule for its slides and readings, then watch the matching recording in the playlist. Follow the assignment milestones for hands-on practice. P0 reflects this course's importance; its recommended place is after the core roadmap.
+
+---
+
 ## Applied Practice Tracks
 
 Use these tracks after the core roadmap when you want to practice agentic engineering in real engineering workflows.
@@ -310,7 +317,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 
 | Priority | Title | Vendor | Topic | Key Idea | Date |
 |----------|-------|--------|-------|----------|------|
-| P0 | [CMU 11-768: AI Agents — Course Schedule](https://www.cmu-agents.com/#/schedule) | CMU | Course; Agents; Tool use; Planning; Memory; Training | Graduate course schedule with lecture slides, readings, and assignment milestones; use alongside the companion lecture recordings, starting in Phase 1. | Fall 2026 |
+| P0 | [CMU 11-768: AI Agents — Course Schedule](https://www.cmu-agents.com/#/schedule) | CMU | Course; Agents; Tool use; Planning; Memory; Training | Graduate course schedule with lecture slides, readings, and assignment milestones; use alongside the companion lecture recordings, after completing the core roadmap (Phases 0–6). | Fall 2026 |
 | P0 | [CMU 11-768: AI Agents — Lecture Recordings](https://www.youtube.com/playlist?list=PLSN0qpDfUvTM) | CMU | Course; Agents; Video lectures | Companion lecture recordings for the Fall 2026 course; follow the course schedule for slides and references. | Fall 2026 |
 | P0 | [OpenAI for Developers in 2025](https://developers.openai.com/blog/openai-for-developers-2025) | OpenAI | Agents; MCP; Platform | Annual overview: systematic walkthrough of Responses API, Agents SDK, AgentKit, Codex, MCP, Apps SDK, and AGENTS.md. | 2025-12-30 |
 | P0 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI | Agents; Responses API; Tools | Key starting point for OpenAI's agent platform: Responses API, built-in web/file/computer tools, Agents SDK, tracing/observability. | 2025-03-11 |
