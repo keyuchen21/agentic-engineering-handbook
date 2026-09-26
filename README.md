@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--07--25-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--09--25-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **179 curated resources** into one structured learning roadmap.
+This repository consolidates **181 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -31,6 +31,8 @@ Pick the path that matches your starting point:
 ---
 
 ## Learning Roadmap
+
+**Companion course:** Follow [CMU 11-768: AI Agents — Fall 2026](https://www.cmu-agents.com/#/schedule) for a semester-based path through tool use, planning, memory, agent training, safety, and interaction. Use the schedule for slides and readings, and watch the [lecture recordings](https://www.youtube.com/playlist?list=PLSN0qpDfUvTM) alongside this roadmap.
 
 ### Phase 0 — Agent Loop From Scratch
 
@@ -305,6 +307,8 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 
 | Priority | Title | Vendor | Topic | Key Idea | Date |
 |----------|-------|--------|-------|----------|------|
+| P0 | [CMU 11-768: AI Agents — Course Schedule](https://www.cmu-agents.com/#/schedule) | CMU | Course; Agents; Tool use; Planning; Memory; Training | Graduate course schedule with lecture slides, readings, and assignment milestones; a structured companion to the handbook. | Fall 2026 |
+| P1 | [CMU 11-768: AI Agents — Lecture Recordings](https://www.youtube.com/playlist?list=PLSN0qpDfUvTM) | CMU | Course; Agents; Video lectures | Companion lecture recordings for the Fall 2026 course; follow the course schedule for slides and references. | Fall 2026 |
 | P0 | [OpenAI for Developers in 2025](https://developers.openai.com/blog/openai-for-developers-2025) | OpenAI | Agents; MCP; Platform | Annual overview: systematic walkthrough of Responses API, Agents SDK, AgentKit, Codex, MCP, Apps SDK, and AGENTS.md. | 2025-12-30 |
 | P0 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI | Agents; Responses API; Tools | Key starting point for OpenAI's agent platform: Responses API, built-in web/file/computer tools, Agents SDK, tracing/observability. | 2025-03-11 |
 | P0 | [Introducing AgentKit](https://openai.com/index/introducing-agentkit/) | OpenAI | Agents; Evals; AgentKit | AgentKit, expanded evals, agent RFT: the official agent toolchain from prototype to production. | 2025-10-06 |
