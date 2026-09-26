@@ -279,27 +279,21 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 
 Build a smoke/macro eval suite for your agent: task success rate, tool misuse, prompt injection resistance, latency, cost, and human approval count.
 
-#### Next Step — From Evaluating Agents to Training and Search
+#### Advanced Coursework
 
-The [CMU 11-768 schedule](https://www.cmu-agents.com/#/schedule) starts with agent fundamentals, then extends into topics that make it an advanced follow-on to this roadmap:
+CMU 11-768 extends the roadmap from evaluating agents to training and search. Its schedule starts with fundamentals, then develops three areas that make it a valuable advanced follow-on:
 
 - **Training methods:** supervised fine-tuning (SFT), reinforcement learning basics, advanced RL algorithms, and RL systems.
 - **Search and inference:** reranking, critic models, and tree search.
 - **Integrated practice:** assignments progress through Harness → Eval → Training, connecting agent infrastructure and evaluation to learned behavior.
 
-Phase 6 provides a useful bridge: evaluation supplies feedback for studying training and search methods. This is the handbook's recommended learning sequence, not an official course prerequisite. Use the paired schedule and recordings in [Advanced Coursework](#advanced-coursework); later scheduled topics may not yet have recordings.
-
----
-
-## Advanced Coursework
-
-Recommended after the core roadmap for its training and search topics described in Phase 6. The opening lectures also cover fundamentals and can be used earlier as review.
-
 | Priority | Course & Paired Materials | Provider |
 |----------|--------------------------|----------|
 | P0 | CMU 11-768: AI Agents — Fall 2026: [Course Schedule & Materials](https://www.cmu-agents.com/#/schedule) + [Lecture Recordings](https://www.youtube.com/playlist?list=PLSN0qpDfUvTM) | CMU |
 
-**Use both links together:** Open each lecture in the course schedule for its slides and readings, then watch the matching recording in the playlist. Follow the assignment milestones for hands-on practice. P0 reflects this course's importance; its recommended place is after the core roadmap.
+**When to study:** Phase 6 provides a useful bridge because evaluation supplies feedback for studying training and search methods. This placement is the handbook's recommendation, not an official course prerequisite; the opening lectures can be used earlier as review.
+
+**Use both links together:** Open each lecture in the schedule for its slides and readings, then watch the matching recording and follow the assignment milestones. Later scheduled topics may not yet have recordings.
 
 ---
 
