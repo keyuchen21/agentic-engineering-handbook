@@ -23,7 +23,7 @@ This repository consolidates **181 curated resources** into one structured learn
 
 Pick the path that matches your starting point:
 
-- **New to agents:** follow the [Learning Roadmap](#learning-roadmap) from Phase 0 to Phase 6. Treat each `Read First`, `Then Read`, and `Build Exercise` as a checklist.
+- **New to agents:** follow the [Learning Roadmap](#learning-roadmap) through the core Phases 0–6, then continue to [Phase 7](#phase-7--advanced-coursework-agent-training--search) for advanced coursework. Treat each `Read First`, `Then Read`, and `Build Exercise` as a checklist.
 - **Already building LLM apps:** start at [Phase 2](#phase-2--mcp--tool-ecosystem) or [Phase 3](#phase-3--context-memory--skills), then fill gaps in agent loop, tool calling, evals, and production engineering.
 - **Trying to build projects:** use the phase-level `Build Exercise` prompts, then branch into [Applied Practice Tracks](#applied-practice-tracks) for coding agents, security, code review, or SRE.
 - **Looking for references:** jump to the [Full Reading Table](#full-reading-table). Read `P0` first, use `P1` for implementation detail, and keep `P2` as optional background.
@@ -279,7 +279,11 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 
 Build a smoke/macro eval suite for your agent: task success rate, tool misuse, prompt injection resistance, latency, cost, and human approval count.
 
-#### Advanced Coursework
+---
+
+### Phase 7 — Advanced Coursework: Agent Training & Search
+
+> Extend agent engineering into model training, reinforcement learning, and search.
 
 CMU 11-768 extends the roadmap from evaluating agents to training and search. Its schedule starts with fundamentals, then develops three areas that make it a valuable advanced follow-on:
 
