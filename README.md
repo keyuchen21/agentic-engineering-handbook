@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--09--26-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--09--27-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **183 curated resources** into one structured learning roadmap.
+This repository consolidates **184 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -315,6 +315,12 @@ CMU 11-768 extends the roadmap from evaluating agents to training and search. It
 
 **Use both links together:** Open each lecture in the schedule for its slides and readings, then watch the matching recording and follow the assignment milestones. Later scheduled topics may not yet have recordings.
 
+#### Then Read — Post-Training Case Study (P1)
+
+[Rufus-Air: An Open LLM Post-Training Recipe](https://arxiv.org/pdf/2609.29421v1) (Amazon) connects the course's training topics to an end-to-end recipe on GLM-4.5-Air-Base: SFT → Reasoning RL → Coding RL → Instruction-Following RL → General Agent → Coding Agent → Search Agent → RLHF.
+
+Focus on §2 for stage ordering and reward reliability, §3.5–3.7 for agent training in tool-use, coding, and search environments, and §4 for multi-turn rollouts, sandbox reliability, and consistent training/inference formats. Some conclusions come from engineering experience rather than full ablations; treat the stage order as a reference recipe to evaluate for your own setting.
+
 #### Further Reading — AI Research Automation (P2)
 
 [When AI builds itself](https://www.anthropic.com/institute/recursive-self-improvement) examines evidence that AI is accelerating AI development, remaining gaps in research judgment, and possible futures. Read it as background on research automation and governance: full recursive self-improvement is a prospective scenario, not an achieved capability.
@@ -408,6 +414,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps) | Anthropic | Harness; Application development | Harness design patterns for delegating long-running app development tasks to agents; compare with OpenAI Codex harness. | 2026-03-24 |
 | P0 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic | Managed agents; Harness | Decouple the model brain from execution hands/harness, keeping interfaces stable as the harness evolves. | 2026-04-08 |
 | P0 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic | Safety; Containment; Agents | Blast radius of powerful agent releases, human-in-the-loop, and containment strategies. | 2026-05-25 |
+| P1 | [Rufus-Air: An Open LLM Post-Training Recipe](https://arxiv.org/pdf/2609.29421v1) | Amazon | Post-training; SFT; Agentic RL; Rewards; Infrastructure | End-to-end post-training case study covering stage order, reward design, agent environments, and training infrastructure; includes engineering observations beyond fully ablated findings. | 2026-09-24 |
 | P1 | [How to prepare for AI-driven code modernization projects](https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects) | Anthropic | Coding agents; Modernization; Verification; Production | Prepare enterprise migrations with explicit targets, checkable acceptance conditions, review and release policies, and an end-to-end pilot. | 2026-09-23 |
 | P1 | [Structured Outputs for Multi-Agent Systems](https://developers.openai.com/cookbook/examples/structured_outputs_multi_agent) | OpenAI | Agents; Multi-agent; Structured outputs | Use strict schemas to constrain structured messages and handoffs between multiple agents. | 2024-08-06 |
 | P1 | [Introducing computer use, a new Claude 3.5 Sonnet, and Claude 3.5 Haiku](https://www.anthropic.com/news/3-5-models-and-computer-use) | Anthropic | Agents; Computer use | Claude computer use beta starting point: the model uses a computer via screenshots and actions. | 2024-10-22 |
