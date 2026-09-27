@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--09--25-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--09--26-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **181 curated resources** into one structured learning roadmap.
+This repository consolidates **182 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -27,6 +27,21 @@ Pick the path that matches your starting point:
 - **Already building LLM apps:** start at [Phase 2](#phase-2--mcp--tool-ecosystem) or [Phase 3](#phase-3--context-memory--skills), then fill gaps in agent loop, tool calling, evals, and production engineering.
 - **Trying to build projects:** use the phase-level `Build Exercise` prompts, then branch into [Applied Practice Tracks](#applied-practice-tracks) for coding agents, security, code review, or SRE.
 - **Looking for references:** jump to the [Full Reading Table](#full-reading-table). Read `P0` first, use `P1` for implementation detail, and keep `P2` as optional background.
+
+---
+
+## AI Engineering Skills Map
+
+Start with Andrew Ng's [The AI Engineering Skills Map](https://www.linkedin.com/pulse/ai-engineering-skills-map-andrew-ng-m479c/) (P0) for a broader view of the skills behind this roadmap. It identifies four areas; the connections below are this handbook's interpretation.
+
+| Skill Area | Connection to This Handbook |
+|------------|-----------------------------|
+| Building and deploying AI applications | Phases 1–4 cover agent building blocks and runtime design; Phase 6 adds evaluation and production practices, and Phase 7 extends into training and search. |
+| Software engineering fundamentals | Apply architecture, testing, security, and reliability tradeoffs throughout the exercises. The handbook assumes these foundations and does not replace a software engineering curriculum. |
+| Using coding agents | Phase 0 explains the agent loop; Phases 3–5 develop context management, orchestration, and coding workflows. |
+| Shaping the build | Bring product judgment, business context, and user goals to every Build Exercise and Applied Practice Track. Decide what to build and how to validate its value. |
+
+For each project, define the user problem and success criteria, choose an appropriate scope, then use implementation and evaluation to test those decisions.
 
 ---
 
@@ -325,6 +340,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 
 | Priority | Title | Vendor | Topic | Key Idea | Date |
 |----------|-------|--------|-------|----------|------|
+| P0 | [The AI Engineering Skills Map](https://www.linkedin.com/pulse/ai-engineering-skills-map-andrew-ng-m479c/) | Andrew Ng | Skills; Learning roadmap; Product judgment | Frames AI engineering around building AI applications, software fundamentals, coding agents, and shaping what to build. | 2026-08-14 |
 | P0 | [CMU 11-768: AI Agents — Course Schedule](https://www.cmu-agents.com/#/schedule) | CMU | Course; Agents; Tool use; Planning; Memory; Training | Graduate course schedule with lecture slides, readings, and assignment milestones; use alongside the companion lecture recordings, after completing the core roadmap (Phases 0–6). | Fall 2026 |
 | P0 | [CMU 11-768: AI Agents — Lecture Recordings](https://www.youtube.com/playlist?list=PLSN0qpDfUvTM) | CMU | Course; Agents; Video lectures | Companion lecture recordings for the Fall 2026 course; follow the course schedule for slides and references. | Fall 2026 |
 | P0 | [OpenAI for Developers in 2025](https://developers.openai.com/blog/openai-for-developers-2025) | OpenAI | Agents; MCP; Platform | Annual overview: systematic walkthrough of Responses API, Agents SDK, AgentKit, Codex, MCP, Apps SDK, and AGENTS.md. | 2025-12-30 |
