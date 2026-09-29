@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--09--27-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--09--29-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **184 curated resources** into one structured learning roadmap.
+This repository consolidates **185 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -247,6 +247,7 @@ Build a mini coding harness: plan file, shell tool, apply patch, test gate, even
 |-------|--------|
 | [Introducing the Codex app](https://openai.com/index/introducing-the-codex-app/) | OpenAI |
 | [Introducing workspace agents in ChatGPT](https://openai.com/index/introducing-workspace-agents-in-chatgpt/) | OpenAI |
+| [Projects redesigned: from folder to conversation](https://claude.com/blog/projects-redesigned) · [Usage docs](https://code.claude.com/docs/en/claude-projects) | Anthropic |
 | [Apple's Xcode now supports Claude Agent SDK](https://www.anthropic.com/news/apple-xcode-claude-agent-sdk) | Anthropic |
 | [Building Consistent Workflows with Codex CLI & Agents SDK](https://developers.openai.com/cookbook/examples/codex/codex_mcp_agents_sdk/building_consistent_workflows_codex_cli_agents_sdk) | OpenAI |
 | [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) | Anthropic |
@@ -468,6 +469,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [Codex for (almost) everything](https://openai.com/index/codex-for-almost-everything/) | OpenAI | Agents; Codex; MCP; Plugins | Codex app expanded to Windows/macOS, computer use, in-app browser, memory, plugins, MCP servers. | 2026-04-16 |
 | P1 | [Computer Use Agents in Daytona Sandboxes](https://developers.openai.com/cookbook/examples/agents_sdk/computer_use_with_daytona/computer_use_with_daytona) | OpenAI | Computer use; Sandbox; Agents | Computer-use agents and sandbox runtimes; compare with Operator/CUA/Claude computer use. | 2026-04-19 |
 | P1 | [Introducing workspace agents in ChatGPT](https://openai.com/index/introducing-workspace-agents-in-chatgpt/) | OpenAI | Agents; Workspace; Governance | Workspace agents: shared agents, permissions, tools, memory, safeguards; ideal for team collaboration agent design. | 2026-04-22 |
+| P1 | [Projects redesigned: from folder to conversation](https://claude.com/blog/projects-redesigned) | Anthropic | Workspace agents; Orchestration; Shared memory | A coordinating conversation delegates parallel threads across repositories, tracks results, and builds shared project context; see [usage docs](https://code.claude.com/docs/en/claude-projects) for current setup and capabilities. | 2026-09-17 |
 | P1 | [Building workspace agents in ChatGPT to complete repeatable, end-to-end work](https://developers.openai.com/cookbook/topic/agents) | OpenAI | Workspace agents; ChatGPT | Practical workspace agents for repeatable end-to-end team workflows. | 2026-04-22 |
 | P1 | [Speeding up agentic workflows with WebSockets in the Responses API](https://openai.com/index/speeding-up-agentic-workflows-with-websockets/) | OpenAI | Agents; Latency; Responses API | Optimize latency by treating agentic rollouts as long-lived connections/tasks; learn production agent transport and caching. | 2026-05-01 |
 | P1 | [Agents for financial services](https://www.anthropic.com/news/finance-agents) | Anthropic | Agents; Finance; MCP | Ten ready-to-run agent templates, Claude Code/Cowork plugins, Managed Agents cookbooks, MCP app. | 2026-05-05 |
