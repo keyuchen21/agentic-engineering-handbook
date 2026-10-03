@@ -165,17 +165,19 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 
 | # | Title | Vendor |
 |---|-------|--------|
-| 1 | [Agent Skills Specification](https://agentskills.io/specification) | Agent Skills |
-| 2 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic |
-| 3 | [The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) | Anthropic |
-| 4 | [How the Open Knowledge Format can improve data sharing](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing) | Google Cloud |
-| 5 | [How Long Contexts Fail](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html) | Drew Breunig |
-| 6 | [Context Rot](https://research.trychroma.com/context-rot) | Chroma |
-| 7 | [Progressive disclosure](https://docs.claude-mem.ai/progressive-disclosure) | Claude-Mem |
-| 8 | [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) | Anthropic |
-| 9 | [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) | Anthropic |
-| 10 | [Skills](https://developers.openai.com/api/docs/guides/tools-skills) | OpenAI |
-| 11 | [Building Reliable Agents with Memory and Compaction](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction) | OpenAI |
+| 1 | [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) | Anthropic |
+| 2 | [Design report websites like Vercel (design.md)](https://vercel.com/design.md) | Vercel |
+| 3 | [Agent Skills Specification](https://agentskills.io/specification) | Agent Skills |
+| 4 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic |
+| 5 | [The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) | Anthropic |
+| 6 | [How the Open Knowledge Format can improve data sharing](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing) | Google Cloud |
+| 7 | [How Long Contexts Fail](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html) | Drew Breunig |
+| 8 | [Context Rot](https://research.trychroma.com/context-rot) | Chroma |
+| 9 | [Progressive disclosure](https://docs.claude-mem.ai/progressive-disclosure) | Claude-Mem |
+| 10 | [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) | Anthropic |
+| 11 | [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) | Anthropic |
+| 12 | [Skills](https://developers.openai.com/api/docs/guides/tools-skills) | OpenAI |
+| 13 | [Building Reliable Agents with Memory and Compaction](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction) | OpenAI |
 
 **Reading note:** Read *The new rules of context engineering* after *Effective context engineering for AI agents*. When upgrading models, use evals to identify outdated instructions that can be removed, keep repository guidance focused on project-specific gotchas, and load detailed skills only when needed. Anthropic's reported removal of over 80% of Claude Code's system prompt without measurable loss on its coding evals is a model- and product-specific result, not a universal reduction target.
 
@@ -183,8 +185,6 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 
 | Title | Vendor |
 |-------|--------|
-| [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) | Anthropic |
-| [Design report websites like Vercel (design.md)](https://vercel.com/design.md) | Vercel |
 | [Custom instructions with AGENTS.md - Codex](https://developers.openai.com/codex/guides/agents-md) | OpenAI |
 | [Best practices for Claude Code](https://www.anthropic.com/engineering/claude-code-best-practices) | Anthropic |
 | [Agent Skills - Codex](https://developers.openai.com/codex/skills) | OpenAI |
