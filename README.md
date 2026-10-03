@@ -165,9 +165,9 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 
 | # | Title | Vendor |
 |---|-------|--------|
-| 1 | [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) | Anthropic |
-| 2 | [Design report websites like Vercel (design.md)](https://vercel.com/design.md) | Vercel |
-| 3 | [Agent Skills Specification](https://agentskills.io/specification) | Agent Skills |
+| 1 | [Agent Skills Specification](https://agentskills.io/specification) | Agent Skills |
+| 2 | [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) | Anthropic |
+| 3 | [Design report websites like Vercel (design.md)](https://vercel.com/design.md) | Vercel |
 | 4 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic |
 | 5 | [The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) | Anthropic |
 | 6 | [How the Open Knowledge Format can improve data sharing](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing) | Google Cloud |
