@@ -165,8 +165,6 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 
 | # | Title | Vendor |
 |---|-------|--------|
-| [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) | Anthropic |
-| [Design report websites like Vercel (design.md)](https://vercel.com/design.md) | Vercel |
 | 1 | [Agent Skills Specification](https://agentskills.io/specification) | Agent Skills |
 | 2 | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Anthropic |
 | 3 | [The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) | Anthropic |
@@ -185,6 +183,8 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 
 | Title | Vendor |
 |-------|--------|
+| [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) | Anthropic |
+| [Design report websites like Vercel (design.md)](https://vercel.com/design.md) | Vercel |
 | [Custom instructions with AGENTS.md - Codex](https://developers.openai.com/codex/guides/agents-md) | OpenAI |
 | [Best practices for Claude Code](https://www.anthropic.com/engineering/claude-code-best-practices) | Anthropic |
 | [Agent Skills - Codex](https://developers.openai.com/codex/skills) | OpenAI |
