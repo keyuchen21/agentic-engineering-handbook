@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--09--29-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--02-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **186 curated resources** into one structured learning roadmap.
+This repository consolidates **187 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -147,6 +147,7 @@ Build a customer service/ticket triage agent: router → specialist → evaluato
 | [Model Context Protocol - Codex](https://developers.openai.com/codex/mcp) | OpenAI |
 | [Build a Remote MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#add-authentication) | Cloudflare |
 | [Introducing the MCP Registry](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/) | MCP |
+| [Designing MCP Gateway: Uber's MCP Management Platform](https://www.uber.com/us/en/blog/designing-mcp-gateway/) | Uber |
 | [OpenAI Docs MCP](https://developers.openai.com/learn/docs-mcp) | OpenAI |
 | [Build your ChatGPT UI](https://developers.openai.com/apps-sdk/build/chatgpt-ui) | OpenAI |
 
@@ -292,8 +293,11 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 | [A Survey on Agent-as-a-Judge](https://arxiv.org/html/2601.05111v1) | Academic |
 | [Running Codex safely at OpenAI](https://openai.com/index/running-codex-safely/) | OpenAI |
 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic |
+| [How we built Claude Code auto mode: a safer way to skip permissions](https://www.anthropic.com/engineering/claude-code-auto-mode) | Anthropic |
 | [Evals API Use-case - MCP Evaluation](https://developers.openai.com/cookbook/examples/evaluation/use-cases/mcp_eval_notebook) | OpenAI |
 | [Measuring AI agent autonomy in practice](https://www.anthropic.com/news/measuring-agent-autonomy) | Anthropic |
+
+**Auto mode reading note:** Study the separation of input screening and action approval, the classifier's restricted view of user messages and tool calls, and delegation checks. The article reports 0.4% false positives on real traffic and 17% false negatives on 52 real overeager-action examples: an engineering tradeoff, not a safety guarantee.
 
 #### Build Exercise
 
@@ -343,7 +347,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | Context failure modes | [How Long Contexts Fail](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html), [Context Rot](https://research.trychroma.com/context-rot), [Progressive disclosure](https://docs.claude-mem.ai/progressive-disclosure) | Helps diagnose context poisoning, distraction, confusion, context degradation, and retrieval overload. |
 | Evals and observability | [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents), [Agent observability powers agent evaluation](https://www.langchain.com/blog/agent-observability-powers-agent-evaluation), [Agent Evaluation Readiness Checklist](https://www.langchain.com/blog/agent-evaluation-readiness-checklist) | Builds the feedback loop for traces, datasets, graders, offline/online evals, and regression gates. |
 | Deep research agents | [Deep research](https://developers.openai.com/api/docs/guides/deep-research), [Open Deep Research](https://github.com/langchain-ai/open_deep_research), [Alibaba-NLP/DeepResearch](https://github.com/Alibaba-NLP/DeepResearch) | Practices long-running research agents: planning, search, MCP, citations, report synthesis, and benchmark-driven improvement. |
-| MCP operations | [Build a Remote MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#add-authentication), [Introducing the MCP Registry](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/) | Shows how MCP moves from local prototypes to authenticated, discoverable, production-grade tool ecosystems. |
+| MCP operations | [Designing MCP Gateway: Uber's MCP Management Platform](https://www.uber.com/us/en/blog/designing-mcp-gateway/), [Build a Remote MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#add-authentication), [Introducing the MCP Registry](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/) | Covers remote servers and enterprise MCP operations: control/data planes, owner-approved tool enablement, incremental discovery, and response projection. |
 | Agent security | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837), [OWASP Top Ten](https://owasp.org/www-project-top-ten/), [SAST vs. DAST vs. RASP](https://www.splunk.com/en_us/blog/learn/sast-vs-dast.html), [Copilot Remote Code Execution via Prompt Injection](https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/) | Combines prompt-injection isolation patterns and their security/utility tradeoffs with classic AppSec and tool-permission failure modes. |
 | Code review systems | [How to Review Code Effectively](https://github.blog/developer-skills/github/how-to-review-code-effectively-a-github-staff-engineers-philosophy/), [AI-Assisted Assessment of Coding Practices in Modern Code Review](https://arxiv.org/pdf/2405.13565), [AI Code Review Implementation Best Practices](https://graphite.dev/guides/ai-code-review-implementation-best-practices) | Connects human review quality with AI-assisted review, automated comments, and review policy design. |
 | Production and SRE agents | [ML and LLM system design](https://www.evidentlyai.com/ml-system-design), [Introduction to Site Reliability Engineering](https://sre.google/sre-book/introduction/), [Observability Basics You Should Know](https://last9.io/blog/traces-spans-observability-basics/) | Extends agents beyond coding into incidents, observability, root-cause analysis, on-call, and production operations. |
@@ -419,6 +423,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic | Managed agents; Harness | Decouple the model brain from execution hands/harness, keeping interfaces stable as the harness evolves. | 2026-04-08 |
 | P0 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic | Safety; Containment; Agents | Blast radius of powerful agent releases, human-in-the-loop, and containment strategies. | 2026-05-25 |
 | P0 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic | Agent security; Prompt injection; Isolation; Control flow | Six design patterns and ten case studies for separating untrusted data from agent control; security guarantees depend on enforced constraints and threat assumptions. | 2025-06-27 (v3) |
+| P1 | [Designing MCP Gateway: Uber's MCP Management Platform](https://www.uber.com/us/en/blog/designing-mcp-gateway/) | Uber | MCP; Gateway; Governance; Tool discovery; Context | Enterprise MCP control/data planes, API protocol translation, owner-approved enablement, incremental discovery, response projection, and CLI-based tool access. | 2026-10-01 |
 | P1 | [Rufus-Air: An Open LLM Post-Training Recipe](https://arxiv.org/pdf/2609.29421v1) | Amazon | Post-training; SFT; Agentic RL; Rewards; Infrastructure | End-to-end post-training case study covering stage order, reward design, agent environments, and training infrastructure; includes engineering observations beyond fully ablated findings. | 2026-09-24 |
 | P1 | [How to prepare for AI-driven code modernization projects](https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects) | Anthropic | Coding agents; Modernization; Verification; Production | Prepare enterprise migrations with explicit targets, checkable acceptance conditions, review and release policies, and an end-to-end pilot. | 2026-09-23 |
 | P1 | [Structured Outputs for Multi-Agent Systems](https://developers.openai.com/cookbook/examples/structured_outputs_multi_agent) | OpenAI | Agents; Multi-agent; Structured outputs | Use strict schemas to constrain structured messages and handoffs between multiple agents. | 2024-08-06 |
@@ -464,7 +469,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [Building a C compiler with a team of parallel Claudes](https://www.anthropic.com/engineering/building-c-compiler) | Anthropic | Multi-agent; Coding; Long-running | Parallel Claude teams completing large engineering tasks; learn multi-agent division of labor, coordination, and long-running execution. | 2026-02-05 |
 | P1 | [Codex Security: now in research preview](https://openai.com/index/codex-security-now-in-research-preview/) | OpenAI | Agents; Security; Codex | Productization of an agentic security researcher: vulnerability discovery, verification, fix suggestions, reducing triage noise. | 2026-03-06 |
 | P1 | [Eval awareness in Claude Opus 4.6's BrowseComp performance](https://www.anthropic.com/engineering) | Anthropic | Evals; Agent awareness | Risk of models recognizing/adapting to evaluations; relevant to agent benchmark credibility discussions. | 2026-03-06 |
-| P1 | [How we built Claude Code auto mode: a safer way to skip permissions](https://www.anthropic.com/engineering/claude-code-auto-mode) | Anthropic | Safety; Permissions; Autonomy | Claude Code auto mode risk classification, allow/block rules, exception handling, and security testing. | 2026-03-25 |
+| P1 | [How we built Claude Code auto mode: a safer way to skip permissions](https://www.anthropic.com/engineering/claude-code-auto-mode) | Anthropic | Safety; Permissions; Autonomy | Two-layer input/action checks, restricted classifier context, multi-agent handoff checks, and measured false-positive/false-negative tradeoffs in automated approvals. | 2026-03-25 |
 | P1 | [How we build evals for Deep Agents](https://www.langchain.com/blog/how-we-build-evals-for-deep-agents) | LangChain | Evals; Deep agents; Traces | Targeted eval design for deep agents: select production behaviors, tag evals, inspect traces, and avoid false confidence from broad but shallow suites. | 2026-03-26 |
 | P1 | [Deep Research Bench](https://futuresearch.ai/deep-research-bench/) | FutureSearch | Evals; Deep research; Benchmark | Benchmark for web research agents using offline web snapshots and carefully curated answers to make results more stable and objective. | 2025-06-25 |
 | P1 | [How to Evaluate Tool-Calling Agents](https://arize.com/blog/how-to-evaluate-tool-calling-agents/) | Arize | Evals; Tool calling; Trajectories | Evaluation workflow for tool selection, tool arguments, trajectories, and LLM-as-judge scoring of tool-using agents. | 2026 |
