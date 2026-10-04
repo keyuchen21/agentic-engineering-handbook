@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--03-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--04-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **198 curated resources** into one structured learning roadmap.
+This repository consolidates **200 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -84,6 +84,23 @@ Supporting files are included in the same folder: `requirements.txt`, `.env.exam
 
 #### Key Mental Models
 
+##### Why agents matter: AI as leverage
+
+What if your impact could grow without every new result requiring another hour of your work? In his Cornell lecture, Hyung Won Chung uses leverage—getting more output from a given input—to explain the opportunity. Drawing on Naval Ravikant's framework, he groups leverage into human labor, capital, and code/media:
+
+| Leverage type | Example from the lecture | How output scales |
+|---------------|--------------------------|-------------------|
+| Human labor | Organize thousands of workers to build a pyramid. | Other people's effort expands what one person can accomplish, with coordination overhead. |
+| Capital | Use borrowed money alongside your own funds to invest in a larger asset. | More capital increases exposure to an asset's gains and losses. |
+| Code | Build an app that serves another user while you sleep. | Software can reach more users without repeating the development work for each one. |
+| Media | Record a lecture and publish it on YouTube. | Each additional viewer can benefit without another live lecture. |
+
+**AI agents combine human labor and code leverage:** they can perform delegated work while running as software that can be replicated. Chung connects this to individuals and small teams doing more, lower barriers to learning, and AI helping synthesize knowledge for scientific progress. The engineering opportunity is to turn that potential into reliable work through tools, state, verification, and recovery.
+
+**Start with your own bottleneck:** Which recurring task could you delegate, reuse across projects, or make available to more people? Use that task as a candidate for the agent you build in this roadmap.
+
+Source: [Cornell AI history lecture](https://www.youtube.com/watch?v=CcP8db8TeKI) + [AI as an ultimate form of leverage — Slides](https://docs.google.com/presentation/d/15uQTN9M-aTBWHRcd69GBL57QsKV1EM5BhV8i3ihbSUc/edit).
+
 **Should I build an agent?** (4-question checklist from Barry Zhang's talk - Anthropic)
 
 | Question | If No → Workflow | If Yes → Agent |
@@ -115,6 +132,7 @@ Supporting files are included in the same folder: `requirements.txt`, `.env.exam
 
 | Title | Vendor |
 |-------|--------|
+| [Cornell AI history lecture](https://www.youtube.com/watch?v=CcP8db8TeKI) + [AI as an ultimate form of leverage — Slides](https://docs.google.com/presentation/d/15uQTN9M-aTBWHRcd69GBL57QsKV1EM5BhV8i3ihbSUc/edit) | Hyung Won Chung |
 | [Prompt Repetition Improves Non-Reasoning LLMs](https://arxiv.org/abs/2512.14982) | Google Research |
 | [How We Build Effective Agents: Barry Zhang, Anthropic](https://www.youtube.com/watch?v=D7_ipDqhtwk) | Anthropic |
 | [Phistory — Claude Code & Codex CLI System Prompt Diff History](https://phistory.cc/) | Community |
@@ -561,6 +579,8 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI | Tools; Function calling; API | Official guide to function/tool calling: define functions with JSON schemas, handle model tool calls, execute and return results. | Current docs |
 | P0 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic | Tools; Tool use; API | Connect Claude to external tools and APIs: client vs server tools, the agentic loop, strict schema conformance, and when Claude decides to call tools. | Current docs |
 | P0 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google | Tools; Function calling; API | Enable Gemini models to connect with external tools via function calling: single-turn, multi-turn, parallel, and sequential function chains. | Current docs |
+| P2 | [Cornell AI history lecture](https://www.youtube.com/watch?v=CcP8db8TeKI) | Hyung Won Chung | AI leverage; Agents; Learning; Video | Frames AI as leverage for learning, delegated work, small teams, and scientific progress; pairs with the lecture slides. | 2025 |
+| P2 | [AI as an ultimate form of leverage — Slides](https://docs.google.com/presentation/d/15uQTN9M-aTBWHRcd69GBL57QsKV1EM5BhV8i3ihbSUc/edit) | Hyung Won Chung | AI leverage; Agents; Slides | Companion slides explaining human labor, capital, code/media, and AI agents as a combination of labor and code leverage. | 2025 |
 | P2 | [Vulnerability Prompt Analysis with O3](https://github.com/SeanHeelan/o3_finds_cve-2025-37899/blob/master/system_prompt_uafs.prompt) | Community | Security; Prompting; Vulnerability research | Concrete vulnerability-analysis prompt used with o3; useful as a prompt artifact to study, not a general framework. | 2025 |
 | P2 | [Code Reviews: Just Do It](https://blog.codinghorror.com/code-reviews-just-do-it/) | Coding Horror | Code review; Engineering practice | Classic argument for peer review as one of the highest-leverage software quality practices. | 2006-01-21 |
 | P2 | [Code Review Essentials for Software Teams](https://blakesmith.me/2015/02/09/code-review-essentials-for-software-teams.html) | Blake Smith | Code review; Team practice | Practical code review hierarchy: shared mental models, design clarity, pull request quality, and constructive feedback. | 2015-02-09 |
