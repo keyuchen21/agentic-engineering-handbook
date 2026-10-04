@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **202 curated resources** into one structured learning roadmap.
+This repository consolidates **203 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -267,6 +267,7 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 
 | Title | Vendor |
 |-------|--------|
+| [OpenShell — Policy-enforced agent runtime](https://github.com/NVIDIA/OpenShell) | NVIDIA |
 | [Deep research](https://developers.openai.com/api/docs/guides/deep-research) | OpenAI |
 | [Open Deep Research](https://github.com/langchain-ai/open_deep_research) | LangChain |
 | [The next evolution of the Agents SDK](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) | OpenAI |
@@ -280,6 +281,8 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 **Code walkthrough:** Revisit minion.py after the harness readings. Trace its tool execution and approval flow, session persistence and resume, and context compaction to see how these runtime responsibilities fit together in a single-file coding agent.
 
 **Event-triggered work:** See [MCP Events in Phase 2](#phase-2--mcp--tool-ecosystem) for connecting external updates to agent work through subscriptions and webhooks. Include subscription state and duplicate-event handling in the runtime design.
+
+**Runtime implementation:** Study OpenShell's sandbox, gateway, and supervisor architecture to see how filesystem, process, and network policies are enforced around an agent. Follow how credentials are attached to approved requests and how policy changes are checked before granting new access.
 
 #### Build Exercise
 
@@ -365,6 +368,8 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 **Paired learning path:** Read the AI Engineering Loop to connect production tracing and monitoring with datasets, experiments, and evaluation. Then complete the workshop using its [reference app and checkpoint tags](https://github.com/langfuse/langfuse-workshop): add tracing, version prompts, monitor behavior, build a dataset, and compare a change against a baseline. Follow each lesson's checkpoint and verification steps.
 
 **Behavior and oversight reference:** Revisit the [paired Constitution readings in Phase 3](#phase-3--context-memory--skills) for intended behavior around instruction authority and human oversight. Connect those expectations to the permissions, isolation, and safety evaluations you implement here.
+
+**Isolation practice:** Revisit [OpenShell in Phase 4](#phase-4--harness--long-running-agents) and define the minimum file, process, and network access needed for one task. Verify that the task succeeds with allowed access, forbidden file and network requests are blocked, and a requested policy expansion goes through the intended review flow. Record the results as regression cases.
 
 #### Build Exercise
 
@@ -491,6 +496,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic | Managed agents; Harness | Decouple the model brain from execution hands/harness, keeping interfaces stable as the harness evolves. | 2026-04-08 |
 | P0 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic | Safety; Containment; Agents | Blast radius of powerful agent releases, human-in-the-loop, and containment strategies. | 2026-05-25 |
 | P0 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic | Agent security; Prompt injection; Isolation; Control flow | Six design patterns and ten case studies for separating untrusted data from agent control; security guarantees depend on enforced constraints and threat assumptions. | 2025-06-27 (v3) |
+| P1 | [OpenShell](https://github.com/NVIDIA/OpenShell) | NVIDIA | Agent runtime; Sandboxing; Permissions; Credentials | Reference implementation for isolated agent execution, filesystem/process/network policy enforcement, credential injection for approved endpoints, and policy-change verification and review. | Current repo |
 | P1 | [Understanding LLM outputs — Writing, diagrams, web pages, and explainer videos](https://x.com/karpathy/status/2105819303471976479) | Andrej Karpathy | Agent UX; Output formats; Human oversight | Practical suggestions for clearer writing and custom diagrams, interactive HTML, and explainer videos to help people understand and review model outputs. | 2026-10-02 |
 | P1 | [Spec-Driven Development with Coding Agents — Full Course](https://www.youtube.com/watch?v=hy8UstR2NEg) | DeepLearning.AI / JetBrains | Coding agents; Specs; Workflow; Video | Paul Everitt teaches project constitutions and an iterative plan, implement, validate, and replan workflow for new and existing codebases. | Current course |
 | P1 | [Spec-Driven Development with Coding Agents — Course page](https://www.deeplearning.ai/courses/spec-driven-development-with-coding-agents) | DeepLearning.AI / JetBrains | Coding agents; Specs; Course | Companion course outline covering mission, stack, roadmap, feature specs, legacy support, and packaging workflows as agent skills. | Current course |
