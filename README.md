@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **203 curated resources** into one structured learning roadmap.
+This repository consolidates **205 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -357,6 +357,7 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 | [How to Evaluate Tool-Calling Agents](https://arize.com/blog/how-to-evaluate-tool-calling-agents/) | Arize |
 | [AI agent evaluation: How to test, debug, and improve agents in production](https://arize.com/blog/why-testing-ai-agents-is-non-negotiable/) | Arize |
 | [A Survey on Agent-as-a-Judge](https://arxiv.org/html/2601.05111v1) | Academic |
+| [AWS Nitro System — Overview](https://aws.amazon.com/ec2/nitro/) + [Security Design Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/security-design-of-aws-nitro-system/security-design-of-aws-nitro-system.html) | AWS |
 | [Running Codex safely at OpenAI](https://openai.com/index/running-codex-safely/) | OpenAI |
 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic |
 | [How we built Claude Code auto mode: a safer way to skip permissions](https://www.anthropic.com/engineering/claude-code-auto-mode) | Anthropic |
@@ -370,6 +371,8 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 **Behavior and oversight reference:** Revisit the [paired Constitution readings in Phase 3](#phase-3--context-memory--skills) for intended behavior around instruction authority and human oversight. Connect those expectations to the permissions, isolation, and safety evaluations you implement here.
 
 **Isolation practice:** Revisit [OpenShell in Phase 4](#phase-4--harness--long-running-agents) and define the minimum file, process, and network access needed for one task. Verify that the task succeeds with allowed access, forbidden file and network requests are blocked, and a requested policy expansion goes through the intended review flow. Record the results as regression cases.
+
+**Cloud isolation background (P2):** Read the Nitro overview first, then the security design whitepaper for dedicated I/O hardware, the hardware root of trust, and a minimized hypervisor. Compare this EC2 infrastructure isolation with OpenShell's agent execution policies. Nitro Enclaves provide an additional isolated environment for sensitive processing; tool permissions, credential management, and application-level safety still need their own controls.
 
 #### Build Exercise
 
@@ -609,6 +612,8 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI | Tools; Function calling; API | Official guide to function/tool calling: define functions with JSON schemas, handle model tool calls, execute and return results. | Current docs |
 | P0 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic | Tools; Tool use; API | Connect Claude to external tools and APIs: client vs server tools, the agentic loop, strict schema conformance, and when Claude decides to call tools. | Current docs |
 | P0 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google | Tools; Function calling; API | Enable Gemini models to connect with external tools via function calling: single-turn, multi-turn, parallel, and sequential function chains. | Current docs |
+| P2 | [AWS Nitro System — Overview](https://aws.amazon.com/ec2/nitro/) | AWS | Cloud infrastructure; Virtualization; Isolation | Background on dedicated Nitro hardware, the lightweight hypervisor, and Nitro Enclaves; read alongside agent runtime policies to distinguish infrastructure and application controls. | Current overview |
+| P2 | [The Security Design of the AWS Nitro System](https://docs.aws.amazon.com/whitepapers/latest/security-design-of-aws-nitro-system/security-design-of-aws-nitro-system.html) | AWS | Cloud security; Hardware trust; Isolation | Explains Nitro Cards, the Security Chip, and the minimized Hypervisor, plus operator access restrictions, change management, and side-channel mitigations. | 2024-02-15 |
 | P2 | [Cornell AI history lecture](https://www.youtube.com/watch?v=CcP8db8TeKI) | Hyung Won Chung (OpenAI) | AI leverage; Agents; Learning; Video | Frames AI as leverage for learning, delegated work, small teams, and scientific progress. | 2025 |
 | P2 | [Vulnerability Prompt Analysis with O3](https://github.com/SeanHeelan/o3_finds_cve-2025-37899/blob/master/system_prompt_uafs.prompt) | Community | Security; Prompting; Vulnerability research | Concrete vulnerability-analysis prompt used with o3; useful as a prompt artifact to study, not a general framework. | 2025 |
 | P2 | [Code Reviews: Just Do It](https://blog.codinghorror.com/code-reviews-just-do-it/) | Coding Horror | Code review; Engineering practice | Classic argument for peer review as one of the highest-leverage software quality practices. | 2006-01-21 |
