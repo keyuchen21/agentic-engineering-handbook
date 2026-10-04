@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **195 curated resources** into one structured learning roadmap.
+This repository consolidates **198 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -103,22 +103,26 @@ Supporting files are included in the same folder: `requirements.txt`, `.env.exam
 |---|-------|--------|
 | 1 | [System Prompts](https://platform.claude.com/docs/en/release-notes/system-prompts) | Anthropic |
 | 2 | [Prompt guidance](https://developers.openai.com/api/docs/guides/prompt-guidance) | OpenAI |
-| 3 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI |
-| 4 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic |
-| 5 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google |
-| 6 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic |
-| 7 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI |
-| 8 | [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents) | OpenAI |
+| 3 | [Claude prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) | Anthropic |
+| 4 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI |
+| 5 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic |
+| 6 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google |
+| 7 | [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Anthropic |
+| 8 | [New tools for building agents](https://openai.com/index/new-tools-for-building-agents/) | OpenAI |
+| 9 | [Agents SDK overview](https://developers.openai.com/api/docs/guides/agents) | OpenAI |
 
 #### Then Read
 
 | Title | Vendor |
 |-------|--------|
+| [Prompt Repetition Improves Non-Reasoning LLMs](https://arxiv.org/abs/2512.14982) | Google Research |
 | [How We Build Effective Agents: Barry Zhang, Anthropic](https://www.youtube.com/watch?v=D7_ipDqhtwk) | Anthropic |
 | [Phistory — Claude Code & Codex CLI System Prompt Diff History](https://phistory.cc/) | Community |
 | [Coding Agents 101: The Art of Actually Getting Things Done](https://devin.ai/agents101) | Cognition |
 | [OpenAI Agents SDK examples](https://openai.github.io/openai-agents-python/examples/) | OpenAI |
 | [Structured Outputs for Multi-Agent Systems](https://developers.openai.com/cookbook/examples/structured_outputs_multi_agent) | OpenAI |
+
+**Prompting experiment:** Read the provider guides first, including the guidance for your chosen model. Treat prompt repetition as a hypothesis to test: compare the original input with two copies on a fixed dataset, measuring accuracy, input/output tokens, cost, and latency. The paper tested early-2025 models, with stronger gains without reasoning and smaller gains when reasoning was encouraged; long repeated inputs can increase latency.
 
 #### Build Exercise
 
@@ -144,12 +148,15 @@ Build a customer service/ticket triage agent: router → specialist → evaluato
 |-------|--------|
 | [Code execution with MCP: Building more efficient agents](https://www.anthropic.com/engineering/code-execution-with-mcp) | Anthropic |
 | [Writing effective tools for AI agents - with AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) | Anthropic |
+| [MCP Events — Subscriptions and webhook delivery](https://developers.openai.com/plugins/build/mcp-events) | OpenAI |
 | [Model Context Protocol - Codex](https://developers.openai.com/codex/mcp) | OpenAI |
 | [Build a Remote MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#add-authentication) | Cloudflare |
 | [Introducing the MCP Registry](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/) | MCP |
 | [Designing MCP Gateway: Uber's MCP Management Platform](https://www.uber.com/us/en/blog/designing-mcp-gateway/) | Uber |
 | [OpenAI Docs MCP](https://developers.openai.com/learn/docs-mcp) | OpenAI |
 | [Build your ChatGPT UI](https://developers.openai.com/apps-sdk/build/chatgpt-ui) | OpenAI |
+
+**Event integration note:** Study event discovery, subscription creation and refresh, callback verification, and unsubscribe. This guide describes ChatGPT's MCP Events integration: it requires MCP 2.0 and currently supports webhook delivery. Test authorization, duplicate deliveries, restart recovery, and feedback loops; treat event text as data rather than instructions.
 
 #### Build Exercise
 
@@ -195,6 +202,8 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 
 **Instruction and trust reading:** Start with the introduction, then consult the Constitution's sections on principals and conversational inputs. Study how Anthropic distinguishes operator instructions, user requests, and tool or document content when handling conflicts. These describe intended Claude behavior; use evaluations to check actual behavior in your application.
 
+**Long-context reference:** Consult the [Claude prompting guide](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) for document placement, XML structure, and grounding answers in source passages; verify model-specific advice with your own evaluations.
+
 #### Build Exercise
 
 Implement the same task as a Skill/Plugin, then measure accuracy and token cost across three variants: no skill, long prompt, and skill-based.
@@ -233,6 +242,8 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 | [Amazon Bedrock AgentCore — Overview](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) | AWS |
 
 **Code walkthrough:** Revisit minion.py after the harness readings. Trace its tool execution and approval flow, session persistence and resume, and context compaction to see how these runtime responsibilities fit together in a single-file coding agent.
+
+**Event-triggered work:** See [MCP Events in Phase 2](#phase-2--mcp--tool-ecosystem) for connecting external updates to agent work through subscriptions and webhooks. Include subscription state and duplicate-event handling in the runtime design.
 
 #### Build Exercise
 
@@ -377,6 +388,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 
 | Priority | Title | Vendor | Topic | Key Idea | Date |
 |----------|-------|--------|-------|----------|------|
+| P0 | [Claude prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) | Anthropic | Prompting; Tool use; Context | Current reference for clear instructions, examples, XML structure, long context, tool use, agentic systems, and model-specific prompting; validate advice on the chosen model. | Current docs |
 | P0 | [The AI Engineering Skills Map](https://www.linkedin.com/pulse/ai-engineering-skills-map-andrew-ng-m479c/) | Andrew Ng | Skills; Learning roadmap; Product judgment | Frames AI engineering around building AI applications, software fundamentals, coding agents, and shaping what to build. | 2026-08-14 |
 | P0 | [CMU 11-768: AI Agents — Course Schedule](https://www.cmu-agents.com/#/schedule) | CMU | Course; Agents; Tool use; Planning; Memory; Training | Graduate course schedule with lecture slides, readings, and assignment milestones; use alongside the companion lecture recordings, after completing the core roadmap (Phases 0–6). | Fall 2026 |
 | P0 | [CMU 11-768: AI Agents — Lecture Recordings](https://www.youtube.com/playlist?list=PLSN0qpDfUvTM) | CMU | Course; Agents; Video lectures | Companion lecture recordings for the Fall 2026 course; follow the course schedule for slides and references. | Fall 2026 |
@@ -440,6 +452,8 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic | Managed agents; Harness | Decouple the model brain from execution hands/harness, keeping interfaces stable as the harness evolves. | 2026-04-08 |
 | P0 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic | Safety; Containment; Agents | Blast radius of powerful agent releases, human-in-the-loop, and containment strategies. | 2026-05-25 |
 | P0 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic | Agent security; Prompt injection; Isolation; Control flow | Six design patterns and ten case studies for separating untrusted data from agent control; security guarantees depend on enforced constraints and threat assumptions. | 2025-06-27 (v3) |
+| P1 | [MCP Events](https://developers.openai.com/plugins/build/mcp-events) | OpenAI | MCP; Events; Webhooks | ChatGPT integration for event discovery, subscriptions, callback verification, and webhook delivery; covers lifecycle and delivery testing. | Current docs |
+| P1 | [Prompt Repetition Improves Non-Reasoning LLMs](https://arxiv.org/abs/2512.14982) | Google Research | Prompting; Evaluation; Inference | Tests repeating the full input on early-2025 models, mainly without reasoning; compare gains against extra input tokens, cost, and long-input latency on your own tasks. | 2025-12-17 |
 | P1 | [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) | Anthropic | Model behavior; Alignment; Instructions | Accessible introduction to the values and reasoning behind Claude's intended behavior and the Constitution's role in training; read before the full document. | 2026-01-22 |
 | P1 | [Claude’s Constitution](https://www.anthropic.com/constitution) | Anthropic | Model behavior; Instruction authority; Human oversight | Reference for intended Claude behavior, principal roles, conversational inputs, and human oversight; actual behavior may differ from these intentions. | Living document |
 | P1 | [Why The Harness Matters More Than The Model — YC Paper Club](https://www.youtube.com/watch?v=n9xKblqyQ28) | Y Combinator | Harness; Agent architecture; Video | Video discussion of the role of the harness around a model; watch after the agent loop introduction and minion.py walkthrough. | Current video |
