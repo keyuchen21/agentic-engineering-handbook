@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **193 curated resources** into one structured learning roadmap.
+This repository consolidates **195 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -185,12 +185,15 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 
 | Title | Vendor |
 |-------|--------|
+| [Claude's new constitution — Introduction](https://www.anthropic.com/news/claude-new-constitution) + [Full Constitution](https://www.anthropic.com/constitution) | Anthropic |
 | [Custom instructions with AGENTS.md - Codex](https://developers.openai.com/codex/guides/agents-md) | OpenAI |
 | [Best practices for Claude Code](https://www.anthropic.com/engineering/claude-code-best-practices) | Anthropic |
 | [Agent Skills - Codex](https://developers.openai.com/codex/skills) | OpenAI |
 | [Skills in OpenAI API](https://developers.openai.com/cookbook/examples/skills_in_api) | OpenAI |
 
 **Skill authoring practice:** Read the authoring guide for discovery descriptions, task-appropriate freedom, progressive disclosure, and evaluation-driven iteration. Then inspect Vercel's design.md as a concrete example combining a scoped workflow, design constraints, CSS resources, and visual verification. Its brand preferences and official-authorship assumptions are specific to Vercel; adapt the structure to your own product and identity.
+
+**Instruction and trust reading:** Start with the introduction, then consult the Constitution's sections on principals and conversational inputs. Study how Anthropic distinguishes operator instructions, user requests, and tool or document content when handling conflicts. These describe intended Claude behavior; use evaluations to check actual behavior in your application.
 
 #### Build Exercise
 
@@ -310,6 +313,8 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 **Auto mode reading note:** Study the separation of input screening and action approval, the classifier's restricted view of user messages and tool calls, and delegation checks. The article reports 0.4% false positives on real traffic and 17% false negatives on 52 real overeager-action examples: an engineering tradeoff, not a safety guarantee.
 
 **Paired learning path:** Read the AI Engineering Loop to connect production tracing and monitoring with datasets, experiments, and evaluation. Then complete the workshop using its [reference app and checkpoint tags](https://github.com/langfuse/langfuse-workshop): add tracing, version prompts, monitor behavior, build a dataset, and compare a change against a baseline. Follow each lesson's checkpoint and verification steps.
+
+**Behavior and oversight reference:** Revisit the [paired Constitution readings in Phase 3](#phase-3--context-memory--skills) for intended behavior around instruction authority and human oversight. Connect those expectations to the permissions, isolation, and safety evaluations you implement here.
 
 #### Build Exercise
 
@@ -435,6 +440,8 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic | Managed agents; Harness | Decouple the model brain from execution hands/harness, keeping interfaces stable as the harness evolves. | 2026-04-08 |
 | P0 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic | Safety; Containment; Agents | Blast radius of powerful agent releases, human-in-the-loop, and containment strategies. | 2026-05-25 |
 | P0 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic | Agent security; Prompt injection; Isolation; Control flow | Six design patterns and ten case studies for separating untrusted data from agent control; security guarantees depend on enforced constraints and threat assumptions. | 2025-06-27 (v3) |
+| P1 | [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) | Anthropic | Model behavior; Alignment; Instructions | Accessible introduction to the values and reasoning behind Claude's intended behavior and the Constitution's role in training; read before the full document. | 2026-01-22 |
+| P1 | [Claude’s Constitution](https://www.anthropic.com/constitution) | Anthropic | Model behavior; Instruction authority; Human oversight | Reference for intended Claude behavior, principal roles, conversational inputs, and human oversight; actual behavior may differ from these intentions. | Living document |
 | P1 | [Why The Harness Matters More Than The Model — YC Paper Club](https://www.youtube.com/watch?v=n9xKblqyQ28) | Y Combinator | Harness; Agent architecture; Video | Video discussion of the role of the harness around a model; watch after the agent loop introduction and minion.py walkthrough. | Current video |
 | P1 | [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) | Anthropic | Skills; Authoring; Progressive disclosure; Evals | Practical guidance for discoverable descriptions, appropriate instruction specificity, reference organization, validation loops, and evaluation-driven skill iteration. | Current docs |
 | P1 | [Design report websites like Vercel (design.md)](https://vercel.com/design.md) | Vercel | Skills; Design specifications; Brand; Verification | Brand-specific skill example combining reader goals, design priorities, workflow, published CSS resources, and visual QA; adapt its structure rather than generalizing its brand rules. | Current guide |
