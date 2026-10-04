@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **192 curated resources** into one structured learning roadmap.
+This repository consolidates **193 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -208,11 +208,12 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 |---|-------|--------|
 | 1 | [Unrolling the Codex agent loop](https://openai.com/index/unrolling-the-codex-agent-loop/) | OpenAI |
 | 2 | [minion.py — Single-file coding harness](https://github.com/Sentdex/minion/blob/master/minion.py) | Sentdex |
-| 3 | [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness/) | OpenAI |
-| 4 | [Agent Harness Engineering: A Survey](https://picrew.github.io/LLM-Harness/) | Academic |
-| 5 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic |
-| 6 | [Orchestrate subagents at scale with dynamic workflows](https://code.claude.com/docs/en/workflows) | Anthropic |
-| 7 | [Deep Agents](https://github.com/langchain-ai/deepagents) | LangChain |
+| 3 | [Why The Harness Matters More Than The Model — YC Paper Club](https://www.youtube.com/watch?v=n9xKblqyQ28) | Y Combinator |
+| 4 | [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness/) | OpenAI |
+| 5 | [Agent Harness Engineering: A Survey](https://picrew.github.io/LLM-Harness/) | Academic |
+| 6 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic |
+| 7 | [Orchestrate subagents at scale with dynamic workflows](https://code.claude.com/docs/en/workflows) | Anthropic |
+| 8 | [Deep Agents](https://github.com/langchain-ai/deepagents) | LangChain |
 
 #### Then Read
 
@@ -434,6 +435,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic | Managed agents; Harness | Decouple the model brain from execution hands/harness, keeping interfaces stable as the harness evolves. | 2026-04-08 |
 | P0 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic | Safety; Containment; Agents | Blast radius of powerful agent releases, human-in-the-loop, and containment strategies. | 2026-05-25 |
 | P0 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic | Agent security; Prompt injection; Isolation; Control flow | Six design patterns and ten case studies for separating untrusted data from agent control; security guarantees depend on enforced constraints and threat assumptions. | 2025-06-27 (v3) |
+| P1 | [Why The Harness Matters More Than The Model — YC Paper Club](https://www.youtube.com/watch?v=n9xKblqyQ28) | Y Combinator | Harness; Agent architecture; Video | Video discussion of the role of the harness around a model; watch after the agent loop introduction and minion.py walkthrough. | Current video |
 | P1 | [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) | Anthropic | Skills; Authoring; Progressive disclosure; Evals | Practical guidance for discoverable descriptions, appropriate instruction specificity, reference organization, validation loops, and evaluation-driven skill iteration. | Current docs |
 | P1 | [Design report websites like Vercel (design.md)](https://vercel.com/design.md) | Vercel | Skills; Design specifications; Brand; Verification | Brand-specific skill example combining reader goals, design priorities, workflow, published CSS resources, and visual QA; adapt its structure rather than generalizing its brand rules. | Current guide |
 | P1 | [Amazon Bedrock AgentCore — Overview](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) | AWS | Harness; Runtime; Agent platform; Tools; Governance | Modular managed agent infrastructure across frameworks and models: Harness provides an agent loop, Runtime hosts custom agents, and supporting services cover tools, identity, policy, memory, observability, and evaluations. | Current docs |
