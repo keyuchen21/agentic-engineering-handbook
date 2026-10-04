@@ -207,18 +207,18 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 | # | Title | Vendor |
 |---|-------|--------|
 | 1 | [Unrolling the Codex agent loop](https://openai.com/index/unrolling-the-codex-agent-loop/) | OpenAI |
-| 2 | [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness/) | OpenAI |
-| 3 | [Agent Harness Engineering: A Survey](https://picrew.github.io/LLM-Harness/) | Academic |
-| 4 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic |
-| 5 | [Orchestrate subagents at scale with dynamic workflows](https://code.claude.com/docs/en/workflows) | Anthropic |
-| 6 | [Deep Agents](https://github.com/langchain-ai/deepagents) | LangChain |
+| 2 | [minion.py — Single-file coding harness](https://github.com/Sentdex/minion/blob/master/minion.py) | Sentdex |
+| 3 | [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness/) | OpenAI |
+| 4 | [Agent Harness Engineering: A Survey](https://picrew.github.io/LLM-Harness/) | Academic |
+| 5 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic |
+| 6 | [Orchestrate subagents at scale with dynamic workflows](https://code.claude.com/docs/en/workflows) | Anthropic |
+| 7 | [Deep Agents](https://github.com/langchain-ai/deepagents) | LangChain |
 
 #### Then Read
 
 | Title | Vendor |
 |-------|--------|
 | [Deep research](https://developers.openai.com/api/docs/guides/deep-research) | OpenAI |
-| [minion.py — Single-file coding harness](https://github.com/Sentdex/minion/blob/master/minion.py) | Sentdex |
 | [Open Deep Research](https://github.com/langchain-ai/open_deep_research) | LangChain |
 | [The next evolution of the Agents SDK](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) | OpenAI |
 | [A harness for every task: dynamic workflows in Claude Code](https://claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code) | Anthropic |
