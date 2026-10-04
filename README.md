@@ -218,6 +218,7 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 | Title | Vendor |
 |-------|--------|
 | [Deep research](https://developers.openai.com/api/docs/guides/deep-research) | OpenAI |
+| [minion.py — Single-file coding harness](https://github.com/Sentdex/minion/blob/master/minion.py) | Sentdex |
 | [Open Deep Research](https://github.com/langchain-ai/open_deep_research) | LangChain |
 | [The next evolution of the Agents SDK](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) | OpenAI |
 | [A harness for every task: dynamic workflows in Claude Code](https://claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code) | Anthropic |
@@ -226,6 +227,8 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 | [Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps) | Anthropic |
 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic |
 | [Amazon Bedrock AgentCore — Overview](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) | AWS |
+
+**Code walkthrough:** Revisit minion.py after the harness readings. Trace its tool execution and approval flow, session persistence and resume, and context compaction to see how these runtime responsibilities fit together in a single-file coding agent.
 
 #### Build Exercise
 
