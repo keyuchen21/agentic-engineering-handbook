@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **201 curated resources** into one structured learning roadmap.
+This repository consolidates **202 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -132,6 +132,7 @@ Source: Hyung Won Chung (OpenAI) — [Cornell AI history lecture](https://www.yo
 
 | Title | Vendor |
 |-------|--------|
+| [Understanding LLM outputs — Writing, diagrams, web pages, and explainer videos](https://x.com/karpathy/status/2105819303471976479) | Andrej Karpathy |
 | [Cornell AI history lecture](https://www.youtube.com/watch?v=CcP8db8TeKI) | Hyung Won Chung (OpenAI) |
 | [Prompt Repetition Improves Non-Reasoning LLMs](https://arxiv.org/abs/2512.14982) | Google Research |
 | [How We Build Effective Agents: Barry Zhang, Anthropic](https://www.youtube.com/watch?v=D7_ipDqhtwk) | Anthropic |
@@ -141,6 +142,23 @@ Source: Hyung Won Chung (OpenAI) — [Cornell AI history lecture](https://www.yo
 | [Structured Outputs for Multi-Agent Systems](https://developers.openai.com/cookbook/examples/structured_outputs_multi_agent) | OpenAI |
 
 **Prompting experiment:** Read the provider guides first, including the guidance for your chosen model. Treat prompt repetition as a hypothesis to test: compare the original input with two copies on a fixed dataset, measuring accuracy, input/output tokens, cost, and latency. The paper tested early-2025 models, with stronger gains without reasoning and smaller gains when reasoning was encouraged; long repeated inputs can increase latency.
+
+##### Make agent outputs easier to understand
+
+As agents take on more execution, understanding and reviewing their results becomes a larger part of your work. Karpathy suggests four output formats you can ask an LLM to create:
+
+| Format | What to try |
+|--------|-------------|
+| Clear writing | Ask for an explanation using ASD-STE100, or a less strict style inspired by it, and judge whether it is easier to read. |
+| Diagrams and images | Ask for a diagram that makes the structure and relationships visible. |
+| Interactive web pages | Ask for HTML with controls or animations that let you explore the explanation. |
+| Explainer videos | Ask for a custom visual explanation of a topic, with narration where useful. |
+
+These are practical suggestions for choosing a useful output format. A custom page or video can be created for one learning task and discarded afterward. Choose the format that helps you understand and check the result.
+
+**Try it:** Explain the same agent workflow as plain text, a diagram, and an interactive page. Compare how easily you can find missing steps, unclear permissions, and unsupported claims; check each explanation against the actual workflow.
+
+Source: [Andrej Karpathy on understanding LLM outputs](https://x.com/karpathy/status/2105819303471976479).
 
 #### Build Exercise
 
@@ -473,6 +491,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic | Managed agents; Harness | Decouple the model brain from execution hands/harness, keeping interfaces stable as the harness evolves. | 2026-04-08 |
 | P0 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic | Safety; Containment; Agents | Blast radius of powerful agent releases, human-in-the-loop, and containment strategies. | 2026-05-25 |
 | P0 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic | Agent security; Prompt injection; Isolation; Control flow | Six design patterns and ten case studies for separating untrusted data from agent control; security guarantees depend on enforced constraints and threat assumptions. | 2025-06-27 (v3) |
+| P1 | [Understanding LLM outputs — Writing, diagrams, web pages, and explainer videos](https://x.com/karpathy/status/2105819303471976479) | Andrej Karpathy | Agent UX; Output formats; Human oversight | Practical suggestions for clearer writing and custom diagrams, interactive HTML, and explainer videos to help people understand and review model outputs. | 2026-10-02 |
 | P1 | [Spec-Driven Development with Coding Agents — Full Course](https://www.youtube.com/watch?v=hy8UstR2NEg) | DeepLearning.AI / JetBrains | Coding agents; Specs; Workflow; Video | Paul Everitt teaches project constitutions and an iterative plan, implement, validate, and replan workflow for new and existing codebases. | Current course |
 | P1 | [Spec-Driven Development with Coding Agents — Course page](https://www.deeplearning.ai/courses/spec-driven-development-with-coding-agents) | DeepLearning.AI / JetBrains | Coding agents; Specs; Course | Companion course outline covering mission, stack, roadmap, feature specs, legacy support, and packaging workflows as agent skills. | Current course |
 | P1 | [MCP Events](https://developers.openai.com/plugins/build/mcp-events) | OpenAI | MCP; Events; Webhooks | ChatGPT integration for event discovery, subscriptions, callback verification, and webhook delivery; covers lifecycle and delivery testing. | Current docs |
