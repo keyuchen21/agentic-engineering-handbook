@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **199 curated resources** into one structured learning roadmap.
+This repository consolidates **201 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -283,6 +283,8 @@ Build a mini coding harness: plan file, shell tool, apply patch, test gate, even
 | 4 | [How Claude Code works in large codebases](https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start) | Anthropic |
 | 5 | [Enabling Claude Code to work more autonomously](https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously) | Anthropic |
 
+| 6 | [Spec-Driven Development with Coding Agents — Full Course](https://www.youtube.com/watch?v=hy8UstR2NEg) · [Course page](https://www.deeplearning.ai/courses/spec-driven-development-with-coding-agents) | DeepLearning.AI / JetBrains |
+
 #### Then Read
 
 | Title | Vendor |
@@ -297,6 +299,8 @@ Build a mini coding harness: plan file, shell tool, apply patch, test gate, even
 | [How Anthropic teams use Claude Code](https://www-cdn.anthropic.com/58284b19e702b49db9302d5b6f135ad8871e7658.pdf) | Anthropic |
 | [Multi-stack Web App Builds](https://github.com/mihail911/modern-software-dev-assignments/tree/master/week8) | Community |
 | [How to prepare for AI-driven code modernization projects](https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects) | Anthropic |
+
+**Spec-driven practice:** Follow Paul Everitt's course to define a project constitution (mission, tech stack, and roadmap), then plan, implement, and validate one feature before replanning. Apply the workflow to a new or existing codebase, and capture repeatable steps in an agent skill.
 
 #### Build Exercise
 
@@ -389,7 +393,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 |-------|------------|----------------|
 | Code modernization | [How to prepare for AI-driven code modernization projects](https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects) | Defines migration targets, automated acceptance evidence, and risk-based promotion policies; validates the workflow on a small pilot before scaling. |
 | Agentic coding workflow | [Coding Agents 101](https://devin.ai/agents101), [How Claude Code works in large codebases](https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start), [How Anthropic teams use Claude Code](https://www-cdn.anthropic.com/58284b19e702b49db9302d5b6f135ad8871e7658.pdf) | Turns agent theory into day-to-day engineering habits: prompting, checkpoints, verification, parallel work, and team rollout. |
-| Spec-driven building | [Vercel design.md](https://vercel.com/design.md), [The spec is dead, long live the spec!](https://blog.ravi-mehta.com/p/specs-are-the-new-source-code), [Multi-stack Web App Builds](https://github.com/mihail911/modern-software-dev-assignments/tree/master/week8) | Treats specs, prompts, and assignments as executable source material for agents. |
+| Spec-driven building | [Spec-Driven Development course](https://www.youtube.com/watch?v=hy8UstR2NEg), [Vercel design.md](https://vercel.com/design.md), [The spec is dead, long live the spec!](https://blog.ravi-mehta.com/p/specs-are-the-new-source-code), [Multi-stack Web App Builds](https://github.com/mihail911/modern-software-dev-assignments/tree/master/week8) | Treats specs, prompts, and assignments as executable source material for agents. |
 | Context failure modes | [How Long Contexts Fail](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html), [Context Rot](https://research.trychroma.com/context-rot), [Progressive disclosure](https://docs.claude-mem.ai/progressive-disclosure) | Helps diagnose context poisoning, distraction, confusion, context degradation, and retrieval overload. |
 | Evals and observability | [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents), [Agent observability powers agent evaluation](https://www.langchain.com/blog/agent-observability-powers-agent-evaluation), [Agent Evaluation Readiness Checklist](https://www.langchain.com/blog/agent-evaluation-readiness-checklist) | Builds the feedback loop for traces, datasets, graders, offline/online evals, and regression gates. |
 | Deep research agents | [Deep research](https://developers.openai.com/api/docs/guides/deep-research), [Open Deep Research](https://github.com/langchain-ai/open_deep_research), [Alibaba-NLP/DeepResearch](https://github.com/Alibaba-NLP/DeepResearch) | Practices long-running research agents: planning, search, MCP, citations, report synthesis, and benchmark-driven improvement. |
@@ -470,6 +474,8 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic | Managed agents; Harness | Decouple the model brain from execution hands/harness, keeping interfaces stable as the harness evolves. | 2026-04-08 |
 | P0 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic | Safety; Containment; Agents | Blast radius of powerful agent releases, human-in-the-loop, and containment strategies. | 2026-05-25 |
 | P0 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic | Agent security; Prompt injection; Isolation; Control flow | Six design patterns and ten case studies for separating untrusted data from agent control; security guarantees depend on enforced constraints and threat assumptions. | 2025-06-27 (v3) |
+| P1 | [Spec-Driven Development with Coding Agents — Full Course](https://www.youtube.com/watch?v=hy8UstR2NEg) | DeepLearning.AI / JetBrains | Coding agents; Specs; Workflow; Video | Paul Everitt teaches project constitutions and an iterative plan, implement, validate, and replan workflow for new and existing codebases. | Current course |
+| P1 | [Spec-Driven Development with Coding Agents — Course page](https://www.deeplearning.ai/courses/spec-driven-development-with-coding-agents) | DeepLearning.AI / JetBrains | Coding agents; Specs; Course | Companion course outline covering mission, stack, roadmap, feature specs, legacy support, and packaging workflows as agent skills. | Current course |
 | P1 | [MCP Events](https://developers.openai.com/plugins/build/mcp-events) | OpenAI | MCP; Events; Webhooks | ChatGPT integration for event discovery, subscriptions, callback verification, and webhook delivery; covers lifecycle and delivery testing. | Current docs |
 | P1 | [Prompt Repetition Improves Non-Reasoning LLMs](https://arxiv.org/abs/2512.14982) | Google Research | Prompting; Evaluation; Inference | Tests repeating the full input on early-2025 models, mainly without reasoning; compare gains against extra input tokens, cost, and long-input latency on your own tasks. | 2025-12-17 |
 | P1 | [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) | Anthropic | Model behavior; Alignment; Instructions | Accessible introduction to the values and reasoning behind Claude's intended behavior and the Constitution's role in training; read before the full document. | 2026-01-22 |
