@@ -282,7 +282,6 @@ Build a mini coding harness: plan file, shell tool, apply patch, test gate, even
 | 3 | [Best practices for Claude Code](https://www.anthropic.com/engineering/claude-code-best-practices) | Anthropic |
 | 4 | [How Claude Code works in large codebases](https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start) | Anthropic |
 | 5 | [Enabling Claude Code to work more autonomously](https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously) | Anthropic |
-
 | 6 | [Spec-Driven Development with Coding Agents — Full Course](https://www.youtube.com/watch?v=hy8UstR2NEg) · [Course page](https://www.deeplearning.ai/courses/spec-driven-development-with-coding-agents) | DeepLearning.AI / JetBrains |
 
 #### Then Read
