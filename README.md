@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **190 curated resources** into one structured learning roadmap.
+This repository consolidates **192 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -282,11 +282,12 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 | 1 | [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) | Anthropic |
 | 2 | [The six generations of AI agents and how to eval them](https://www.braintrust.dev/blog/six-generations-ai-agents) | Braintrust |
 | 3 | [Agent observability powers agent evaluation](https://www.langchain.com/blog/agent-observability-powers-agent-evaluation) | LangChain |
-| 4 | [Agent Evaluation Readiness Checklist](https://www.langchain.com/blog/agent-evaluation-readiness-checklist) | LangChain |
-| 5 | [Build an Agent Improvement Loop with Traces, Evals, and Codex](https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop) | OpenAI |
-| 6 | [Macro Evals for Agentic Systems](https://developers.openai.com/cookbook/examples/partners/macro_evals_for_agentic_systems/macro_evals_for_agentic_systems) | OpenAI |
-| 7 | [Testing Agent Skills Systematically with Evals](https://developers.openai.com/blog/eval-skills) | OpenAI |
-| 8 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic |
+| 4 | [AI Engineering Loop](https://langfuse.com/academy/ai-engineering-loop) + [Hands-on Workshop](https://langfuse.com/workshop) | Langfuse |
+| 5 | [Agent Evaluation Readiness Checklist](https://www.langchain.com/blog/agent-evaluation-readiness-checklist) | LangChain |
+| 6 | [Build an Agent Improvement Loop with Traces, Evals, and Codex](https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop) | OpenAI |
+| 7 | [Macro Evals for Agentic Systems](https://developers.openai.com/cookbook/examples/partners/macro_evals_for_agentic_systems/macro_evals_for_agentic_systems) | OpenAI |
+| 8 | [Testing Agent Skills Systematically with Evals](https://developers.openai.com/blog/eval-skills) | OpenAI |
+| 9 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic |
 
 **Security reading note:** Focus on §3 for isolation patterns and §4.3/§4.10 for email/calendar and software-engineering agents. Guarantees depend on the threat model and enforced system constraints: fixing a plan can protect control flow while still allowing untrusted data to corrupt output content.
 
@@ -306,6 +307,8 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 | [Measuring AI agent autonomy in practice](https://www.anthropic.com/news/measuring-agent-autonomy) | Anthropic |
 
 **Auto mode reading note:** Study the separation of input screening and action approval, the classifier's restricted view of user messages and tool calls, and delegation checks. The article reports 0.4% false positives on real traffic and 17% false negatives on 52 real overeager-action examples: an engineering tradeoff, not a safety guarantee.
+
+**Paired learning path:** Read the AI Engineering Loop to connect production tracing and monitoring with datasets, experiments, and evaluation. Then complete the workshop using its [reference app and checkpoint tags](https://github.com/langfuse/langfuse-workshop): add tracing, version prompts, monitor behavior, build a dataset, and compare a change against a baseline. Follow each lesson's checkpoint and verification steps.
 
 #### Build Exercise
 
@@ -444,6 +447,8 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [Computer-Using Agent](https://openai.com/index/computer-using-agent/) | OpenAI | Agents; Computer use | Understand how CUA combines vision, mouse/keyboard actions, and environment feedback into an agent loop; compare with Claude computer use. | 2025-01-23 |
 | P1 | [Claude 3.7 Sonnet and Claude Code](https://www.anthropic.com/news/claude-3-7-sonnet) | Anthropic | Agents; Coding; Claude Code | Early release of Claude Code, marking Claude's entry into the agentic coding tool space. | 2025-02-24 |
 | P1 | [The think tool: Enabling Claude to stop and think in complex tool use situations](https://www.anthropic.com/engineering/claude-think-tool) | Anthropic | Tools; Reasoning; Agents | Give the model an explicit think tool in complex tool-use chains; learn tool design for policy-heavy/multi-step decisions. | 2025-03-20 |
+| P1 | [AI Engineering Loop](https://langfuse.com/academy/ai-engineering-loop) | Langfuse | Evals; Observability; Production | Connects production traces and monitoring to repeatable datasets, controlled experiments, evaluation, and continuous improvement. | Current guide |
+| P1 | [Langfuse Workshop — the AI engineering loop, end to end](https://langfuse.com/workshop) | Langfuse | Evals; Observability; Hands-on | Self-guided TypeScript agent workshop covering tracing, prompt management, monitoring, datasets, experiments, and change evaluation, with runnable code and checkpoint tags. | Current workshop |
 | P1 | [Evaluating Agents with Langfuse](https://developers.openai.com/cookbook/topic/agents) | OpenAI | Evals; Agents | Observe and evaluate Agents SDK runs with Langfuse; learn tracing/eval workflows. | 2025-03-31 |
 | P1 | [Parallel Agents with the OpenAI Agents SDK](https://developers.openai.com/cookbook/examples/agents_sdk/parallel_agents) | OpenAI | Agents; Parallelism; Agents SDK | Parallel agent patterns: decompose tasks, execute in parallel, aggregate results. | 2025-05-01 |
 | P1 | [Multi-Agent Portfolio Collaboration with OpenAI Agents SDK](https://developers.openai.com/cookbook/examples/agents_sdk/multi-agent-portfolio-collaboration/multi_agent_portfolio_collaboration) | OpenAI | Agents; Multi-agent; Portfolio | Multi-agent collaboration business example: research, analysis, combined output. | 2025-05-28 |
