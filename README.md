@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **205 curated resources** into one structured learning roadmap.
+This repository consolidates **206 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -284,6 +284,8 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 
 **Runtime implementation:** Study OpenShell's sandbox, gateway, and supervisor architecture to see how filesystem, process, and network policies are enforced around an agent. Follow how credentials are attached to approved requests and how policy changes are checked before granting new access.
 
+**Long-run operating guide:** See the [Opus 5.5 playbook](https://claude.dev/blog/getting-the-most-out-of-opus-5-5/) in Phase 5 for specifying when an agent should continue or stop, keeping progress in a task file, and checking evidence from delegated work.
+
 #### Build Exercise
 
 Build a mini coding harness: plan file, shell tool, apply patch, test gate, event log, and resume capability.
@@ -309,6 +311,7 @@ Build a mini coding harness: plan file, shell tool, apply patch, test gate, even
 
 | Title | Vendor |
 |-------|--------|
+| [Getting the most out of Opus 5.5 in Claude and Claude Code](https://claude.dev/blog/getting-the-most-out-of-opus-5-5/) | Addy Osmani / claude.dev |
 | [Introducing the Codex app](https://openai.com/index/introducing-the-codex-app/) | OpenAI |
 | [Introducing workspace agents in ChatGPT](https://openai.com/index/introducing-workspace-agents-in-chatgpt/) | OpenAI |
 | [Projects redesigned: from folder to conversation](https://claude.com/blog/projects-redesigned) · [Usage docs](https://code.claude.com/docs/en/claude-projects) | Anthropic |
@@ -321,6 +324,8 @@ Build a mini coding harness: plan file, shell tool, apply patch, test gate, even
 | [How to prepare for AI-driven code modernization projects](https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects) | Anthropic |
 
 **Spec-driven practice:** Follow Paul Everitt's course to define a project constitution (mission, tech stack, and roadmap), then plan, implement, and validate one feature before replanning. Apply the workflow to a new or existing codebase, and capture repeatable steps in an agent skill.
+
+**Model-specific playbook:** Use the Opus 5.5 article for completion criteria, stop conditions, persistent task checklists, evidence checks for delegated work, and reporting what could not be confirmed. For general prompting techniques, use the [Claude prompting reference in Phase 1](#phase-1--agent-foundations). Re-check model-specific recommendations on your own tasks.
 
 #### Build Exercise
 
@@ -499,6 +504,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic | Managed agents; Harness | Decouple the model brain from execution hands/harness, keeping interfaces stable as the harness evolves. | 2026-04-08 |
 | P0 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic | Safety; Containment; Agents | Blast radius of powerful agent releases, human-in-the-loop, and containment strategies. | 2026-05-25 |
 | P0 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic | Agent security; Prompt injection; Isolation; Control flow | Six design patterns and ten case studies for separating untrusted data from agent control; security guarantees depend on enforced constraints and threat assumptions. | 2025-06-27 (v3) |
+| P1 | [Getting the most out of Opus 5.5 in Claude and Claude Code](https://claude.dev/blog/getting-the-most-out-of-opus-5-5/) | Addy Osmani / claude.dev | Coding agents; Long-running tasks; Prompting; Verification | Model-specific operating guide for completion criteria, stop conditions, persistent task lists, delegated-work evidence, and reporting unconfirmed results; complements the general prompting reference. | 2026-09-22 |
 | P1 | [OpenShell](https://github.com/NVIDIA/OpenShell) | NVIDIA | Agent runtime; Sandboxing; Permissions; Credentials | Reference implementation for isolated agent execution, filesystem/process/network policy enforcement, credential injection for approved endpoints, and policy-change verification and review. | Current repo |
 | P1 | [Understanding LLM outputs — Writing, diagrams, web pages, and explainer videos](https://x.com/karpathy/status/2105819303471976479) | Andrej Karpathy | Agent UX; Output formats; Human oversight | Practical suggestions for clearer writing and custom diagrams, interactive HTML, and explainer videos to help people understand and review model outputs. | 2026-10-02 |
 | P1 | [Spec-Driven Development with Coding Agents — Full Course](https://www.youtube.com/watch?v=hy8UstR2NEg) | DeepLearning.AI / JetBrains | Coding agents; Specs; Workflow; Video | Paul Everitt teaches project constitutions and an iterative plan, implement, validate, and replan workflow for new and existing codebases. | Current course |
