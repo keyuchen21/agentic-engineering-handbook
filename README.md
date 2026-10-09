@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--05-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--08-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **207 curated resources** into one structured learning roadmap.
+This repository consolidates **208 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -233,8 +233,11 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 | [Best practices for Claude Code](https://www.anthropic.com/engineering/claude-code-best-practices) | Anthropic |
 | [Agent Skills - Codex](https://developers.openai.com/codex/skills) | OpenAI |
 | [Skills in OpenAI API](https://developers.openai.com/cookbook/examples/skills_in_api) | OpenAI |
+| [Hugging Face Agent Skills](https://huggingface.co/docs/hub/en/agents-skills) | Hugging Face |
 
 **Skill authoring practice:** Read the authoring guide for discovery descriptions, task-appropriate freedom, progressive disclosure, and evaluation-driven iteration. Then inspect Vercel's design.md as a concrete example combining a scoped workflow, design constraints, CSS resources, and visual verification. Its brand preferences and official-authorship assumptions are specific to Vercel; adapt the structure to your own product and identity.
+
+**Skills in an ML workflow:** Use Hugging Face's skill collection as a practical example of packaging dataset operations, model training, evaluation, and experiment tracking for coding agents. For the exercise below, choose a small dataset task and inspect the corresponding `SKILL.md` and helper scripts; compare its results and token cost with the same task without a skill.
 
 **Instruction and trust reading:** Start with the introduction, then consult the Constitution's sections on principals and conversational inputs. Study how Anthropic distinguishes operator instructions, user requests, and tool or document content when handling conflicts. These describe intended Claude behavior; use evaluations to check actual behavior in your application.
 
@@ -520,6 +523,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) | Anthropic | Model behavior; Alignment; Instructions | Accessible introduction to the values and reasoning behind Claude's intended behavior and the Constitution's role in training; read before the full document. | 2026-01-22 |
 | P1 | [Claude’s Constitution](https://www.anthropic.com/constitution) | Anthropic | Model behavior; Instruction authority; Human oversight | Reference for intended Claude behavior, principal roles, conversational inputs, and human oversight; actual behavior may differ from these intentions. | Living document |
 | P1 | [Why The Harness Matters More Than The Model — YC Paper Club](https://www.youtube.com/watch?v=n9xKblqyQ28) | Y Combinator | Harness; Agent architecture; Video | Video discussion of the role of the harness around a model; watch after the agent loop introduction and minion.py walkthrough. | Current video |
+| P1 | [Hugging Face Agent Skills](https://huggingface.co/docs/hub/en/agents-skills) | Hugging Face | Skills; Datasets; Training; Evaluation; ML workflows | Practical skill collection for Hub operations, datasets, model training, evaluation, and experiment tracking; inspect its SKILL.md files and helper scripts alongside the authoring guide. | Current docs |
 | P1 | [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) | Anthropic | Skills; Authoring; Progressive disclosure; Evals | Practical guidance for discoverable descriptions, appropriate instruction specificity, reference organization, validation loops, and evaluation-driven skill iteration. | Current docs |
 | P1 | [Design report websites like Vercel (design.md)](https://vercel.com/design.md) | Vercel | Skills; Design specifications; Brand; Verification | Brand-specific skill example combining reader goals, design priorities, workflow, published CSS resources, and visual QA; adapt its structure rather than generalizing its brand rules. | Current guide |
 | P1 | [Amazon Bedrock AgentCore — Overview](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) | AWS | Harness; Runtime; Agent platform; Tools; Governance | Modular managed agent infrastructure across frameworks and models: Harness provides an agent loop, Runtime hosts custom agents, and supporting services cover tools, identity, policy, memory, observability, and evaluations. | Current docs |
