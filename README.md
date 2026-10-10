@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--08-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--10-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **208 curated resources** into one structured learning roadmap.
+This repository consolidates **209 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -411,6 +411,12 @@ CMU 11-768 extends the roadmap from evaluating agents to training and search. It
 
 **Use both links together:** Open each lecture in the schedule for its slides and readings, then watch the matching recording and follow the assignment milestones. Later scheduled topics may not yet have recordings.
 
+#### Optional — Agent Systems & Inference Optimization (P2)
+
+[Harvard CS2680: Modern AI Systems — Agents and System Optimizations](https://cs2680.seas.harvard.edu/) (Fall 2026) complements CMU's training and search focus with agent and inference-system optimization. Follow its public slides, readings, notes, and assignments to study task success, cost, and latency across the agent loop and serving stack: batching and scheduling, KV-cache and prefix reuse, routing, quantization, and speculative decoding.
+
+The five assignments progress from observing an agent to building its loop, optimizing token use, serving an open-weight model, and optimizing the full stack. The systems-heavy second half makes this an advanced elective; the course expects CS61 plus at least one graduate-level computer systems course and familiarity with Python/PyTorch. Lectures are not recorded. Materials are released during the semester; self-study requires your own API and compute resources.
+
 #### Then Read — Post-Training Case Study (P1)
 
 [Rufus-Air: An Open LLM Post-Training Recipe](https://arxiv.org/pdf/2609.29421v1) (Amazon) connects the course's training topics to an end-to-end recipe on GLM-4.5-Air-Base: SFT → Reasoning RL → Coding RL → Instruction-Following RL → General Agent → Coding Agent → Search Agent → RLHF.
@@ -628,6 +634,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI | Tools; Function calling; API | Official guide to function/tool calling: define functions with JSON schemas, handle model tool calls, execute and return results. | Current docs |
 | P0 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic | Tools; Tool use; API | Connect Claude to external tools and APIs: client vs server tools, the agentic loop, strict schema conformance, and when Claude decides to call tools. | Current docs |
 | P0 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google | Tools; Function calling; API | Enable Gemini models to connect with external tools via function calling: single-turn, multi-turn, parallel, and sequential function chains. | Current docs |
+| P2 | [Harvard CS2680: Modern AI Systems — Agents and System Optimizations](https://cs2680.seas.harvard.edu/) | Harvard | Advanced coursework; Agent systems; Inference; Cost; Performance | Optional systems course connecting agent design and evaluation to model serving, scheduling, caching, quantization, and full-stack optimization; public slides, notes, readings, and assignments, with no lecture recordings. | Fall 2026 |
 | P2 | [AWS Nitro System — Overview](https://aws.amazon.com/ec2/nitro/) | AWS | Cloud infrastructure; Virtualization; Isolation | Background on dedicated Nitro hardware, the lightweight hypervisor, and Nitro Enclaves; read alongside agent runtime policies to distinguish infrastructure and application controls. | Current overview |
 | P2 | [The Security Design of the AWS Nitro System](https://docs.aws.amazon.com/whitepapers/latest/security-design-of-aws-nitro-system/security-design-of-aws-nitro-system.html) | AWS | Cloud security; Hardware trust; Isolation | Explains Nitro Cards, the Security Chip, and the minimized Hypervisor, plus operator access restrictions, change management, and side-channel mitigations. | 2024-02-15 |
 | P2 | [Cornell AI history lecture](https://www.youtube.com/watch?v=CcP8db8TeKI) | Hyung Won Chung (OpenAI) | AI leverage; Agents; Learning; Video | Frames AI as leverage for learning, delegated work, small teams, and scientific progress. | 2025 |
