@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **209 curated resources** into one structured learning roadmap.
+This repository consolidates **210 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -366,6 +366,7 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 | Title | Vendor |
 |-------|--------|
 | [How we build evals for Deep Agents](https://www.langchain.com/blog/how-we-build-evals-for-deep-agents) | LangChain |
+| [Scaling AI in Legal: Building Uber’s Redlining Agent](https://www.uber.com/us/en/blog/building-ubers-redlining-agent/) | Uber |
 | [Deep Research Bench](https://futuresearch.ai/deep-research-bench/) | FutureSearch |
 | [How to Evaluate Tool-Calling Agents](https://arize.com/blog/how-to-evaluate-tool-calling-agents/) | Arize |
 | [AI agent evaluation: How to test, debug, and improve agents in production](https://arize.com/blog/why-testing-ai-agents-is-non-negotiable/) | Arize |
@@ -380,6 +381,8 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 **Auto mode reading note:** Study the separation of input screening and action approval, the classifier's restricted view of user messages and tool calls, and delegation checks. The article reports 0.4% false positives on real traffic and 17% false negatives on 52 real overeager-action examples: an engineering tradeoff, not a safety guarantee.
 
 **Paired learning path:** Read the AI Engineering Loop to connect production tracing and monitoring with datasets, experiments, and evaluation. Then complete the workshop using its [reference app and checkpoint tags](https://github.com/langfuse/langfuse-workshop): add tracing, version prompts, monitor behavior, build a dataset, and compare a change against a baseline. Follow each lesson's checkpoint and verification steps.
+
+**Expert-feedback case study:** Study Uber’s Redlining Agent for capturing experts’ final decisions, edited text, and reasoning; retrieving time-weighted examples; separating fixed policies from negotiable preferences; and reviewing suggestions inside Word. Its “self-learning” updates retrieved few-shot context rather than model weights. Connect this feedback memory to Phase 3 and examine the retrieval-quality and rule-adherence evaluations. The article describes the first-generation system; modern harnesses, skills, and knowledge graphs are exploration directions.
 
 **Behavior and oversight reference:** Revisit the [paired Constitution readings in Phase 3](#phase-3--context-memory--skills) for intended behavior around instruction authority and human oversight. Connect those expectations to the permissions, isolation, and safety evaluations you implement here.
 
@@ -531,6 +534,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) | Anthropic | Model behavior; Alignment; Instructions | Accessible introduction to the values and reasoning behind Claude's intended behavior and the Constitution's role in training; read before the full document. | 2026-01-22 |
 | P1 | [Claude’s Constitution](https://www.anthropic.com/constitution) | Anthropic | Model behavior; Instruction authority; Human oversight | Reference for intended Claude behavior, principal roles, conversational inputs, and human oversight; actual behavior may differ from these intentions. | Living document |
 | P1 | [Why The Harness Matters More Than The Model — YC Paper Club](https://www.youtube.com/watch?v=n9xKblqyQ28) | Y Combinator | Harness; Agent architecture; Video | Video discussion of the role of the harness around a model; watch after the agent loop introduction and minion.py walkthrough. | Current video |
+| P1 | [Scaling AI in Legal: Building Uber’s Redlining Agent](https://www.uber.com/us/en/blog/building-ubers-redlining-agent/) | Uber | Production agents; Expert feedback; Retrieval; Human oversight; Evals | Enterprise case study combining Word integration, expert corrections, time-weighted feedback retrieval, policy rules, and quality monitoring; self-learning uses retrieved context rather than model training. | 2026-10-08 |
 | P1 | [CS146S: The Modern Software Developer — Fall 2026](https://themodernsoftware.dev/) | Stanford | Coding agents; Context; MCP; Skills; Software development | Practical course on coding-agent internals, context engineering, tools and skills, agent-ready repositories, code review, security, background agents, and team workflows; public materials are released during the term. | Fall 2026 |
 | P1 | [Hugging Face Agent Skills](https://huggingface.co/docs/hub/en/agents-skills) | Hugging Face | Skills; Datasets; Training; Evaluation; ML workflows | Practical skill collection for Hub operations, datasets, model training, evaluation, and experiment tracking; inspect its SKILL.md files and helper scripts alongside the authoring guide. | Current docs |
 | P1 | [Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) | Anthropic | Skills; Authoring; Progressive disclosure; Evals | Practical guidance for discoverable descriptions, appropriate instruction specificity, reference organization, validation loops, and evaluation-driven skill iteration. | Current docs |
