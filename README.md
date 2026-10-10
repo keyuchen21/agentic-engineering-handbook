@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **210 curated resources** into one structured learning roadmap.
+This repository consolidates **213 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -140,6 +140,8 @@ Source: Hyung Won Chung (OpenAI) — [Cornell AI history lecture](https://www.yo
 | [Coding Agents 101: The Art of Actually Getting Things Done](https://devin.ai/agents101) | Cognition |
 | [OpenAI Agents SDK examples](https://openai.github.io/openai-agents-python/examples/) | OpenAI |
 | [Structured Outputs for Multi-Agent Systems](https://developers.openai.com/cookbook/examples/structured_outputs_multi_agent) | OpenAI |
+
+**Decision components:** For classification, routing, and rubric-based scoring, see [Decision Models — Use, Train & Evaluate in Phase 7](#decision-models--use-train--evaluate-p1). Start with the API guide; return to the training tutorial when you are ready to build your own decision model.
 
 **Prompting experiment:** Read the provider guides first, including the guidance for your chosen model. Treat prompt repetition as a hypothesis to test: compare the original input with two copies on a fixed dataset, measuring accuracy, input/output tokens, cost, and latency. The paper tested early-2025 models, with stronger gains without reasoning and smaller gains when reasoning was encouraged; long repeated inputs can increase latency.
 
@@ -422,6 +424,20 @@ CMU 11-768 extends the roadmap from evaluating agents to training and search. It
 
 The five assignments progress from observing an agent to building its loop, optimizing token use, serving an open-weight model, and optimizing the full stack. The systems-heavy second half makes this an advanced elective; the course expects CS61 plus at least one graduate-level computer systems course and familiarity with Python/PyTorch. Lectures are not recorded. Materials are released during the semester; self-study requires your own API and compute resources.
 
+#### Decision Models — Use, Train & Evaluate (P1)
+
+Study these three resources together to move from using a decision component to training and evaluating your own. This is component-level decision modeling, rather than full agent training.
+
+| Step | Resource | Provider |
+|------|----------|----------|
+| 1 — Use | [Decisions API guide](https://developers.openai.com/api/docs/guides/decisions) | OpenAI |
+| 2 — Train | [Train your own Decision Model with Unsloth](https://unsloth.ai/docs/basics/train-your-own-decision-model-with-unsloth) | Unsloth |
+| 3 — Practice & evaluate | [Qwen3.5-4B Decision Model — Colab Notebook](https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Qwen3_5_%284B%29-Decision.ipynb) | Unsloth |
+
+Start with predicates, fixed-choice classification, and ordered scoring in the API guide, including how they differ from structured generation and tool calls. Then follow the Unsloth tutorial and notebook through dataset preparation, 4-bit LoRA and decision-head training, probability calibration, separate test-set evaluation, and model saving. The Decisions API is currently in public beta; check the guide for supported models and availability.
+
+**Practice:** Compare a hosted decision API and a locally trained decision model on a labeled request-routing task. Measure accuracy, probability calibration, latency, and cost; choose review thresholds based on false-positive and false-negative costs, and handle low confidence, out-of-scope inputs, and refusals. Keep the final test set separate from training, calibration, and threshold selection. Calibration on one dataset does not guarantee reliable probabilities on your own traffic. Unlike the feedback retrieval in [Uber's Redlining Agent in Phase 6](#phase-6--evals-safety--production), this Unsloth workflow trains model parameters and a decision head.
+
 #### Then Read — Post-Training Case Study (P1)
 
 [Rufus-Air: An Open LLM Post-Training Recipe](https://arxiv.org/pdf/2609.29421v1) (Amazon) connects the course's training topics to an end-to-end recipe on GLM-4.5-Air-Base: SFT → Reasoning RL → Coding RL → Instruction-Following RL → General Agent → Coding Agent → Search Agent → RLHF.
@@ -534,6 +550,9 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) | Anthropic | Model behavior; Alignment; Instructions | Accessible introduction to the values and reasoning behind Claude's intended behavior and the Constitution's role in training; read before the full document. | 2026-01-22 |
 | P1 | [Claude’s Constitution](https://www.anthropic.com/constitution) | Anthropic | Model behavior; Instruction authority; Human oversight | Reference for intended Claude behavior, principal roles, conversational inputs, and human oversight; actual behavior may differ from these intentions. | Living document |
 | P1 | [Why The Harness Matters More Than The Model — YC Paper Club](https://www.youtube.com/watch?v=n9xKblqyQ28) | Y Combinator | Harness; Agent architecture; Video | Video discussion of the role of the harness around a model; watch after the agent loop introduction and minion.py walkthrough. | Current video |
+| P1 | [Decisions API guide](https://developers.openai.com/api/docs/guides/decisions) | OpenAI | Decision components; Classification; Routing; Scoring; Probabilities | Hosted API for predicates, fixed choices, and ordered scores; covers output interpretation, application-specific thresholds, and the boundary with structured generation and tool calls. | Current docs; public beta |
+| P1 | [Train your own Decision Model with Unsloth](https://unsloth.ai/docs/basics/train-your-own-decision-model-with-unsloth) | Unsloth | Decision models; LoRA; Training; Calibration | Guide to training a decision head and LoRA adapters, preparing labeled decisions, calibrating probabilities, evaluating a separate test set, and saving the model; pair with the Colab notebook. | Current docs |
+| P1 | [Qwen3.5-4B Decision Model — Colab Notebook](https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Qwen3_5_%284B%29-Decision.ipynb) | Unsloth | Decision models; Notebook; Training; Evaluation | Hands-on dataset preparation, 4-bit LoRA and decision-head training, held-out calibration, separate test-set evaluation, inference, and saving for Qwen3.5-4B. | Current notebook |
 | P1 | [Scaling AI in Legal: Building Uber’s Redlining Agent](https://www.uber.com/us/en/blog/building-ubers-redlining-agent/) | Uber | Production agents; Expert feedback; Retrieval; Human oversight; Evals | Enterprise case study combining Word integration, expert corrections, time-weighted feedback retrieval, policy rules, and quality monitoring; self-learning uses retrieved context rather than model training. | 2026-10-08 |
 | P1 | [CS146S: The Modern Software Developer — Fall 2026](https://themodernsoftware.dev/) | Stanford | Coding agents; Context; MCP; Skills; Software development | Practical course on coding-agent internals, context engineering, tools and skills, agent-ready repositories, code review, security, background agents, and team workflows; public materials are released during the term. | Fall 2026 |
 | P1 | [Hugging Face Agent Skills](https://huggingface.co/docs/hub/en/agents-skills) | Hugging Face | Skills; Datasets; Training; Evaluation; ML workflows | Practical skill collection for Hub operations, datasets, model training, evaluation, and experiment tracking; inspect its SKILL.md files and helper scripts alongside the authoring guide. | Current docs |
