@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **213 curated resources** into one structured learning roadmap.
+This repository consolidates **214 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -141,7 +141,7 @@ Source: Hyung Won Chung (OpenAI) — [Cornell AI history lecture](https://www.yo
 | [OpenAI Agents SDK examples](https://openai.github.io/openai-agents-python/examples/) | OpenAI |
 | [Structured Outputs for Multi-Agent Systems](https://developers.openai.com/cookbook/examples/structured_outputs_multi_agent) | OpenAI |
 
-**Decision components:** For classification, routing, and rubric-based scoring, see [Decision Models — Use, Train & Evaluate in Phase 7](#decision-models--use-train--evaluate-p1). Start with the API guide; return to the training tutorial when you are ready to build your own decision model.
+**Decision components:** For classification, routing, and rubric-based scoring, see [Decision Models — Use, Train & Evaluate in Phase 7](#decision-models--use-train--evaluate-p1). Read the architecture overview and API guide first; return to the training tutorial when you are ready to build your own decision model.
 
 **Prompting experiment:** Read the provider guides first, including the guidance for your chosen model. Treat prompt repetition as a hypothesis to test: compare the original input with two copies on a fixed dataset, measuring accuracy, input/output tokens, cost, and latency. The paper tested early-2025 models, with stronger gains without reasoning and smaller gains when reasoning was encouraged; long repeated inputs can increase latency.
 
@@ -426,15 +426,16 @@ The five assignments progress from observing an agent to building its loop, opti
 
 #### Decision Models — Use, Train & Evaluate (P1)
 
-Study these three resources together to move from using a decision component to training and evaluating your own. This is component-level decision modeling, rather than full agent training.
+Study these four resources together to move from understanding decision-model architecture to using, training, and evaluating a decision component. This is component-level decision modeling, rather than full agent training.
 
 | Step | Resource | Provider |
 |------|----------|----------|
-| 1 — Use | [Decisions API guide](https://developers.openai.com/api/docs/guides/decisions) | OpenAI |
-| 2 — Train | [Train your own Decision Model with Unsloth](https://unsloth.ai/docs/basics/train-your-own-decision-model-with-unsloth) | Unsloth |
-| 3 — Practice & evaluate | [Qwen3.5-4B Decision Model — Colab Notebook](https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Qwen3_5_%284B%29-Decision.ipynb) | Unsloth |
+| 1 — Understand | [Introducing Clef: our open-source decision models, and new RL fine-tuning platform](https://blog.cloudflare.com/clef-decision-models/) | Cloudflare |
+| 2 — Use | [Decisions API guide](https://developers.openai.com/api/docs/guides/decisions) | OpenAI |
+| 3 — Train | [Train your own Decision Model with Unsloth](https://unsloth.ai/docs/basics/train-your-own-decision-model-with-unsloth) | Unsloth |
+| 4 — Practice & evaluate | [Qwen3.5-4B Decision Model — Colab Notebook](https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Qwen3_5_%284B%29-Decision.ipynb) | Unsloth |
 
-Start with predicates, fixed-choice classification, and ordered scoring in the API guide, including how they differ from structured generation and tool calls. Then follow the Unsloth tutorial and notebook through dataset preparation, 4-bit LoRA and decision-head training, probability calibration, separate test-set evaluation, and model saving. The Decisions API is currently in public beta; check the guide for supported models and availability.
+Start with Clef’s architecture: a prefill-only backbone pass followed by parallel schema-choice scoring, with a decision head and LoRA adapters trained using cross-entropy, Brier loss, and a secondary RLCD objective. Treat the reported benchmark and latency results as Cloudflare’s measurements to validate on your own workload. Next, study predicates, fixed-choice classification, and ordered scoring in the API guide, including how they differ from structured generation and tool calls. Then follow the Unsloth tutorial and notebook through dataset preparation, 4-bit LoRA and decision-head training, probability calibration, separate test-set evaluation, and model saving. The Decisions API is currently in public beta; check the guide for supported models and availability.
 
 **Practice:** Compare a hosted decision API and a locally trained decision model on a labeled request-routing task. Measure accuracy, probability calibration, latency, and cost; choose review thresholds based on false-positive and false-negative costs, and handle low confidence, out-of-scope inputs, and refusals. Keep the final test set separate from training, calibration, and threshold selection. Calibration on one dataset does not guarantee reliable probabilities on your own traffic. Unlike the feedback retrieval in [Uber's Redlining Agent in Phase 6](#phase-6--evals-safety--production), this Unsloth workflow trains model parameters and a decision head.
 
@@ -550,6 +551,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) | Anthropic | Model behavior; Alignment; Instructions | Accessible introduction to the values and reasoning behind Claude's intended behavior and the Constitution's role in training; read before the full document. | 2026-01-22 |
 | P1 | [Claude’s Constitution](https://www.anthropic.com/constitution) | Anthropic | Model behavior; Instruction authority; Human oversight | Reference for intended Claude behavior, principal roles, conversational inputs, and human oversight; actual behavior may differ from these intentions. | Living document |
 | P1 | [Why The Harness Matters More Than The Model — YC Paper Club](https://www.youtube.com/watch?v=n9xKblqyQ28) | Y Combinator | Harness; Agent architecture; Video | Video discussion of the role of the harness around a model; watch after the agent loop introduction and minion.py walkthrough. | Current video |
+| P1 | [Introducing Clef: our open-source decision models, and new RL fine-tuning platform](https://blog.cloudflare.com/clef-decision-models/) | Cloudflare | Decision models; Architecture; LoRA; Calibration; RLCD | Explains prefill-only inference, parallel schema-choice scoring, decision-head and adapter training, Brier loss, and RLCD; benchmark and latency results are vendor-reported measurements. | 2026-10-01 |
 | P1 | [Decisions API guide](https://developers.openai.com/api/docs/guides/decisions) | OpenAI | Decision components; Classification; Routing; Scoring; Probabilities | Hosted API for predicates, fixed choices, and ordered scores; covers output interpretation, application-specific thresholds, and the boundary with structured generation and tool calls. | Current docs; public beta |
 | P1 | [Train your own Decision Model with Unsloth](https://unsloth.ai/docs/basics/train-your-own-decision-model-with-unsloth) | Unsloth | Decision models; LoRA; Training; Calibration | Guide to training a decision head and LoRA adapters, preparing labeled decisions, calibrating probabilities, evaluating a separate test set, and saving the model; pair with the Colab notebook. | Current docs |
 | P1 | [Qwen3.5-4B Decision Model — Colab Notebook](https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Qwen3_5_%284B%29-Decision.ipynb) | Unsloth | Decision models; Notebook; Training; Evaluation | Hands-on dataset preparation, 4-bit LoRA and decision-head training, held-out calibration, separate test-set evaluation, inference, and saving for Qwen3.5-4B. | Current notebook |
