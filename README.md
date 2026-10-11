@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--10-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--11-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **214 curated resources** into one structured learning roadmap.
+This repository consolidates **215 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -273,6 +273,7 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 | Title | Vendor |
 |-------|--------|
 | [OpenShell — Policy-enforced agent runtime](https://github.com/NVIDIA/OpenShell) | NVIDIA |
+| [How Container Filesystem Works: Building a Docker-like Container From Scratch](https://labs.iximiuz.com/tutorials/container-filesystem-from-scratch) (P2) | iximiuz Labs |
 | [Deep research](https://developers.openai.com/api/docs/guides/deep-research) | OpenAI |
 | [Open Deep Research](https://github.com/langchain-ai/open_deep_research) | LangChain |
 | [The next evolution of the Agents SDK](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) | OpenAI |
@@ -288,6 +289,8 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 **Event-triggered work:** See [MCP Events in Phase 2](#phase-2--mcp--tool-ecosystem) for connecting external updates to agent work through subscriptions and webhooks. Include subscription state and duplicate-event handling in the runtime design.
 
 **Runtime implementation:** Study OpenShell's sandbox, gateway, and supervisor architecture to see how filesystem, process, and network policies are enforced around an agent. Follow how credentials are attached to approved requests and how policy changes are checked before granting new access.
+
+**Filesystem isolation background (P2):** Follow the iximiuz Labs tutorial to understand mount namespaces, rootfs and `pivot_root`, mount propagation, and bind mounts. Use these mechanisms to reason about which files an agent sandbox can access and which paths are shared with its host. The tutorial explains container filesystem mechanics; a complete agent sandbox also needs process, network, and permission controls.
 
 **Long-run operating guide:** See the [Opus 5.5 playbook](https://claude.dev/blog/getting-the-most-out-of-opus-5-5/) in Phase 5 for specifying when an agent should continue or stop, keeping progress in a task file, and checking evidence from delegated work.
 
@@ -662,6 +665,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI | Tools; Function calling; API | Official guide to function/tool calling: define functions with JSON schemas, handle model tool calls, execute and return results. | Current docs |
 | P0 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic | Tools; Tool use; API | Connect Claude to external tools and APIs: client vs server tools, the agentic loop, strict schema conformance, and when Claude decides to call tools. | Current docs |
 | P0 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google | Tools; Function calling; API | Enable Gemini models to connect with external tools via function calling: single-turn, multi-turn, parallel, and sequential function chains. | Current docs |
+| P2 | [How Container Filesystem Works: Building a Docker-like Container From Scratch](https://labs.iximiuz.com/tutorials/container-filesystem-from-scratch) | iximiuz Labs | Linux containers; Filesystem isolation; Sandboxing | Hands-on walkthrough of mount namespaces, rootfs, pivot_root, mount propagation, and bind mounts; background for understanding agent sandbox filesystem boundaries. | 2026-03-09 |
 | P2 | [Harvard CS2680: Modern AI Systems — Agents and System Optimizations](https://cs2680.seas.harvard.edu/) | Harvard | Advanced coursework; Agent systems; Inference; Cost; Performance | Optional systems course connecting agent design and evaluation to model serving, scheduling, caching, quantization, and full-stack optimization; public slides, notes, readings, and assignments, with no lecture recordings. | Fall 2026 |
 | P2 | [AWS Nitro System — Overview](https://aws.amazon.com/ec2/nitro/) | AWS | Cloud infrastructure; Virtualization; Isolation | Background on dedicated Nitro hardware, the lightweight hypervisor, and Nitro Enclaves; read alongside agent runtime policies to distinguish infrastructure and application controls. | Current overview |
 | P2 | [The Security Design of the AWS Nitro System](https://docs.aws.amazon.com/whitepapers/latest/security-design-of-aws-nitro-system/security-design-of-aws-nitro-system.html) | AWS | Cloud security; Hardware trust; Isolation | Explains Nitro Cards, the Security Chip, and the minimized Hypervisor, plus operator access restrictions, change management, and side-channel mitigations. | 2024-02-15 |
