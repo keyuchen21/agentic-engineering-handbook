@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--17-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--19-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **217 curated resources** into one structured learning roadmap.
+This repository consolidates **218 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -273,6 +273,7 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 | Title | Vendor |
 |-------|--------|
 | [OpenShell — Policy-enforced agent runtime](https://github.com/NVIDIA/OpenShell) | NVIDIA |
+| [Harness² — Recursive Agent Harnessing for an Open World](https://github.com/google-research/harness2) | Google Research |
 | [How Container Filesystem Works: Building a Docker-like Container From Scratch](https://labs.iximiuz.com/tutorials/container-filesystem-from-scratch) (P2) | iximiuz Labs |
 | [Deep research](https://developers.openai.com/api/docs/guides/deep-research) | OpenAI |
 | [Open Deep Research](https://github.com/langchain-ai/open_deep_research) | LangChain |
@@ -554,6 +555,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [Maintaining software with the GPT-6 family](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family) | OpenAI | Coding agents; Maintenance; CI; Verification | Evidence-driven dead-code and stale-experiment cleanup, flaky-test fixes, and CI optimization; start with small PRs and expand using review feedback and measured results. | 2026-10-14 |
 | P1 | [How the Claude Code team does code review](https://claude.dev/blog/solving-code-review-at-anthropic/) | Anthropic / claude.dev | Code review; Evals; Risk; Release workflow | Team case study of layered review, risk-based human approvals, incident-derived evals, false-positive measurement, and limits that make agent review converge. | 2026-10-15 |
 | P1 | [OpenShell](https://github.com/NVIDIA/OpenShell) | NVIDIA | Agent runtime; Sandboxing; Permissions; Credentials | Reference implementation for isolated agent execution, filesystem/process/network policy enforcement, credential injection for approved endpoints, and policy-change verification and review. | Current repo |
+| P1 | [Harness² — Recursive Agent Harnessing for an Open World](https://github.com/google-research/harness2) | Google Research | Harness; Recursive improvement; Evals | Research framework that improves a fixed-model agent harness through Propose-Probe-Compose iterations, preserving adopted harnesses and evidence-backed lessons across tasks. | 2026-10 |
 | P1 | [Understanding LLM outputs — Writing, diagrams, web pages, and explainer videos](https://x.com/karpathy/status/2105819303471976479) | Andrej Karpathy | Agent UX; Output formats; Human oversight | Practical suggestions for clearer writing and custom diagrams, interactive HTML, and explainer videos to help people understand and review model outputs. | 2026-10-02 |
 | P1 | [Spec-Driven Development with Coding Agents — Full Course](https://www.youtube.com/watch?v=hy8UstR2NEg) | DeepLearning.AI / JetBrains | Coding agents; Specs; Workflow; Video | Paul Everitt teaches project constitutions and an iterative plan, implement, validate, and replan workflow for new and existing codebases. | Current course |
 | P1 | [Spec-Driven Development with Coding Agents — Course page](https://www.deeplearning.ai/courses/spec-driven-development-with-coding-agents) | DeepLearning.AI / JetBrains | Coding agents; Specs; Course | Companion course outline covering mission, stack, roadmap, feature specs, legacy support, and packaging workflows as agent skills. | Current course |
