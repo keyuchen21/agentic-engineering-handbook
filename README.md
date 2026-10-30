@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--19-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--29-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **218 curated resources** into one structured learning roadmap.
+This repository consolidates **223 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -42,6 +42,8 @@ Start with Andrew Ng's [The AI Engineering Skills Map](https://www.linkedin.com/
 | Shaping the build | Bring product judgment, business context, and user goals to every Build Exercise and Applied Practice Track. Decide what to build and how to validate its value. |
 
 For each project, define the user problem and success criteria, choose an appropriate scope, then use implementation and evaluation to test those decisions.
+
+**Enterprise delivery:** Read *What FDE means at OpenAI* in [Phase 6](#phase-6--evals-safety--production) for a practical connection between business context, domain expertise, production evals, and reusable solutions.
 
 ---
 
@@ -164,7 +166,7 @@ Source: [Andrej Karpathy on understanding LLM outputs](https://x.com/karpathy/st
 
 #### Build Exercise
 
-Build a customer service/ticket triage agent: router → specialist → evaluator, with all outputs constrained by structured schemas.
+Build a customer service/ticket triage agent with a single tool loop as the baseline, then compare it with a router → specialist → evaluator design. Use the same model, tools, task set, and structured output schemas for both. Measure task completion, cost, and latency, and inspect individual regressions before choosing an architecture. After Phase 3, repeat the comparison with domain procedures loaded as skills in the single loop.
 
 ---
 
@@ -265,8 +267,13 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 | 4 | [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness/) | OpenAI |
 | 5 | [Agent Harness Engineering: A Survey](https://picrew.github.io/LLM-Harness/) | Academic |
 | 6 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic |
-| 7 | [Orchestrate subagents at scale with dynamic workflows](https://code.claude.com/docs/en/workflows) | Anthropic |
-| 8 | [Deep Agents](https://github.com/langchain-ai/deepagents) | LangChain |
+| 7 | [Building agents: When to fold subagents into your main agent loop](https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop) | Anthropic |
+| 8 | [Orchestrate subagents at scale with dynamic workflows](https://code.claude.com/docs/en/workflows) | Anthropic |
+| 9 | [Deep Agents](https://github.com/langchain-ai/deepagents) | LangChain |
+
+**Architecture decision:** Read *When to fold subagents into your main agent loop* before the orchestration guide. Consider merging specialists that share data or depend heavily on each other's outputs, moving domain procedures into skills and actions into tools. Keep subagents where independent context, parallel work, verification, or permission boundaries provide measurable value. Change one subagent at a time and compare end-to-end task completion, cost, latency, and individual regressions across repeated runs. Treat the article's enterprise observations as migration guidance, not evidence that a single agent universally outperforms multiple agents.
+
+**Coordination evaluation:** Continue with *Patterns and problems in emerging multiagent systems* in [Phase 6](#phase-6--evals-safety--production) to evaluate shared-resource coordination, correlated errors, and conflicting goals after choosing your architecture.
 
 #### Then Read
 
@@ -370,8 +377,11 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 | 7 | [Macro Evals for Agentic Systems](https://developers.openai.com/cookbook/examples/partners/macro_evals_for_agentic_systems/macro_evals_for_agentic_systems) | OpenAI |
 | 8 | [Testing Agent Skills Systematically with Evals](https://developers.openai.com/blog/eval-skills) | OpenAI |
 | 9 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic |
+| 10 | [Patterns and problems in emerging multiagent systems](https://www.anthropic.com/research/multiagent-systems) | Anthropic |
 
 **Security reading note:** Focus on §3 for isolation patterns and §4.3/§4.10 for email/calendar and software-engineering agents. Guarantees depend on the threat model and enforced system constraints: fixing a plan can protect control flow while still allowing untrusted data to corrupt output content.
+
+**Multiagent reading note:** Distinguish independent parallel search from work that depends on shared resources and other agents' outputs. The experiments expose correlated actions, failures to share or assess evidence, and escalation under conflicting goals; stronger individual capability does not guarantee effective coordination. Compare final task quality as well as coordination metrics. The vulnerability-search experiments used different token budgets and search scopes, so higher discovery totals alone do not establish greater efficiency. Treat these findings as evidence from specific experimental settings.
 
 #### Then Read
 
@@ -379,6 +389,7 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 |-------|--------|
 | [How we build evals for Deep Agents](https://www.langchain.com/blog/how-we-build-evals-for-deep-agents) | LangChain |
 | [Scaling AI in Legal: Building Uber’s Redlining Agent](https://www.uber.com/us/en/blog/building-ubers-redlining-agent/) | Uber |
+| [What FDE means at OpenAI](https://openai.com/index/forward-deployed-engineering-means/) | OpenAI |
 | [Deep Research Bench](https://futuresearch.ai/deep-research-bench/) | FutureSearch |
 | [How to Evaluate Tool-Calling Agents](https://arize.com/blog/how-to-evaluate-tool-calling-agents/) | Arize |
 | [AI agent evaluation: How to test, debug, and improve agents in production](https://arize.com/blog/why-testing-ai-agents-is-non-negotiable/) | Arize |
@@ -389,12 +400,17 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 | [How we built Claude Code auto mode: a safer way to skip permissions](https://www.anthropic.com/engineering/claude-code-auto-mode) | Anthropic |
 | [Evals API Use-case - MCP Evaluation](https://developers.openai.com/cookbook/examples/evaluation/use-cases/mcp_eval_notebook) | OpenAI |
 | [Measuring AI agent autonomy in practice](https://www.anthropic.com/news/measuring-agent-autonomy) | Anthropic |
+| [How AI agents shape experts’ judgment calls](https://www.anthropic.com/research/agents-judgment-calls) | Anthropic |
+
+**Human judgment reading note:** Expert approval may not provide an independent check when an agent shapes the underlying analytical choices. In this study, 50 analysts using an agent matched its randomly assigned lean on 86% of four analytical choices. The researchers deliberately strengthened those leans and studied one task with one model; this is not a general real-world deferral rate. Consider how metrics, methods, and weighting encode judgment even when the calculations are correct. Presenting alternatives or eliciting the user's view first are design hypotheses to test, not established remedies.
 
 **Auto mode reading note:** Study the separation of input screening and action approval, the classifier's restricted view of user messages and tool calls, and delegation checks. The article reports 0.4% false positives on real traffic and 17% false negatives on 52 real overeager-action examples: an engineering tradeoff, not a safety guarantee.
 
 **Paired learning path:** Read the AI Engineering Loop to connect production tracing and monitoring with datasets, experiments, and evaluation. Then complete the workshop using its [reference app and checkpoint tags](https://github.com/langfuse/langfuse-workshop): add tracing, version prompts, monitor behavior, build a dataset, and compare a change against a baseline. Follow each lesson's checkpoint and verification steps.
 
 **Expert-feedback case study:** Study Uber’s Redlining Agent for capturing experts’ final decisions, edited text, and reasoning; retrieving time-weighted examples; separating fixed policies from negotiable preferences; and reviewing suggestions inside Word. Its “self-learning” updates retrieved few-shot context rather than model weights. Connect this feedback memory to Phase 3 and examine the retrieval-quality and rule-adherence evaluations. The article describes the first-generation system; modern harnesses, skills, and knowledge graphs are exploration directions.
+
+**Enterprise delivery reading:** Study *What FDE means at OpenAI* for closing the gap between model capability and reliable customer workflows. Start with business outcomes and evals built with domain experts, establish production value, then extract reusable skills, plugins, and shared runtime components. Distinguish integration and product gaps from model capability gaps that need further research. As a handbook practice, revisit custom architecture when underlying capabilities improve, checking that simplification preserves outcomes. Code reductions and efficiency gains in the article are OpenAI-reported customer results, not general deployment expectations.
 
 **Behavior and oversight reference:** Revisit the [paired Constitution readings in Phase 3](#phase-3--context-memory--skills) for intended behavior around instruction authority and human oversight. Connect those expectations to the permissions, isolation, and safety evaluations you implement here.
 
@@ -407,6 +423,13 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 #### Build Exercise
 
 Build a smoke/macro eval suite for your agent: task success rate, tool misuse, prompt injection resistance, latency, cost, and human approval count.
+
+Extend the suite with two interaction exercises:
+
+- **Multiagent coordination:** In a sandbox, construct cases involving duplicate work, incorrect peer reports, decisive evidence held by only one agent, and conflicting objectives. Measure team task success, resource use, and whether agents stop and seek human arbitration when goals cannot be reconciled.
+- **Human judgment:** Compare direct recommendations, eliciting the user's initial view, and presenting alternatives with their consequences on the same task. Track changes in consequential choices and the reasons users give, alongside task quality and effort. Treat the comparison as an exploratory evaluation of these interaction designs.
+
+**Enterprise delivery exercise:** Select a real business workflow and write a delivery brief covering the business outcome, current baseline, production acceptance evals, and remaining system and model capability gaps. Identify what can be reused for a second team, what must change, and how you would measure deployment effort and preserved task quality.
 
 ---
 
@@ -542,15 +565,19 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Code execution with MCP: Building more efficient agents](https://www.anthropic.com/engineering/code-execution-with-mcp) | Anthropic | MCP; Code execution; Context | Key article on MCP scale challenges: reduce token overhead with code execution/on-demand tools; learn progressive disclosure. | 2025-11-04 |
 | P0 | [Introducing advanced tool use on Claude Developer Platform](https://www.anthropic.com/engineering/advanced-tool-use) | Anthropic | Tools; MCP; Advanced tool use | Tool search, deferred loading, programmatic tool calling; solving context pollution from large numbers of MCP tools. | 2025-11-24 |
 | P0 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic | Harness; Long-running agents | Essential harness reading: working across multiple context windows, task logging, external state, agent self-recovery. | 2025-11-26 |
+| P0 | [Building agents: When to fold subagents into your main agent loop](https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop) | Anthropic | Agent architecture; Subagents; Skills; Evals | Evaluate folding tightly coupled specialists into one loop with skills and tools; retain useful isolation and parallelism, and verify each change with task-completion evals, cost, and latency. | 2026-10-22 |
 | P0 | [Orchestrate subagents at scale with dynamic workflows](https://code.claude.com/docs/en/workflows) | Anthropic | Harness; Workflows; Subagents | Claude Code workflows move orchestration into rerunnable scripts, scaling subagents for audits, migrations, research, verification loops, and repeatable team workflows. | Current docs |
 | P0 | [Deep Agents](https://github.com/langchain-ai/deepagents) | LangChain | Harness; Long-running agents; Deep research | Opinionated open-source agent harness for planning, context management, subagents, filesystem, memory, and human-in-the-loop workflows. | Current repo |
 | P0 | [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) | Anthropic | Evals; Agents | Agent evals are more complex than static evals: multi-turn, tools, state changes, creative solutions, failure taxonomy. | 2026-01-09 |
+| P0 | [Patterns and problems in emerging multiagent systems](https://www.anthropic.com/research/multiagent-systems) | Anthropic | Multi-agent; Coordination; Evals; Safety | Experiments on coordination, correlated behavior, evidence exchange, and conflicting goals; evaluate team outcomes beyond individual capability or PR throughput. | 2026-08-13 |
 | P0 | [Measuring AI agent autonomy in practice](https://www.anthropic.com/news/measuring-agent-autonomy) | Anthropic | Agents; Autonomy; Measurement | Quantify agent autonomy using metrics like task duration and supervision needs; ideal for building autonomy benchmarks. | 2026-02-18 |
 | P0 | [Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps) | Anthropic | Harness; Application development | Harness design patterns for delegating long-running app development tasks to agents; compare with OpenAI Codex harness. | 2026-03-24 |
 | P0 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic | Managed agents; Harness | Decouple the model brain from execution hands/harness, keeping interfaces stable as the harness evolves. | 2026-04-08 |
 | P0 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic | Safety; Containment; Agents | Blast radius of powerful agent releases, human-in-the-loop, and containment strategies. | 2026-05-25 |
 | P0 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic | Agent security; Prompt injection; Isolation; Control flow | Six design patterns and ten case studies for separating untrusted data from agent control; security guarantees depend on enforced constraints and threat assumptions. | 2025-06-27 (v3) |
 | P1 | [The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook) | Anthropic | Coding agents; SDLC; Governance; Production | Connects planning, design, build, test, deployment, and maintenance through versioned artifacts, human review gates, automated checks, and production feedback. | 2026-08-21 |
+| P1 | [What FDE means at OpenAI](https://openai.com/index/forward-deployed-engineering-means/) | OpenAI | Enterprise delivery; Domain expertise; Evals; Production | Outcome-driven delivery: build evals with domain experts, turn validated workflows into reusable components, and distinguish product gaps from model capability gaps. Customer outcomes are vendor-reported. | 2026-10-22 |
+| P1 | [How AI agents shape experts’ judgment calls](https://www.anthropic.com/research/agents-judgment-calls) | Anthropic | Human oversight; Judgment; Agent UX; Evals | Randomized agent preferences influenced experts' analytical choices; human sign-off alone does not establish independent judgment. Results concern deliberately strengthened preferences in one task with one model. | 2026-10-27 |
 | P1 | [Getting the most out of Opus 5.5 in Claude and Claude Code](https://claude.dev/blog/getting-the-most-out-of-opus-5-5/) | Addy Osmani / claude.dev | Coding agents; Long-running tasks; Prompting; Verification | Model-specific operating guide for completion criteria, stop conditions, persistent task lists, delegated-work evidence, and reporting unconfirmed results; complements the general prompting reference. | 2026-09-22 |
 | P1 | [Maintaining software with the GPT-6 family](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family) | OpenAI | Coding agents; Maintenance; CI; Verification | Evidence-driven dead-code and stale-experiment cleanup, flaky-test fixes, and CI optimization; start with small PRs and expand using review feedback and measured results. | 2026-10-14 |
 | P1 | [How the Claude Code team does code review](https://claude.dev/blog/solving-code-review-at-anthropic/) | Anthropic / claude.dev | Code review; Evals; Risk; Release workflow | Team case study of layered review, risk-based human approvals, incident-derived evals, false-positive measurement, and limits that make agent review converge. | 2026-10-15 |
