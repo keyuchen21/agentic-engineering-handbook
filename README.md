@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--10--29-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--11--09-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **223 curated resources** into one structured learning roadmap.
+This repository consolidates **229 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -42,6 +42,10 @@ Start with Andrew Ng's [The AI Engineering Skills Map](https://www.linkedin.com/
 | Shaping the build | Bring product judgment, business context, and user goals to every Build Exercise and Applied Practice Track. Decide what to build and how to validate its value. |
 
 For each project, define the user problem and success criteria, choose an appropriate scope, then use implementation and evaluation to test those decisions.
+
+**Shaping the task:** Read Felix Rieseberg's [How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/) (P1) for four ways to rethink AI-assisted work: speed (finish the same work faster), altitude (focus on the ultimate outcome), depth (use raw evidence, professional methods, and external validation), and range (draw on methods from other fields). Focus on changing how the work is done, beyond asking the model to sound like an expert. Treat this as practitioner guidance rather than a systematic capability evaluation.
+
+**Task design exercise:** Rewrite an existing task three ways: clarify the outcome beyond the immediate deliverable, deepen the methods and evidence, and introduce a useful technique from another field. For each version, name the required data, tools, and an external check of success. As a handbook adaptation of the article's ambitious-goal advice, set challenging, verifiable targets with explicit budgets and stopping conditions.
 
 **Enterprise delivery:** Read *What FDE means at OpenAI* in [Phase 6](#phase-6--evals-safety--production) for a practical connection between business context, domain expertise, production evals, and reusable solutions.
 
@@ -225,6 +229,9 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 | 11 | [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) | Anthropic |
 | 12 | [Skills](https://developers.openai.com/api/docs/guides/tools-skills) | OpenAI |
 | 13 | [Building Reliable Agents with Memory and Compaction](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction) | OpenAI |
+| 14 | [The components of agent memory](https://www.anthropic.com/research/components-of-agent-memory) | Anthropic |
+
+**Memory design reading:** Distinguish cross-session memory from context compaction and weight updates. Study transcripts, memory notes, representations such as wikis, and injected context as separate layers. Background consolidation ("dreaming") can check notes against source records and reorganize them, but requires compute and can preserve errors or create bloated representations. Evaluate stale notes, concurrent-write conflicts, and maintenance costs; the reported gains depend on the model and task.
 
 **Reading note:** Read *The new rules of context engineering* after *Effective context engineering for AI agents*. When upgrading models, use evals to identify outdated instructions that can be removed, keep repository guidance focused on project-specific gotchas, and load detailed skills only when needed. Anthropic's reported removal of over 80% of Claude Code's system prompt without measurable loss on its coding evals is a model- and product-specific result, not a universal reduction target.
 
@@ -250,6 +257,8 @@ Build a read-only repo/docs MCP server, then create an eval to verify the agent 
 #### Build Exercise
 
 Implement the same task as a Skill/Plugin, then measure accuracy and token cost across three variants: no skill, long prompt, and skill-based.
+
+**Memory exercise:** Run the same sequence of tasks across fresh sessions using search alone, search plus persistent notes, and search plus notes with background consolidation. Include changing facts and incorrect notes. Compare task success, stale-information errors, and total token cost, including memory creation and maintenance. Keep source records available for checking corrections.
 
 ---
 
@@ -368,16 +377,20 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 
 | # | Title | Vendor |
 |---|-------|--------|
-| 1 | [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) | Anthropic |
-| 2 | [The six generations of AI agents and how to eval them](https://www.braintrust.dev/blog/six-generations-ai-agents) | Braintrust |
-| 3 | [Agent observability powers agent evaluation](https://www.langchain.com/blog/agent-observability-powers-agent-evaluation) | LangChain |
-| 4 | [AI Engineering Loop](https://langfuse.com/academy/ai-engineering-loop) + [Hands-on Workshop](https://langfuse.com/workshop) | Langfuse |
-| 5 | [Agent Evaluation Readiness Checklist](https://www.langchain.com/blog/agent-evaluation-readiness-checklist) | LangChain |
-| 6 | [Build an Agent Improvement Loop with Traces, Evals, and Codex](https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop) | OpenAI |
-| 7 | [Macro Evals for Agentic Systems](https://developers.openai.com/cookbook/examples/partners/macro_evals_for_agentic_systems/macro_evals_for_agentic_systems) | OpenAI |
-| 8 | [Testing Agent Skills Systematically with Evals](https://developers.openai.com/blog/eval-skills) | OpenAI |
-| 9 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic |
-| 10 | [Patterns and problems in emerging multiagent systems](https://www.anthropic.com/research/multiagent-systems) | Anthropic |
+| 1 | [Define success criteria and build evaluations](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests) | Anthropic |
+| 2 | [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) | OpenAI |
+| 3 | [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) | Anthropic |
+| 4 | [The six generations of AI agents and how to eval them](https://www.braintrust.dev/blog/six-generations-ai-agents) | Braintrust |
+| 5 | [Agent observability powers agent evaluation](https://www.langchain.com/blog/agent-observability-powers-agent-evaluation) | LangChain |
+| 6 | [AI Engineering Loop](https://langfuse.com/academy/ai-engineering-loop) + [Hands-on Workshop](https://langfuse.com/workshop) | Langfuse |
+| 7 | [Agent Evaluation Readiness Checklist](https://www.langchain.com/blog/agent-evaluation-readiness-checklist) | LangChain |
+| 8 | [Build an Agent Improvement Loop with Traces, Evals, and Codex](https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop) | OpenAI |
+| 9 | [Macro Evals for Agentic Systems](https://developers.openai.com/cookbook/examples/partners/macro_evals_for_agentic_systems/macro_evals_for_agentic_systems) | OpenAI |
+| 10 | [Testing Agent Skills Systematically with Evals](https://developers.openai.com/blog/eval-skills) | OpenAI |
+| 11 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic |
+| 12 | [Patterns and problems in emerging multiagent systems](https://www.anthropic.com/research/multiagent-systems) | Anthropic |
+
+**Evaluation foundations:** Start with the two provider guides to define measurable success criteria, build representative datasets, choose grading methods, and calibrate automated scores against human judgments. Then read *Demystifying evals for AI agents* for multi-turn execution, tool use, and state changes. Use these foundations before the implementation case studies.
 
 **Security reading note:** Focus on §3 for isolation patterns and §4.3/§4.10 for email/calendar and software-engineering agents. Guarantees depend on the threat model and enforced system constraints: fixing a plan can protect control flow while still allowing untrusted data to corrupt output content.
 
@@ -387,6 +400,9 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 
 | Title | Vendor |
 |-------|--------|
+| [Introducing Bloom: an open source tool for automated behavioral evaluations](https://www.anthropic.com/research/bloom) | Anthropic |
+| [Quantifying infrastructure noise in agentic coding evals](https://www.anthropic.com/engineering/infrastructure-noise) | Anthropic |
+| [Challenges in evaluating AI systems](https://www.anthropic.com/research/evaluating-ai-systems) (P2) | Anthropic |
 | [How we build evals for Deep Agents](https://www.langchain.com/blog/how-we-build-evals-for-deep-agents) | LangChain |
 | [Scaling AI in Legal: Building Uber’s Redlining Agent](https://www.uber.com/us/en/blog/building-ubers-redlining-agent/) | Uber |
 | [What FDE means at OpenAI](https://openai.com/index/forward-deployed-engineering-means/) | OpenAI |
@@ -401,6 +417,10 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 | [Evals API Use-case - MCP Evaluation](https://developers.openai.com/cookbook/examples/evaluation/use-cases/mcp_eval_notebook) | OpenAI |
 | [Measuring AI agent autonomy in practice](https://www.anthropic.com/news/measuring-agent-autonomy) | Anthropic |
 | [How AI agents shape experts’ judgment calls](https://www.anthropic.com/research/agents-judgment-calls) | Anthropic |
+
+**Behavioral evaluation practice:** Study Bloom as a way to turn a specified behavior into generated scenarios, simulated interactions, and model-graded transcripts. Inspect sample scenarios and check grader agreement with human labels before scaling. Treat elicitation rates as results for the generated test distribution, not estimates of real-world incident frequency.
+
+**Measurement reliability:** Read *Infrastructure noise* to understand how resource allocations, hard limits, and timeouts can change agent scores. Record and control the runtime configuration, distinguish infrastructure failures from task failures, and repeat comparisons. Read *Challenges in evaluating AI systems* as 2023 methodological background on contamination, formatting sensitivity, and inconsistent evaluation implementations; its examples are historical.
 
 **Human judgment reading note:** Expert approval may not provide an independent check when an agent shapes the underlying analytical choices. In this study, 50 analysts using an agent matched its randomly assigned lean on 86% of four analytical choices. The researchers deliberately strengthened those leans and studied one task with one model; this is not a general real-world deferral rate. Consider how metrics, methods, and weighting encode judgment even when the calculations are correct. Presenting alternatives or eliciting the user's view first are design hypotheses to test, not established remedies.
 
@@ -482,6 +502,12 @@ Focus on §2 for stage ordering and reward reliability, §3.5–3.7 for agent tr
 
 [When AI builds itself](https://www.anthropic.com/institute/recursive-self-improvement) examines evidence that AI is accelerating AI development, remaining gaps in research judgment, and possible futures. Read it as background on research automation and governance: full recursive self-improvement is a prospective scenario, not an achieved capability.
 
+#### Further Reading — Scientific Modeling (P2)
+
+[Teaching AI to build scientific models](https://www.anthropic.com/research/teaching-ai-to-build-scientific-models) connects agent search to building, constraining, and interpreting scientific models. Here, models describe real-world systems; they are not necessarily language models. Study why multiple parameter settings and model structures can fit the same observations, and how disagreement between plausible models can guide the next experiment. Evidence for automated model discovery is still largely based on rediscovering known models, with limited evidence on problems without known answers.
+
+**Scientific modeling exercise:** Ask an agent to propose multiple models that explain the same dataset, compare their fit and complexity, and design an experiment whose outcomes would distinguish them. Record which conclusions the data supports and which remain uncertain; a good fit alone does not establish the underlying mechanism.
+
 ---
 
 ## Applied Practice Tracks
@@ -509,6 +535,8 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 
 | Priority | Title | Vendor | Topic | Key Idea | Date |
 |----------|-------|--------|-------|----------|------|
+| P0 | [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) | OpenAI | Evals; Datasets; Continuous evaluation | Connect objectives, representative datasets, metrics, comparisons, and continuous evaluation; calibrate automated scoring with human feedback. | Current docs |
+| P0 | [Define success criteria and build evaluations](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests) | Anthropic | Evals; Success criteria; Graders | Define measurable targets and select code, human, or model-based grading; validate grader reliability before scaling. | Current docs |
 | P0 | [Claude prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) | Anthropic | Prompting; Tool use; Context | Current reference for clear instructions, examples, XML structure, long context, tool use, agentic systems, and model-specific prompting; validate advice on the chosen model. | Current docs |
 | P0 | [The AI Engineering Skills Map](https://www.linkedin.com/pulse/ai-engineering-skills-map-andrew-ng-m479c/) | Andrew Ng | Skills; Learning roadmap; Product judgment | Frames AI engineering around building AI applications, software fundamentals, coding agents, and shaping what to build. | 2026-08-14 |
 | P0 | [CMU 11-768: AI Agents — Course Schedule](https://www.cmu-agents.com/#/schedule) | CMU | Course; Agents; Tool use; Planning; Memory; Training | Graduate course schedule with lecture slides, readings, and assignment milestones; use alongside the companion lecture recordings, after completing the core roadmap (Phases 0–6). | Fall 2026 |
@@ -539,6 +567,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [The next evolution of the Agents SDK](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) | OpenAI | Harness; Agents SDK; MCP; Skills | Agents SDK harness becomes more complete: memory, sandbox orchestration, Codex-like filesystem tools, MCP, skills, AGENTS.md. | 2026-04-15 |
 | P0 | [Building Consistent Workflows with Codex CLI & Agents SDK](https://developers.openai.com/cookbook/examples/codex/codex_mcp_agents_sdk/building_consistent_workflows_codex_cli_agents_sdk) | OpenAI | MCP; Codex; Agents SDK | Codex CLI as an MCP server integrated with Agents SDK; real multi-agent dev workflow. | 2025-10-01 |
 | P0 | [Building Reliable Agents with Memory and Compaction](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction) | OpenAI | Memory; Compaction; Reliability | Memory and compaction design for long-context/multi-turn agents. | 2026-05-01 |
+| P0 | [The components of agent memory](https://www.anthropic.com/research/components-of-agent-memory) | Anthropic | Memory; Context; Evals; Long-running agents | Memory layers and background consolidation: validate notes against source records, organize retrieval, and evaluate task-dependent gains alongside errors and maintenance costs. | 2026-11-06 |
 | P0 | [Build an Agent Improvement Loop with Traces, Evals, and Codex](https://developers.openai.com/cookbook/examples/agents_sdk/agent_improvement_loop) | OpenAI | Evals; Traces; Self-improvement | Connect traces, evals, and Codex fixes into an agent improvement loop. | 2026-05-12 |
 | P0 | [Eval Driven System Design - From Prototype to Production](https://developers.openai.com/cookbook/topic/evals) | OpenAI | Evals; Production | Use evals as the driving force for system design; ideal for moving agents from demo to production. | 2025-06-02 |
 | P0 | [Testing Agent Skills Systematically with Evals](https://developers.openai.com/blog/eval-skills) | OpenAI | Evals; Skills; Agents | Systematically test agent skills with evals; establish quality gates before skill release. | 2026-01-22 |
@@ -575,8 +604,10 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) | Anthropic | Managed agents; Harness | Decouple the model brain from execution hands/harness, keeping interfaces stable as the harness evolves. | 2026-04-08 |
 | P0 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Anthropic | Safety; Containment; Agents | Blast radius of powerful agent releases, human-in-the-loop, and containment strategies. | 2026-05-25 |
 | P0 | [Design Patterns for Securing LLM Agents against Prompt Injections](https://arxiv.org/pdf/2506.08837) | Academic | Agent security; Prompt injection; Isolation; Control flow | Six design patterns and ten case studies for separating untrusted data from agent control; security guarantees depend on enforced constraints and threat assumptions. | 2025-06-27 (v3) |
+| P1 | [Introducing Bloom: an open source tool for automated behavioral evaluations](https://www.anthropic.com/research/bloom) | Anthropic | Behavioral evals; Safety; Synthetic scenarios | Generate targeted scenarios and simulated interactions for a specified behavior, then grade transcripts; validate scenarios and judges before interpreting results. | 2025-12-19 |
 | P1 | [The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook) | Anthropic | Coding agents; SDLC; Governance; Production | Connects planning, design, build, test, deployment, and maintenance through versioned artifacts, human review gates, automated checks, and production feedback. | 2026-08-21 |
 | P1 | [What FDE means at OpenAI](https://openai.com/index/forward-deployed-engineering-means/) | OpenAI | Enterprise delivery; Domain expertise; Evals; Production | Outcome-driven delivery: build evals with domain experts, turn validated workflows into reusable components, and distinguish product gaps from model capability gaps. Customer outcomes are vendor-reported. | 2026-10-22 |
+| P1 | [How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/) | Felix Rieseberg | Task design; Product judgment; Agent workflows; Validation | Practitioner framework for speed, altitude, depth, and range: rethink outcomes, use professional methods and raw evidence, and validate results externally. | 2026-10-13 |
 | P1 | [How AI agents shape experts’ judgment calls](https://www.anthropic.com/research/agents-judgment-calls) | Anthropic | Human oversight; Judgment; Agent UX; Evals | Randomized agent preferences influenced experts' analytical choices; human sign-off alone does not establish independent judgment. Results concern deliberately strengthened preferences in one task with one model. | 2026-10-27 |
 | P1 | [Getting the most out of Opus 5.5 in Claude and Claude Code](https://claude.dev/blog/getting-the-most-out-of-opus-5-5/) | Addy Osmani / claude.dev | Coding agents; Long-running tasks; Prompting; Verification | Model-specific operating guide for completion criteria, stop conditions, persistent task lists, delegated-work evidence, and reporting unconfirmed results; complements the general prompting reference. | 2026-09-22 |
 | P1 | [Maintaining software with the GPT-6 family](https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family) | OpenAI | Coding agents; Maintenance; CI; Verification | Evidence-driven dead-code and stale-experiment cleanup, flaky-test fixes, and CI optimization; start with small PRs and expand using review feedback and measured results. | 2026-10-14 |
@@ -702,6 +733,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Function Calling](https://developers.openai.com/api/docs/guides/function-calling) | OpenAI | Tools; Function calling; API | Official guide to function/tool calling: define functions with JSON schemas, handle model tool calls, execute and return results. | Current docs |
 | P0 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic | Tools; Tool use; API | Connect Claude to external tools and APIs: client vs server tools, the agentic loop, strict schema conformance, and when Claude decides to call tools. | Current docs |
 | P0 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google | Tools; Function calling; API | Enable Gemini models to connect with external tools via function calling: single-turn, multi-turn, parallel, and sequential function chains. | Current docs |
+| P2 | [Challenges in evaluating AI systems](https://www.anthropic.com/research/evaluating-ai-systems) | Anthropic | Evals; Measurement; Safety; Background | Historical perspective on contamination, formatting sensitivity, evaluator limitations, and inconsistent implementations when interpreting AI evaluations. | 2023-10-04 |
 | P2 | [How Container Filesystem Works: Building a Docker-like Container From Scratch](https://labs.iximiuz.com/tutorials/container-filesystem-from-scratch) | iximiuz Labs | Linux containers; Filesystem isolation; Sandboxing | Hands-on walkthrough of mount namespaces, rootfs, pivot_root, mount propagation, and bind mounts; background for understanding agent sandbox filesystem boundaries. | 2026-03-09 |
 | P2 | [Harvard CS2680: Modern AI Systems — Agents and System Optimizations](https://cs2680.seas.harvard.edu/) | Harvard | Advanced coursework; Agent systems; Inference; Cost; Performance | Optional systems course connecting agent design and evaluation to model serving, scheduling, caching, quantization, and full-stack optimization; public slides, notes, readings, and assignments, with no lecture recordings. | Fall 2026 |
 | P2 | [AWS Nitro System — Overview](https://aws.amazon.com/ec2/nitro/) | AWS | Cloud infrastructure; Virtualization; Isolation | Background on dedicated Nitro hardware, the lightweight hypervisor, and Nitro Enclaves; read alongside agent runtime policies to distinguish infrastructure and application controls. | Current overview |
@@ -731,6 +763,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P2 | [OpenAI Docs MCP](https://developers.openai.com/learn/docs-mcp) | OpenAI | MCP; Docs; Context | Official OpenAI docs MCP server; connect docs directly to local agents/IDEs. | Current docs |
 | P2 | [Codex SDK](https://developers.openai.com/codex/sdk) | OpenAI | Codex SDK; Automation | Programmatically control Codex in CI/CD or internal tools; embed coding agents into existing workflows. | Current docs |
 | P2 | [When AI builds itself](https://www.anthropic.com/institute/recursive-self-improvement) | Anthropic | Agents; Recursive self-improvement; Safety | Evidence of AI-assisted AI development, remaining research-judgment gaps, and scenarios for recursive self-improvement and verifiable coordination. | Updated 2026-09-18 |
+| P2 | [Teaching AI to build scientific models](https://www.anthropic.com/research/teaching-ai-to-build-scientific-models) | Jakob Macke, Daniel Gedon & Stefan Wahl / Anthropic | Scientific modeling; Agent search; Uncertainty; Evaluation | Build, constrain, and interpret multiple plausible models; use disagreement to guide experiments. Evidence on discovery beyond known models remains limited. | 2026-11-06 |
 
 ---
 
