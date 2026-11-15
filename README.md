@@ -3,7 +3,7 @@
 > The definitive OpenAI, Anthropic, Google, MCP, Harness, Evals, and Production Agent Systems learning roadmap.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--11--09-blue.svg)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2026--11--15-blue.svg)](#)
 
 If this repository helps you, consider giving it a ⭐
 
@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **229 curated resources** into one structured learning roadmap.
+This repository consolidates **231 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -276,9 +276,10 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 | 4 | [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness/) | OpenAI |
 | 5 | [Agent Harness Engineering: A Survey](https://picrew.github.io/LLM-Harness/) | Academic |
 | 6 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic |
-| 7 | [Building agents: When to fold subagents into your main agent loop](https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop) | Anthropic |
-| 8 | [Orchestrate subagents at scale with dynamic workflows](https://code.claude.com/docs/en/workflows) | Anthropic |
-| 9 | [Deep Agents](https://github.com/langchain-ai/deepagents) | LangChain |
+| 7 | [Building always-on agents](https://claude.com/resources/articles/building-always-on-agents) | Anthropic |
+| 8 | [Building agents: When to fold subagents into your main agent loop](https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop) | Anthropic |
+| 9 | [Orchestrate subagents at scale with dynamic workflows](https://code.claude.com/docs/en/workflows) | Anthropic |
+| 10 | [Deep Agents](https://github.com/langchain-ai/deepagents) | LangChain |
 
 **Architecture decision:** Read *When to fold subagents into your main agent loop* before the orchestration guide. Consider merging specialists that share data or depend heavily on each other's outputs, moving domain procedures into skills and actions into tools. Keep subagents where independent context, parallel work, verification, or permission boundaries provide measurable value. Change one subagent at a time and compare end-to-end task completion, cost, latency, and individual regressions across repeated runs. Treat the article's enterprise observations as migration guidance, not evidence that a single agent universally outperforms multiple agents.
 
@@ -295,6 +296,7 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 | [Open Deep Research](https://github.com/langchain-ai/open_deep_research) | LangChain |
 | [The next evolution of the Agents SDK](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) | OpenAI |
 | [A harness for every task: dynamic workflows in Claude Code](https://claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code) | Anthropic |
+| [Safely scaling multi-agent teams with Claude Fable 5.2](https://claude.dev/blog/safely-scaling-multi-agent-teams-with-fable-5-2/) | Anthropic |
 | [Using PLANS.md for multi-hour problem solving](https://developers.openai.com/cookbook/articles/codex_exec_plans) | OpenAI |
 | [Build long-running AI agents that pause, resume, and never lose context with ADK](https://developers.googleblog.com/build-long-running-ai-agents-that-pause-resume-and-never-lose-context-with-adk/) | Google |
 | [Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps) | Anthropic |
@@ -305,6 +307,8 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 
 **Event-triggered work:** See [MCP Events in Phase 2](#phase-2--mcp--tool-ecosystem) for connecting external updates to agent work through subscriptions and webhooks. Include subscription state and duplicate-event handling in the runtime design.
 
+In an always-on service, webhooks and due timers feed a durable inbox. Each run can use saved memory, act within its permissions, and finish quietly. If a tool needs approval, save the session and release the worker; the reply becomes an event that resumes the pending call. Add an outbox when delivery needs retries or pacing.
+
 **Runtime implementation:** Study OpenShell's sandbox, gateway, and supervisor architecture to see how filesystem, process, and network policies are enforced around an agent. Follow how credentials are attached to approved requests and how policy changes are checked before granting new access.
 
 **Filesystem isolation background (P2):** Follow the iximiuz Labs tutorial to understand mount namespaces, rootfs and `pivot_root`, mount propagation, and bind mounts. Use these mechanisms to reason about which files an agent sandbox can access and which paths are shared with its host. The tutorial explains container filesystem mechanics; a complete agent sandbox also needs process, network, and permission controls.
@@ -314,6 +318,9 @@ Implement the same task as a Skill/Plugin, then measure accuracy and token cost 
 #### Build Exercise
 
 Build a mini coding harness: plan file, shell tool, apply patch, test gate, event log, and resume capability.
+
+- **Ticket monitor:** Deliver a webhook twice, restart the worker with work pending, and delay approval on one ticket while another changes. Check that the monitor sends one notification per meaningful change, loses no pending tickets, and continues processing unrelated events.
+- **Team coordination:** Compare one agent with a small team on the same independently checkable tasks under a fixed total token budget. Track accepted results, duplicate work, merge conflicts, and elapsed time. In the Fable case study, Postgres tracked claims and Git tracked submissions; Lean checked the proofs. The team reproduced a known proof with supplied milestones and lemmas, so its runtime does not predict a speedup on general coding tasks.
 
 ---
 
@@ -395,6 +402,8 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 **Security reading note:** Focus on §3 for isolation patterns and §4.3/§4.10 for email/calendar and software-engineering agents. Guarantees depend on the threat model and enforced system constraints: fixing a plan can protect control flow while still allowing untrusted data to corrupt output content.
 
 **Multiagent reading note:** Distinguish independent parallel search from work that depends on shared resources and other agents' outputs. The experiments expose correlated actions, failures to share or assess evidence, and escalation under conflicting goals; stronger individual capability does not guarantee effective coordination. Compare final task quality as well as coordination metrics. The vulnerability-search experiments used different token budgets and search scopes, so higher discovery totals alone do not establish greater efficiency. Treat these findings as evidence from specific experimental settings.
+
+**Monitoring case study:** In the [Phase 4](#phase-4--harness--long-running-agents) Fable proof run, the live monitor assessed actions alone. Blocking a helper removed that helper; only blocking the lead would have stopped the run. The authors added a parallel monitor with access to reasoning after the experiment. Distinguish the controls actually tested from later changes.
 
 #### Then Read
 
@@ -594,6 +603,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Code execution with MCP: Building more efficient agents](https://www.anthropic.com/engineering/code-execution-with-mcp) | Anthropic | MCP; Code execution; Context | Key article on MCP scale challenges: reduce token overhead with code execution/on-demand tools; learn progressive disclosure. | 2025-11-04 |
 | P0 | [Introducing advanced tool use on Claude Developer Platform](https://www.anthropic.com/engineering/advanced-tool-use) | Anthropic | Tools; MCP; Advanced tool use | Tool search, deferred loading, programmatic tool calling; solving context pollution from large numbers of MCP tools. | 2025-11-24 |
 | P0 | [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Anthropic | Harness; Long-running agents | Essential harness reading: working across multiple context windows, task logging, external state, agent self-recovery. | 2025-11-26 |
+| P0 | [Building always-on agents](https://claude.com/resources/articles/building-always-on-agents) | Anthropic | Harness; Events; Permissions | Connect durable events, timers, memory, approval, and delivery across short runs so the service can wait without keeping a model active. | 2026-11-13 |
 | P0 | [Building agents: When to fold subagents into your main agent loop](https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop) | Anthropic | Agent architecture; Subagents; Skills; Evals | Evaluate folding tightly coupled specialists into one loop with skills and tools; retain useful isolation and parallelism, and verify each change with task-completion evals, cost, and latency. | 2026-10-22 |
 | P0 | [Orchestrate subagents at scale with dynamic workflows](https://code.claude.com/docs/en/workflows) | Anthropic | Harness; Workflows; Subagents | Claude Code workflows move orchestration into rerunnable scripts, scaling subagents for audits, migrations, research, verification loops, and repeatable team workflows. | Current docs |
 | P0 | [Deep Agents](https://github.com/langchain-ai/deepagents) | LangChain | Harness; Long-running agents; Deep research | Opinionated open-source agent harness for planning, context management, subagents, filesystem, memory, and human-in-the-loop workflows. | Current repo |
@@ -699,6 +709,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P1 | [Building a safe, effective sandbox to enable Codex on Windows](https://openai.com/index/building-codex-windows-sandbox/) | OpenAI | Safety; Sandbox; Codex | Coding agent sandbox design on Windows: file access, network restrictions, approval tradeoffs. | 2026-05-13 |
 | P1 | [Building self-improving tax agents with Codex](https://openai.com/index/building-self-improving-tax-agents-with-codex/) | OpenAI | Agents; Evals; Self-improvement | Combine production traces, expert feedback, Codex loop, and eval infrastructure into self-improving business agents. | 2026-05-27 |
 | P1 | [A harness for every task: dynamic workflows in Claude Code](https://claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code) | Anthropic | Harness; Workflows; Claude Code | Design article for Claude Code dynamic workflows: task-specific harnesses, fan-out-and-synthesize, adversarial verification, tournaments, and loop-until-done patterns. | 2026-06-02 |
+| P1 | [Safely scaling multi-agent teams with Claude Fable 5.2](https://claude.dev/blog/safely-scaling-multi-agent-teams-with-fable-5-2/) | Anthropic | Multi-agent; Coordination; Verification | Case study of isolated workers coordinating through SQL and Git to reproduce a formal proof checked by Lean. | 2026-11-09 |
 | P1 | [SchemaFlow: Agentic Database Change Impact Analysis, SQL Generation, and Eval Guardrails](https://developers.openai.com/cookbook/topic/agents) | OpenAI | Evals; SQL; Agent guardrails | Guardrails and eval guardrails examples for data/SQL agents. | 2026-06-05 |
 | P1 | [Agents SDK quickstart](https://developers.openai.com/api/docs/guides/agents/quickstart) | OpenAI | Agents; SDK | Quickly build a minimal agent; understand the code patterns of run, tool, and handoff. | Current docs |
 | P1 | [OpenAI Agents SDK examples](https://openai.github.io/openai-agents-python/examples/) | OpenAI | Agents SDK; Patterns; Examples | Practical examples for agent patterns, MCP, memory, guardrails, approvals, handoffs, and streaming. | Current docs |
