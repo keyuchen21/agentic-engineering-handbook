@@ -13,7 +13,7 @@ If this repository helps you, consider giving it a ⭐
 
 The AI industry has entered the **Agentic Era**. Building production-grade AI systems now requires mastering agents, tool use, MCP, memory, long-running workflows, coding agents, agent harnesses, evals, and safety — but the knowledge is scattered across OpenAI blogs, Anthropic engineering posts, SDK docs, cookbooks, and research papers.
 
-This repository consolidates **231 curated resources** into one structured learning roadmap.
+This repository consolidates **232 curated resources** into one structured learning roadmap.
 
 **The goal: Become a world-class Agentic Engineer.**
 
@@ -411,6 +411,7 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 |-------|--------|
 | [Introducing Bloom: an open source tool for automated behavioral evaluations](https://www.anthropic.com/research/bloom) | Anthropic |
 | [Quantifying infrastructure noise in agentic coding evals](https://www.anthropic.com/engineering/infrastructure-noise) | Anthropic |
+| [The resource settings behind 66 Terminal-Bench tasks](https://sapien1.com/research/terminal-bench-resource-settings) | Sapien1 |
 | [Challenges in evaluating AI systems](https://www.anthropic.com/research/evaluating-ai-systems) (P2) | Anthropic |
 | [How we build evals for Deep Agents](https://www.langchain.com/blog/how-we-build-evals-for-deep-agents) | LangChain |
 | [Scaling AI in Legal: Building Uber’s Redlining Agent](https://www.uber.com/us/en/blog/building-ubers-redlining-agent/) | Uber |
@@ -429,7 +430,7 @@ Run both OpenAI/Codex and Claude Code style workflows on the same repo: issue �
 
 **Behavioral evaluation practice:** Study Bloom as a way to turn a specified behavior into generated scenarios, simulated interactions, and model-graded transcripts. Inspect sample scenarios and check grader agreement with human labels before scaling. Treat elicitation rates as results for the generated test distribution, not estimates of real-world incident frequency.
 
-**Measurement reliability:** Read *Infrastructure noise* to understand how resource allocations, hard limits, and timeouts can change agent scores. Record and control the runtime configuration, distinguish infrastructure failures from task failures, and repeat comparisons. Read *Challenges in evaluating AI systems* as 2023 methodological background on contamination, formatting sensitivity, and inconsistent evaluation implementations; its examples are historical.
+**Measurement reliability:** Read *Infrastructure noise* to understand how resource allocations, hard limits, and timeouts can change agent scores. Record and control the runtime configuration, distinguish infrastructure failures from task failures, and repeat comparisons. For a configuration exercise, compare task declarations and verifier settings with chosen limits using the Terminal-Bench census filter. When no verifier-environment block is declared, the filter copies the task settings; these values do not measure actual resource use. Read *Challenges in evaluating AI systems* as 2023 methodological background on contamination, formatting sensitivity, and inconsistent evaluation implementations; its examples are historical.
 
 **Human judgment reading note:** Expert approval may not provide an independent check when an agent shapes the underlying analytical choices. In this study, 50 analysts using an agent matched its randomly assigned lean on 86% of four analytical choices. The researchers deliberately strengthened those leans and studied one task with one model; this is not a general real-world deferral rate. Consider how metrics, methods, and weighting encode judgment even when the calculations are correct. Presenting alternatives or eliciting the user's view first are design hypotheses to test, not established remedies.
 
@@ -745,6 +746,7 @@ Use these tracks after the core roadmap when you want to practice agentic engine
 | P0 | [Tool use overview](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) | Anthropic | Tools; Tool use; API | Connect Claude to external tools and APIs: client vs server tools, the agentic loop, strict schema conformance, and when Claude decides to call tools. | Current docs |
 | P0 | [Function calling - Gemini API](https://ai.google.dev/gemini-api/docs/function-calling) | Google | Tools; Function calling; API | Enable Gemini models to connect with external tools via function calling: single-turn, multi-turn, parallel, and sequential function chains. | Current docs |
 | P2 | [Challenges in evaluating AI systems](https://www.anthropic.com/research/evaluating-ai-systems) | Anthropic | Evals; Measurement; Safety; Background | Historical perspective on contamination, formatting sensitivity, evaluator limitations, and inconsistent implementations when interpreting AI evaluations. | 2023-10-04 |
+| P2 | [The resource settings behind 66 Terminal-Bench tasks](https://sapien1.com/research/terminal-bench-resource-settings) | Sapien1 | Evals; Infrastructure; Benchmarks | Census of declared CPU, memory, storage, and GPU settings across the 66 Terminal-Bench 4.1.0 tasks, with a local filter for comparison to chosen limits. | 2026-11-17 |
 | P2 | [How Container Filesystem Works: Building a Docker-like Container From Scratch](https://labs.iximiuz.com/tutorials/container-filesystem-from-scratch) | iximiuz Labs | Linux containers; Filesystem isolation; Sandboxing | Hands-on walkthrough of mount namespaces, rootfs, pivot_root, mount propagation, and bind mounts; background for understanding agent sandbox filesystem boundaries. | 2026-03-09 |
 | P2 | [Harvard CS2680: Modern AI Systems — Agents and System Optimizations](https://cs2680.seas.harvard.edu/) | Harvard | Advanced coursework; Agent systems; Inference; Cost; Performance | Optional systems course connecting agent design and evaluation to model serving, scheduling, caching, quantization, and full-stack optimization; public slides, notes, readings, and assignments, with no lecture recordings. | Fall 2026 |
 | P2 | [AWS Nitro System — Overview](https://aws.amazon.com/ec2/nitro/) | AWS | Cloud infrastructure; Virtualization; Isolation | Background on dedicated Nitro hardware, the lightweight hypervisor, and Nitro Enclaves; read alongside agent runtime policies to distinguish infrastructure and application controls. | Current overview |
